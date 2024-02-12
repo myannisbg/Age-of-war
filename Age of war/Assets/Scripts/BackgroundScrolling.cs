@@ -15,7 +15,6 @@ public class BackgroundScrolling : MonoBehaviour
 
     void Update()
     {   
-        Debug.Log(offset);
         if (offset > 0.5f ){
             direction = true;
         }

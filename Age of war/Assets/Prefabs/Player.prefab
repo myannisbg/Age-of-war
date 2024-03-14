@@ -15,9 +15,12 @@ GameObject:
   - component: {fileID: 260115076273455229}
   - component: {fileID: 4135439862734357909}
 <<<<<<< HEAD
+<<<<<<< HEAD
   - component: {fileID: 7398695051640520113}
 =======
 >>>>>>> parent of 10a330a (bon commit)
+=======
+>>>>>>> parent of cad9688 (deux bouffon qui marche)
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -214,6 +217,7 @@ CircleCollider2D:
   serializedVersion: 2
   m_Radius: 0.5103648
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!114 &7398695051640520113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,3 +233,5 @@ MonoBehaviour:
   moveRight: 1
 =======
 >>>>>>> parent of 10a330a (bon commit)
+=======
+>>>>>>> parent of cad9688 (deux bouffon qui marche)

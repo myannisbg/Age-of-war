@@ -14,7 +14,10 @@ GameObject:
   - component: {fileID: 874538058580798086}
   - component: {fileID: 260115076273455229}
   - component: {fileID: 4135439862734357909}
+<<<<<<< HEAD
   - component: {fileID: 7398695051640520113}
+=======
+>>>>>>> parent of 10a330a (bon commit)
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -210,6 +213,7 @@ CircleCollider2D:
   m_Offset: {x: -0.00000017881393, y: -0.17947483}
   serializedVersion: 2
   m_Radius: 0.5103648
+<<<<<<< HEAD
 --- !u!114 &7398695051640520113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,3 +227,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveRight: 1
+=======
+>>>>>>> parent of 10a330a (bon commit)

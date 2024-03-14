@@ -5,6 +5,7 @@ public class MovePlayer : MonoBehaviour
     public float moveSpeed = 0.5f;
     public Rigidbody2D rb;
     private Vector3 velocity = Vector3.zero;
+    public Healthbar healthbar;
 
     void FixedUpdate()
     {
@@ -16,6 +17,11 @@ public class MovePlayer : MonoBehaviour
 
         // Vérifier si le joueur est en collision avec un obstacle
         CheckForObstacle();
+        if (healthbar != null)
+    {
+        // Positionner la barre de vie au-dessus de la tête du joueur
+        healthbar.transform.localPosition = new Vector3(0f, 1.5f, 0f); // Ajustez les valeurs selon vos besoins
+    }
     }
 
     void MovePlayers(float _horizontalMovement)

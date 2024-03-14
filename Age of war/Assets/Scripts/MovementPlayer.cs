@@ -23,14 +23,16 @@ public class MovePlayer : MonoBehaviour
         healthbar.transform.localPosition = new Vector3(0f, 1.5f, 0f); // Ajustez les valeurs selon vos besoins
     }
     }
+void MovePlayers(float _horizontalMovement)
+{
+    // Utilisez l'échelle locale pour déterminer la direction du mouvement
+    float horizontalScale = Mathf.Sign(transform.localScale.x);
+    _horizontalMovement *= horizontalScale;
 
-    void MovePlayers(float _horizontalMovement)
-    {
-        // Calculer la nouvelle vélocité du joueur
-        Vector3 targetVelocity = new Vector2(_horizontalMovement * moveSpeed, rb.velocity.y);
-        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, .05f);
-    }
-
+    // Calculer la nouvelle vélocité du joueur
+    Vector3 targetVelocity = new Vector2(_horizontalMovement * moveSpeed, rb.velocity.y);
+    rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, .05f);
+}
     void CheckForObstacle()
     {
         // Raycast vers le bas pour détecter un obstacle (layer "Obstacle" dans cet exemple)

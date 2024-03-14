@@ -1,98 +1,102 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class PlayerSpawner : MonoBehaviour
 {
-    public GameObject playerPrefab; // Faites glisser votre joueur préfabriqué ici
-    public Slider healthSlider; // Faites glisser votre barre de vie ici
+    public GameObject playerPrefab; 
+    public Slider healthSlider; 
 
-    private GameObject currentPlayer;
-    private float playerHealth = 100f; // Valeur initiale de la vie
+    // Nouvelle propriété pour définir la direction dans l'éditeur Unity
+    public bool moveRight = true;
+
+    private List<GameObject> activePlayers = new List<GameObject>();
+    private float playerHealth = 100f;
 
     void Start()
     {
-        // Instancier le joueur au début du jeu
+        // Instancier un joueur au début du jeu
         SpawnPlayer();
     }
 
     void Update()
     {
-        // Exemple : Appuyez sur la touche "P" pour réinstancier le joueur
+        // Exemple : Appuyez sur la touche "P" pour instancier un nouveau joueur
         if (Input.GetKeyDown(KeyCode.P))
         {
-            // Détruire le joueur actuel
-            DestroyPlayer();
-
             // Instancier un nouveau joueur
             SpawnPlayer();
         }
 
-        // Exemple : Faites perdre de la vie au joueur chaque update
-        LoseHealth(10f * Time.deltaTime); // Ajustez la valeur selon vos besoins
+        // Exemple : Faites perdre de la vie à tous les joueurs chaque update
+        LoseHealthToAllPlayers(10f * Time.deltaTime); // Ajustez la valeur selon vos besoins
     }
 
     void SpawnPlayer()
     {
-        // Instancier le joueur à la position actuelle du spawner
-        currentPlayer = Instantiate(playerPrefab, transform.position, Quaternion.identity);
+        // Instancier un joueur à la position actuelle du spawner
+        GameObject currentPlayer = Instantiate(playerPrefab, transform.position, Quaternion.identity);
+
+        // Ajouter le joueur à la liste des joueurs actifs
+        activePlayers.Add(currentPlayer);
+
+        // Attach the DirectionComponent to the player
+        DirectionComponent directionComponent = currentPlayer.GetComponent<DirectionComponent>();
+        if (directionComponent != null)
+        {
+            // Définir la direction initiale en fonction de la propriété moveRight du spawner
+            float horizontalScale = moveRight ? 1f : -1f;
+            currentPlayer.transform.localScale = new Vector3(horizontalScale, 1f, 1f);
+            directionComponent.SetDirection(moveRight);
+        }
+
         healthSlider.value = playerHealth; // Mettre à jour la barre de vie
     }
 
-    void DestroyPlayer()
+    void DestroyPlayer(GameObject player)
+    {
+        // Retirer le joueur de la liste des joueurs actifs
+        activePlayers.Remove(player);
+
+        // Détruire le joueur
+        Destroy(player);
+    }
+
+    void LoseHealthToAllPlayers(float amount)
+    {
+        foreach (GameObject player in activePlayers)
+        {
+            // Faites perdre de la vie à chaque joueur
+            LoseHealth(player, amount);
+        }
+    }
+
+    void LoseHealth(GameObject player, float amount)
+    {
+        DirectionComponent directionComponent = player.GetComponent<DirectionComponent>();
+        if (directionComponent != null)
+        {
+            // Faites perdre de la vie au joueur
+            directionComponent.LoseHealth(amount);
+
+            // Mettre à jour la barre de vie
+            healthSlider.value = directionComponent.GetHealth();
+
+            // Vérifier si le joueur est mort
+            if (directionComponent.IsDead())
+            {
+                // Réinstancer le joueur ou effectuer d'autres actions en conséquence
+                RespawnPlayer(player);
+            }
+        }
+    }
+
+    void RespawnPlayer(GameObject player)
     {
         // Détruire le joueur actuel
-        if (currentPlayer != null)
-        {
-            Destroy(currentPlayer);
-        }
+        DestroyPlayer(player);
+
+        // Instancier un nouveau joueur
+        SpawnPlayer();
     }
-
- private bool isRespawning = false; // Nouvelle variable pour vérifier si le joueur est en train de respawn
-
-void LoseHealth(float amount)
-{
-    // Si le joueur est en train de respawn, ne pas effectuer de perte de vie supplémentaire
-    if (isRespawning)
-    {
-        return;
-    }
-
-    // Faites perdre de la vie au joueur
-    playerHealth -= amount;
-
-    // Mettre à jour la barre de vie
-    healthSlider.value = playerHealth;
-
-    // Vérifier si le joueur est mort (vie <= 0)
-    if (playerHealth <= 0f)
-    {
-        // Vérifier si le joueur n'est pas déjà en train de respawn
-        if (!isRespawning)
-        {
-            // Définir la variable isRespawning à true pour éviter le respawn en boucle
-            isRespawning = true;
-
-            // Réinstancer le joueur ou effectuer d'autres actions en conséquence
-            RespawnPlayer();
-        }
-    }
-}
-
-void RespawnPlayer()
-{
-    // Détruire le joueur actuel
-    DestroyPlayer();
-
-    // Réinitialiser la vie du joueur
-    playerHealth = 100f;
-    healthSlider.value = playerHealth;
-
-    // Réinstancer le joueur
-    SpawnPlayer();
-
-    // Réinitialiser la variable isRespawning
-    isRespawning = false;
-}
-
-
 }

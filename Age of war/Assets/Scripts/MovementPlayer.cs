@@ -15,21 +15,8 @@ public class MovePlayer : MonoBehaviour
         // Déplacer le joueur
         MovePlayers(horizontalMovement);
 
-<<<<<<< HEAD
         // Vérifier si le joueur est en collision avec un obstacle
         CheckForObstacle();
-=======
-            // Déplacer le joueur
-            MovePlayers(horizontalMovement);
-
-            // Vérifier si le joueur est en collision avec un obstacle
-            CheckForObstacle();
-        }
-        if (healthbar != null)
-        {
-            healthbar.transform.position = transform.position;
-        }
->>>>>>> 0a768a3037c161b2008961764f515a56f7059803
     }
 
     void MovePlayers(float _horizontalMovement)

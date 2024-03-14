@@ -5,7 +5,6 @@ public class MovePlayer : MonoBehaviour
     public float moveSpeed = 0.5f;
     public Rigidbody2D rb;
     private Vector3 velocity = Vector3.zero;
-    public Healthbar healthbar;
 
     void FixedUpdate()
     {

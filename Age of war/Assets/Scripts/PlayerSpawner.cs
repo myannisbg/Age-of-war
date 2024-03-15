@@ -4,10 +4,8 @@ using System.Collections.Generic;
 
 public class PlayerSpawner : MonoBehaviour
 {
-    public GameObject playerPrefab; 
-    public Slider healthSlider; 
-
-    // Nouvelle propriété pour définir la direction dans l'éditeur Unity
+    public GameObject playerPrefab;
+    public Slider healthSlider;
     public bool moveRight = true;
 
     private List<GameObject> activePlayers = new List<GameObject>();
@@ -32,23 +30,27 @@ public class PlayerSpawner : MonoBehaviour
         LoseHealthToAllPlayers(10f * Time.deltaTime); // Ajustez la valeur selon vos besoins
     }
 
-    void SpawnPlayer()
+void SpawnPlayer()
+{
+    // Instancier un joueur à la position actuelle du spawner
+    GameObject currentPlayer = Instantiate(playerPrefab, transform.position, Quaternion.identity);
+
+    // Ajouter le joueur à la liste des joueurs actifs
+    activePlayers.Add(currentPlayer);
+
+    // Inverser la direction initiale en fonction de la propriété moveRight du spawner
+    float horizontalScale = moveRight ? 1f : -1f;
+    currentPlayer.transform.localScale = new Vector3(horizontalScale, 1f, 1f);
+
+    // Attach the DirectionComponent to the player
+    DirectionComponent directionComponent = currentPlayer.GetComponent<DirectionComponent>();
+    if (directionComponent != null)
     {
-        // Instancier un joueur à la position actuelle du spawner
-        GameObject currentPlayer = Instantiate(playerPrefab, transform.position, Quaternion.identity);
+        directionComponent.moveRight = moveRight;
 
-        // Ajouter le joueur à la liste des joueurs actifs
-        activePlayers.Add(currentPlayer);
-
-        // Attach the DirectionComponent to the player
-        DirectionComponent directionComponent = currentPlayer.GetComponent<DirectionComponent>();
-        if (directionComponent != null)
-        {
-            // Définir la direction initiale en fonction de la propriété moveRight du spawner
-            float horizontalScale = moveRight ? 1f : -1f;
-            currentPlayer.transform.localScale = new Vector3(horizontalScale, 1f, 1f);
-            directionComponent.SetDirection(moveRight);
-        }
+        // Mettre à jour la direction du sprite
+        directionComponent.SetSpriteDirection(moveRight);
+    }
 
         healthSlider.value = playerHealth; // Mettre à jour la barre de vie
     }
@@ -70,6 +72,7 @@ public class PlayerSpawner : MonoBehaviour
             LoseHealth(player, amount);
         }
     }
+
 
     void LoseHealth(GameObject player, float amount)
     {

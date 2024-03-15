@@ -10,7 +10,7 @@ public class MovePlayer : MonoBehaviour
     void FixedUpdate()
     {
         // Définir la direction dans laquelle le joueur doit se déplacer (horizontalement)
-        float horizontalMovement = -0.5f;
+        float horizontalMovement = 0.5f; // Modification de la direction du mouvement
 
         // Déplacer le joueur
         MovePlayers(horizontalMovement);
@@ -18,21 +18,23 @@ public class MovePlayer : MonoBehaviour
         // Vérifier si le joueur est en collision avec un obstacle
         CheckForObstacle();
         if (healthbar != null)
-    {
-        // Positionner la barre de vie au-dessus de la tête du joueur
-        healthbar.transform.localPosition = new Vector3(0f, 1.5f, 0f); // Ajustez les valeurs selon vos besoins
+        {
+            // Positionner la barre de vie au-dessus de la tête du joueur
+            healthbar.transform.localPosition = new Vector3(0f, 1.5f, 0f); // Ajustez les valeurs selon vos besoins
+        }
     }
-    }
-void MovePlayers(float _horizontalMovement)
-{
-    // Utilisez l'échelle locale pour déterminer la direction du mouvement
-    float horizontalScale = Mathf.Sign(transform.localScale.x);
-    _horizontalMovement *= horizontalScale;
 
-    // Calculer la nouvelle vélocité du joueur
-    Vector3 targetVelocity = new Vector2(_horizontalMovement * moveSpeed, rb.velocity.y);
-    rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, .05f);
-}
+    void MovePlayers(float _horizontalMovement)
+    {
+        // Utilisez l'échelle locale pour déterminer la direction du mouvement
+        float horizontalScale = Mathf.Sign(transform.localScale.x);
+        _horizontalMovement *= horizontalScale;
+
+        // Calculer la nouvelle vélocité du joueur
+        Vector3 targetVelocity = new Vector2(_horizontalMovement * moveSpeed, rb.velocity.y);
+        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, .05f);
+    }
+
     void CheckForObstacle()
     {
         // Raycast vers le bas pour détecter un obstacle (layer "Obstacle" dans cet exemple)

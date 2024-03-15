@@ -2,27 +2,32 @@ using UnityEngine;
 
 public class DirectionComponent : MonoBehaviour
 {
-    // Ajoutez d'autres membres ou méthodes selon vos besoins
-
     public bool moveRight = true;
 
-    private float health = 100f; // Ajoutez la gestion de la santé si elle n'est pas déjà présente
+    private float health = 100f;
 
     public void LoseHealth(float amount)
     {
-        // Implémentez la logique de perte de vie ici
         health -= amount;
     }
 
     public float GetHealth()
     {
-        // Implémentez la logique pour obtenir la vie actuelle ici
         return health;
     }
 
     public bool IsDead()
     {
-        // Implémentez la logique pour vérifier si le joueur est mort ici
         return health <= 0f;
     }
+
+public void SetSpriteDirection(bool moveRight)
+{
+    // Mettre à jour la direction du sprite en fonction de la direction du joueur
+    float horizontalScale = moveRight ? 1f : -1f; // Inverser l'échelle horizontale seulement lorsque moveRight est false
+    transform.localScale = new Vector3(horizontalScale, 1f, 1f);
+}
+
+
+
 }

@@ -1,36 +1,56 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class Healthbar : MonoBehaviour
 {
     public Slider slider;
-    public TextMeshProUGUI healthText;
 
     private float maxHealth = 100f;
 
+    public float GetHealth()
+    {
+        return slider.value;
+    }
+
+    public void SetHealth(float health)
+    {
+        slider.value = health;
+    }
+
+    public void UpdateHealthBar(float currentHealth, float maxHealth)
+    {
+        // Calculer le pourcentage de santé actuelle
+        float healthPercentage = currentHealth / maxHealth;
+
+        // Mettre à jour la valeur du Slider pour refléter la santé actuelle
+        slider.value = healthPercentage;
+    }
+
     void Start()
     {
+        // Vérifie si le Slider est null
+        if (slider == null)
+        {
+            // Instancie un Slider et l'attache à cet objet
+            slider = gameObject.AddComponent<Slider>();
+
+            // Configurez le Slider selon vos besoins
+            slider.minValue = 0;
+            slider.maxValue = maxHealth;
+            slider.value = maxHealth;
+
+            // Vous pouvez également ajouter un background, une barre de remplissage, etc.
+            // Assurez-vous de configurer les éléments visuels du Slider comme vous le souhaitez.
+        }
+
+        // Définit la santé maximale
         SetMaxHealth((int)maxHealth);
     }
-
-    void Update()
-    {
-        // Mettre à jour le texte de la barre de santé
-        healthText.text = string.Format("{0:0}/{1:0}", slider.value, slider.maxValue);
-    }
-
-    // Méthode pour définir les valeurs maximales de santé
+    
     public void SetMaxHealth(int health)
     {
-        maxHealth = health;
-        slider.maxValue = maxHealth;
-        slider.value = maxHealth; // Assurez-vous que la valeur actuelle ne dépasse pas la valeur maximale
-    }
-
-    // Méthode pour définir la santé actuelle
-    public void SetHealth(int health)
-    {
+        // Assigne la valeur maximale au Slider
+        slider.maxValue = health;
         slider.value = health;
     }
 }

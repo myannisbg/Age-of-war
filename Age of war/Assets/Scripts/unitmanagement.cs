@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Unit : MonoBehaviour
 {
+    
     public float maxHealth = 100f;
     private float currentHealth;
     public float damageDealt = 1f; // dégats que l'unité inflige 
@@ -52,8 +53,18 @@ void OnTriggerStay2D(Collider2D other)
 }
     public void DealDamage(Collider2D collision)
     {
-        if (collision.gameObject.tag== "Ennemy")
+        if (collision.gameObject.tag== "Ennemy" || collision.gameObject.tag== "Chateaux")
         TakeDamage(damageDealt);
+
+        float dmg = Random.Range(damageDealt-4, damageDealt + 10);
+        // if (type == 3 && enemy.type == 0){
+        //     dmg *= 1.25;
+        // }
+        // else if (enemy.type == type+1)
+        // {
+        //    dmg *= 1.25; 
+        // }
+    
 
     }
 

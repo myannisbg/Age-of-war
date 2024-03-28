@@ -1,37 +1,32 @@
 using UnityEngine;
 using System.Collections;
 
-public class Player : MonoBehaviour
+public class Unit : MonoBehaviour
 {
     public float maxHealth = 100f;
     private float currentHealth;
-    public float damageInterval = 1f; // Intervalles de dégâts en secondes
+    public float damageDealt = 1f; // dégats que l'unité inflige 
+    public float expGain = 1f; //experience gagné en tuant cette unité
+    public float moneyGain = 1f; //money gagné en tuant cette unité
+    public float attackSpeed = 1f; //vitesse d'attaque 
+    private float lastDamageTime; // Temps de la dernière application de dégâts
 
-    public PlayerHealthBar healthBar;
+
+    public Healthbar healthBar; // Utilisation du composant Healthbar au lieu de PlayerHealth
 
     void Start()
     {
         currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        healthBar.SetMaxHealth((int)maxHealth); // Convertir maxHealth en int
 
-        // Démarrer la coroutine pour infliger des dégâts à intervalles réguliers
-        StartCoroutine(InflictDamageOverTime());
+
     }
 
-    IEnumerator InflictDamageOverTime()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(damageInterval);
+ 
 
-            // Appliquer des dégâts au joueur
-            TakeDamage(10f); // Modifier le montant de dégâts selon vos besoins
-        }
-    }
-
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damageDealt)
     {
-        currentHealth -= damage;
+        currentHealth -= damageDealt;
         healthBar.SetHealth(currentHealth);
 
         if (currentHealth <= 0)
@@ -40,9 +35,32 @@ public class Player : MonoBehaviour
         }
     }
 
+void OnTriggerStay2D(Collider2D other)
+{
+    if (other.CompareTag("Ennemy"))
+    {
+        float timeSinceLastDamage = Time.time - lastDamageTime;
+        float damageInterval = 1f / attackSpeed; // Calcul de l'intervalle entre chaque application de dégâts en fonction de la vitesse d'attaque
+
+        if (timeSinceLastDamage > damageInterval)
+        {
+            DealDamage(other);
+            lastDamageTime = Time.time;
+        }
+    }
+
+}
+    public void DealDamage(Collider2D collision)
+    {
+        if (collision.gameObject.tag== "Ennemy")
+        TakeDamage(damageDealt);
+
+    }
+
     void Die()
     {
         // Mettre ici le code pour gérer la mort du joueur
         Destroy(gameObject);
     }
 }
+

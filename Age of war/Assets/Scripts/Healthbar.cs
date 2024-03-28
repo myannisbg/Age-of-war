@@ -53,4 +53,5 @@ public class Healthbar : MonoBehaviour
         slider.maxValue = health;
         slider.value = health;
     }
+    
 }

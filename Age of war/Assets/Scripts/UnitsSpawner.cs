@@ -7,9 +7,9 @@ public class PlayerSpawner : MonoBehaviour
     public GameObject playerPrefab;
     public Slider healthSliderPrefab;
     public bool moveRight = true;
+    
 
     private List<GameObject> activePlayers = new List<GameObject>();
-    private float playerHealth = 100f;
 
     void Start()
     {
@@ -25,9 +25,6 @@ public class PlayerSpawner : MonoBehaviour
             // Instancier un nouveau joueur
             SpawnPlayer();
         }
-
-        // Exemple : Faites perdre de la vie à tous les joueurs chaque update
-        LoseHealthToAllPlayers(10f * Time.deltaTime); // Ajustez la valeur selon vos besoins
     }
 
     void SpawnPlayer()
@@ -58,59 +55,13 @@ public class PlayerSpawner : MonoBehaviour
             directionComponent.SetSpriteDirection(moveRight);
         }
 
-        healthSlider.value = playerHealth; // Mettre à jour la barre de vie
-    }
-
-    void DestroyPlayer(GameObject player)
-    {
-        // Retirer le joueur de la liste des joueurs actifs
-        activePlayers.Remove(player);
-
-        // Détruire le joueur
-        Destroy(player);
-    }
-
-    void LoseHealthToAllPlayers(float amount)
-    {
-        foreach (GameObject player in activePlayers.ToArray())
+        // Set health for the new player
+        UnitHealthManager playerHealth = currentPlayer.GetComponent<UnitHealthManager>();
+        if (playerHealth != null)
         {
-            if (player != null)
-            {
-                // Faites perdre de la vie à chaque joueur
-                LoseHealth(player, amount);
-            }
-            else
-            {
-                // Supprimez le joueur de la liste s'il a été détruit
-                activePlayers.Remove(player);
-            }
+            playerHealth.SetMaxHealth(100f); // Adjust as needed
+            
         }
     }
 
-    void LoseHealth(GameObject player, float amount)
-    {
-        // Vérifiez d'abord si le joueur est null ou s'il a été détruit
-        if (player == null || !player.activeSelf)
-        {
-            return; // Sortir de la méthode si le joueur est détruit ou désactivé
-        }
-
-        // Ensuite, accédez au composant seulement si le joueur est valide
-        DirectionComponent directionComponent = player.GetComponent<DirectionComponent>();
-        if (directionComponent != null)
-        {
-            // Faites perdre de la vie au joueur
-            directionComponent.LoseHealth(amount);
-
-            // Vérifier si le joueur est mort
-            if (directionComponent.IsDead())
-            {
-                // Détruire le joueur actuel
-                DestroyPlayer(player);
-
-                // Réapparition du joueur
-                SpawnPlayer();
-            }
-        }
-    }
 }

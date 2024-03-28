@@ -5,10 +5,6 @@ public class MovePlayer : MonoBehaviour
     public float moveSpeed = 0.5f;
     public Rigidbody2D rb;
     private Vector3 velocity = Vector3.zero;
-    public Healthbar healthbar;
-
-    private float currentHealth;
-    private float maxHealth;
 
     void FixedUpdate()
     {
@@ -21,17 +17,6 @@ public class MovePlayer : MonoBehaviour
         // Vérifier si le joueur est en collision avec un obstacle
         CheckForObstacle();
 
-        // Exemple : Faites perdre de la vie au joueur chaque seconde (à titre de démonstration)
-        LoseHealthOverTime(10f * Time.deltaTime);
-if (healthbar != null)
-{
-    // Mettre à jour les variables de santé
-    float currentHealth = 100f; // Remplacez par la valeur actuelle de la santé du joueur
-    float maxHealth = 100f; // Remplacez par la valeur maximale de la santé du joueur
-
-    // Mettre à jour la barre de vie
-    healthbar.UpdateHealthBar(currentHealth, maxHealth);
-}
 
     }
 
@@ -57,27 +42,7 @@ if (healthbar != null)
             rb.velocity = Vector2.zero;
         }
     }
-void LoseHealthOverTime(float amount)
-{
-    if (healthbar != null)
-    {
-        // Obtenez la santé actuelle et maximale du Healthbar
-        float currentHealth = healthbar.GetHealth();
-        float maxHealth = healthbar.slider.maxValue;
 
-        // Calculer la nouvelle santé
-        float newHealth = currentHealth - amount;
-
-        // Assurez-vous que la santé ne dépasse pas la santé maximale
-        newHealth = Mathf.Clamp(newHealth, 0f, maxHealth);
-
-        // Définissez la nouvelle santé sur le Healthbar
-        healthbar.SetHealth(newHealth);
-
-        // Mettez à jour la barre de santé
-        healthbar.UpdateHealthBar(newHealth, maxHealth);
-    }
-}
 
 }
 

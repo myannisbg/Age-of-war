@@ -56,5 +56,12 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Age of war.sln"
+    "dotnet.defaultSolution": "Age of war.sln",
+    "files.associations": {
+        "iostream": "cpp",
+        "algorithm": "cpp",
+        "list": "cpp",
+        "vector": "cpp",
+        "new": "cpp"
+    }
 }

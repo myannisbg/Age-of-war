@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 
 public class DeplacementCamera : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public GameObject camera; // Référence au canvas HUD
+    public GameObject mainCamera; // Référence au canvas HUD
     public float moveAmount = 10f; // Quantité de déplacement
 
     private bool isMoving = false;
@@ -26,7 +26,7 @@ public class DeplacementCamera : MonoBehaviour, IPointerEnterHandler, IPointerEx
         {
             print("la");
             // Déplacez le canvas HUD par rapport au fond d'écran
-            camera.transform.position += new Vector3(moveAmount * Time.deltaTime, 0f, 0f);
+            mainCamera.transform.position += new Vector3(moveAmount * Time.deltaTime, 0f, 0f);
         }
     }
 }

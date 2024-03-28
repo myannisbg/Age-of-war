@@ -640,8 +640,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b3f71e111404c141a0e96194080aa0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseObject: {fileID: 0}
   maxHealth: 100
-  damageInterval: 1
   damageDealt: 5
   expGain: 1
   moneyGain: 1

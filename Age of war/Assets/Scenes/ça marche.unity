@@ -769,6 +769,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:85c9c53c3ffb3384b8dd1c5cef1e3a16
+    m_TableEntryReference:
+      m_KeyId: 6143828164608
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 70141128}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &70141128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -916,6 +944,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66019a8461b531d4f8e5d3767a4c5a9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 176278906}
+  moveAmount: 50
 --- !u!114 &70664854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1001,6 +1031,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:85c9c53c3ffb3384b8dd1c5cef1e3a16
+    m_TableEntryReference:
+      m_KeyId: 121805864960
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 71337839}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &71337839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1561,6 +1619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc04f0f3586f3a349a2e929f4c359782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Button: {fileID: 1135239141}
 --- !u!114 &164634628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2169,6 +2228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e13488dc833294ca474e6c562d735d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Button: {fileID: 302059006}
 --- !u!1 &325565926
 GameObject:
   m_ObjectHideFlags: 0
@@ -2849,6 +2909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc04f0f3586f3a349a2e929f4c359782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Button: {fileID: 1253602789}
 --- !u!114 &420116313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4087,6 +4148,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:85c9c53c3ffb3384b8dd1c5cef1e3a16
+    m_TableEntryReference:
+      m_KeyId: 4617235726336
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 582028994}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &582028994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4368,6 +4457,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:85c9c53c3ffb3384b8dd1c5cef1e3a16
+    m_TableEntryReference:
+      m_KeyId: 6941551230976
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 660129330}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &660129330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4968,6 +5085,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4682d9dbd9016b2438f04c90c5db4314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panelDark: {fileID: 375564464}
+  objectToMove: {fileID: 138445221}
+  targetHeight: 500
+  moveSpeed: 3000
 --- !u!114 &821996561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5036,6 +5157,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4682d9dbd9016b2438f04c90c5db4314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panelDark: {fileID: 821996558}
+  objectToMove: {fileID: 872442117}
+  targetHeight: 5
+  moveSpeed: 2
 --- !u!114 &821996563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6193,6 +6318,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4682d9dbd9016b2438f04c90c5db4314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panelDark: {fileID: 375564464}
+  objectToMove: {fileID: 138445221}
+  targetHeight: 500
+  moveSpeed: 3000
 --- !u!114 &998631210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7356,6 +7485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc04f0f3586f3a349a2e929f4c359782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Button: {fileID: 164634625}
 --- !u!114 &1135239144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7503,6 +7633,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dd1f69a83f8adf49b02b33d4e7a1606, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  languageButtons:
+  - {fileID: 569847167}
+  - {fileID: 1720635738}
+  - {fileID: 1604958414}
+  - {fileID: 2006076018}
+  - {fileID: 457940666}
 --- !u!1 &1146556766
 GameObject:
   m_ObjectHideFlags: 0
@@ -10151,6 +10287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc04f0f3586f3a349a2e929f4c359782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Button: {fileID: 420116310}
 --- !u!114 &1253602792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11226,6 +11363,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:85c9c53c3ffb3384b8dd1c5cef1e3a16
+    m_TableEntryReference:
+      m_KeyId: 7297521811456
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1454284136}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &1454284136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11487,6 +11652,7 @@ GameObject:
   - component: {fileID: 1538160562}
   - component: {fileID: 1538160564}
   - component: {fileID: 1538160563}
+  - component: {fileID: 1538160565}
   m_Layer: 5
   m_Name: bougerGaucheVite
   m_TagString: Untagged
@@ -11548,6 +11714,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1538160561}
   m_CullTransparentMesh: 1
+--- !u!114 &1538160565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538160561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66019a8461b531d4f8e5d3767a4c5a9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 176278906}
+  moveAmount: -100
 --- !u!1 &1550951600
 GameObject:
   m_ObjectHideFlags: 0
@@ -12267,6 +12447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e13488dc833294ca474e6c562d735d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Button: {fileID: 1644261532}
 --- !u!1 &1676822466
 GameObject:
   m_ObjectHideFlags: 0
@@ -12730,6 +12911,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66019a8461b531d4f8e5d3767a4c5a9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 176278906}
+  moveAmount: 100
 --- !u!114 &1787007123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13627,6 +13810,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66019a8461b531d4f8e5d3767a4c5a9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 176278906}
+  moveAmount: -50
 --- !u!114 &1944316630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13825,6 +14010,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3885e3537bb478d49a9b225ab2fcdeb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicSource: {fileID: 2125956378}
+  SFXSource: {fileID: 96360424}
+  mainMusique: {fileID: 8300000, guid: 07d3785b6d224234cb87822016658216, type: 3}
+  menuWoosh: {fileID: 8300000, guid: 73623da6c6ce7c6408cb15091b4f993d, type: 3}
 --- !u!4 &1991462292
 Transform:
   m_ObjectHideFlags: 0
@@ -14220,6 +14409,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdc5ec1518039824eacbe7eb24939879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainMixer: {fileID: 24100000, guid: 4eb28099aeb79c34393defb042bdaa3b, type: 2}
+  musicSlider: {fileID: 395672895}
+  SFXSlider: {fileID: 469054183}
 --- !u!1 &2125956376
 GameObject:
   m_ObjectHideFlags: 0

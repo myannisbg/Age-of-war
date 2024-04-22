@@ -946,6 +946,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 176278906}
   moveAmount: 50
+  bloquageMoin: -5
+  bloquagePlus: 5
 --- !u!114 &70664854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11728,6 +11730,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 176278906}
   moveAmount: -100
+  bloquageMoin: -5
+  bloquagePlus: 5
 --- !u!1 &1550951600
 GameObject:
   m_ObjectHideFlags: 0
@@ -12913,6 +12917,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 176278906}
   moveAmount: 100
+  bloquageMoin: -5
+  bloquagePlus: 5
 --- !u!114 &1787007123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13812,6 +13818,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 176278906}
   moveAmount: -50
+  bloquageMoin: -5
+  bloquagePlus: 5
 --- !u!114 &1944316630
 MonoBehaviour:
   m_ObjectHideFlags: 0

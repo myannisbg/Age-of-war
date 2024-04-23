@@ -5,18 +5,18 @@ public class DeplacementCamera : MonoBehaviour, IPointerEnterHandler, IPointerEx
 {
     public GameObject mainCamera; // Référence au canvas HUD
     public float moveAmount = 10f; // Quantité de déplacement
+    public float bloquageMoin = -100f;
+    public float bloquagePlus = 100f;
 
     private bool isMoving = false;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        print("oui");
         isMoving = true;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        print("ouiiii");
         isMoving = false;
     }
 
@@ -24,9 +24,19 @@ public class DeplacementCamera : MonoBehaviour, IPointerEnterHandler, IPointerEx
     {
         if (isMoving)
         {
-            print("la");
-            // Déplacez le canvas HUD par rapport au fond d'écran
-            mainCamera.transform.position += new Vector3(moveAmount * Time.deltaTime, 0f, 0f);
+            Vector3 cameraPosition = mainCamera.transform.position;
+            float x = cameraPosition.x;
+            if (moveAmount > 0){
+                if (x < bloquagePlus){
+                    mainCamera.transform.position += new Vector3(moveAmount * Time.deltaTime, 0f, 0f);
+                }
+
+            }
+            if (moveAmount < 0){
+                if (x > bloquageMoin){
+                    mainCamera.transform.position += new Vector3(moveAmount * Time.deltaTime, 0f, 0f);
+                }
+            }
         }
     }
 }

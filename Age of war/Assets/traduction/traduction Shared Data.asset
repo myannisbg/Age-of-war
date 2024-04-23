@@ -35,6 +35,10 @@ MonoBehaviour:
     m_Key: SFX
     m_Metadata:
       m_Items: []
+  - m_Id: 9502386220564480
+    m_Key: amelioration
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

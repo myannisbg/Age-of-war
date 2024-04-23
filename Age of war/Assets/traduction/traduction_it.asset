@@ -38,6 +38,10 @@ MonoBehaviour:
     m_Localized: Effetti sonori
     m_Metadata:
       m_Items: []
+  - m_Id: 9502386220564480
+    m_Localized: AGGIORNAMENTO
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

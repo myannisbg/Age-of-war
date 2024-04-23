@@ -38,6 +38,10 @@ MonoBehaviour:
     m_Localized: SFX
     m_Metadata:
       m_Items: []
+  - m_Id: 9502386220564480
+    m_Localized: UPGRADE
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

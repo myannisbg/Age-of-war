@@ -9,6 +9,7 @@ public class Xp : MonoBehaviour
     public int xp = 0;
     public Slider xpBarre; // La référence à l'élément de texte UI
     public int maxXP = 100;
+    public GameObject AmeliorationButton;
 
 
     void Start()
@@ -24,6 +25,10 @@ public class Xp : MonoBehaviour
     
     public int getXp(){
         return xp;
+    }
+
+    public int getMax(){
+        return maxXP;
     }
 
     public void addXp(int amount){
@@ -51,5 +56,13 @@ public class Xp : MonoBehaviour
     {
         xpBarre.maxValue = maxXP; 
         xpBarre.value = xp;
+
+        if (xp >= maxXP){
+            AmeliorationButton.SetActive(true);
+        }
+        else {
+            AmeliorationButton.SetActive(false);
+        }
     }
 }
+

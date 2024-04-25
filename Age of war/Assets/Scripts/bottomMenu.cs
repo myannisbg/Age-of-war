@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class bottomMenu : MonoBehaviour
 
@@ -23,5 +24,8 @@ public class bottomMenu : MonoBehaviour
     }
     public void MadeInHaven(){
         Time.timeScale = 2;
+    }
+    public void kingCrimson(){
+        SceneManager.LoadScene("ça marche");
     }
 }

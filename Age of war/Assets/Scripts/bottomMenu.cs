@@ -13,4 +13,15 @@ public class bottomMenu : MonoBehaviour
         Button.SetActive(true);
         gameObject.SetActive(false);
     }
+
+    public void ThaWarudo(){
+        Time.timeScale = 0;
+    }
+
+    public void GoldExperience(){
+        Time.timeScale = 1;
+    }
+    public void MadeInHaven(){
+        Time.timeScale = 2;
+    }
 }

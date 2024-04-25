@@ -18,7 +18,6 @@ public class bottomMenu : MonoBehaviour
     public void ThaWarudo(){
         Time.timeScale = 0;
     }
-
     public void GoldExperience(){
         Time.timeScale = 1;
     }

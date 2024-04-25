@@ -507,9 +507,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df162e4c0a2697048850b849a36be5c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 4969270038623667323, guid: 2579ca3163798da49bc80ce08964b667, type: 3}
   healthSliderPrefab: {fileID: 580171190}
   moveRight: 1
+  currentAge: 0
 --- !u!1 &52950738
 GameObject:
   m_ObjectHideFlags: 0
@@ -1874,7 +1874,6 @@ GameObject:
   - component: {fileID: 176278909}
   - component: {fileID: 176278908}
   - component: {fileID: 176278907}
-  - component: {fileID: 176278910}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1956,18 +1955,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &176278910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 176278906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa61cacd0d456164e817ec5bbea3c3ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &236386357
 GameObject:
   m_ObjectHideFlags: 0
@@ -3735,9 +3722,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df162e4c0a2697048850b849a36be5c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 4969270038623667323, guid: 2579ca3163798da49bc80ce08964b667, type: 3}
   healthSliderPrefab: {fileID: 580171190}
-  moveRight: 0
+  moveRight: 1
+  currentAge: 0
 --- !u!4 &530252795
 Transform:
   m_ObjectHideFlags: 0
@@ -11380,6 +11367,7 @@ GameObject:
   - component: {fileID: 1382498960}
   - component: {fileID: 1382498959}
   - component: {fileID: 1382498958}
+  - component: {fileID: 1382498961}
   m_Layer: 5
   m_Name: soldat0
   m_TagString: Untagged
@@ -11489,6 +11477,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1382498956}
   m_CullTransparentMesh: 1
+--- !u!114 &1382498961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382498956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a94bda8f43ac884cb056c770953b291, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitPrefabs:
+  - {fileID: 4969270038623667323, guid: 2579ca3163798da49bc80ce08964b667, type: 3}
+  - {fileID: 5753165178247412384, guid: 12030b2efa5c46947a0eaaf2ea71eaa2, type: 3}
+  - {fileID: 4969270038623667323, guid: 2579ca3163798da49bc80ce08964b667, type: 3}
+  playerSpawner: {fileID: 44059583}
 --- !u!1 &1385932637
 GameObject:
   m_ObjectHideFlags: 0
@@ -11930,7 +11935,6 @@ GameObject:
   - component: {fileID: 1471105741}
   - component: {fileID: 1471105740}
   - component: {fileID: 1471105739}
-  - component: {fileID: 1471105738}
   m_Layer: 0
   m_Name: Bases Ennemi
   m_TagString: Chateaux
@@ -11938,19 +11942,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1471105738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1471105737}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35960003a1f1e4d4c969c7f500c3a5ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthSlider: {fileID: 1312811285}
 --- !u!114 &1471105739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11963,10 +11954,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 977474afa9d8c7d419ad8d5161f5784e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealthBase: 0
-  maxHealthBase: 10000000
-  healthBarBase: {fileID: 1312811284}
-  damageInterval: 5
+  currentHealthBase: 50
+  maxHealthBase: 10000
+  healthBarBase: {fileID: 580171189}
+  damageInterval: 1
+  lastAttackTime: 0
 --- !u!61 &1471105740
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13934,7 +13926,6 @@ GameObject:
   - component: {fileID: 1890622488}
   - component: {fileID: 1890622487}
   - component: {fileID: 1890622485}
-  - component: {fileID: 1890622489}
   m_Layer: 0
   m_Name: Bases
   m_TagString: Chateaux
@@ -13954,10 +13945,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 977474afa9d8c7d419ad8d5161f5784e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealthBase: 0
-  maxHealthBase: 10000000
+  currentHealthBase: 50
+  maxHealthBase: 10000
   healthBarBase: {fileID: 1312811284}
-  damageInterval: 5
+  damageInterval: 0.1
+  lastAttackTime: 0
 --- !u!61 &1890622487
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14018,19 +14010,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1890622489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1890622484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35960003a1f1e4d4c969c7f500c3a5ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthSlider: {fileID: 1312811285}
 --- !u!1 &1904016361
 GameObject:
   m_ObjectHideFlags: 0

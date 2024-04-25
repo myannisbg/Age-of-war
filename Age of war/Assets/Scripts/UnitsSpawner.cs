@@ -4,33 +4,25 @@ using System.Collections.Generic;
 
 public class PlayerSpawner : MonoBehaviour
 {
-    public GameObject playerPrefab;
     public Slider healthSliderPrefab;
     public bool moveRight = true;
-    
 
     private List<GameObject> activePlayers = new List<GameObject>();
+    public int currentAge = 0;
 
-    void Start()
-    {
-        // Instancier un joueur au début du jeu
-        SpawnPlayer();
-    }
+    
 
-    void Update()
+    public void SpawnPlayer(GameObject unitPrefab)
     {
-        // Exemple : Appuyez sur la touche "P" pour instancier un nouveau joueur
-        if (Input.GetKeyDown(KeyCode.P))
+        // Vérifier si le prefab de l'unité est valide
+        if (unitPrefab == null)
         {
-            // Instancier un nouveau joueur
-            SpawnPlayer();
+            Debug.LogError("Unit prefab is null!");
+            return;
         }
-    }
 
-    void SpawnPlayer()
-    {
-        // Instancier un joueur à la position actuelle du spawner
-        GameObject currentPlayer = Instantiate(playerPrefab, transform.position, Quaternion.identity);
+        // Instancier un joueur à la position actuelle du spawner en utilisant le prefab de l'unité fourni
+        GameObject currentPlayer = Instantiate(unitPrefab, transform.position, Quaternion.identity);
 
         // Instancier une nouvelle barre de vie pour le joueur
         Slider healthSlider = Instantiate(healthSliderPrefab, currentPlayer.transform);
@@ -60,8 +52,6 @@ public class PlayerSpawner : MonoBehaviour
         if (playerHealth != null)
         {
             playerHealth.SetMaxHealth(100f); // Adjust as needed
-            
         }
     }
-
 }

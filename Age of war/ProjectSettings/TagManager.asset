@@ -6,11 +6,15 @@ TagManager:
   tags:
   - Ennemy
   - Chateaux
+  - Audio
+  - Base
+  - Ally
+  - BaseEnnemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Base
   - Water
   - UI
   - 

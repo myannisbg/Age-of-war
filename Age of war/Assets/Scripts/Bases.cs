@@ -10,7 +10,7 @@ public class Bases : MonoBehaviour
     public float damageInterval = 1f; // Intervalle entre chaque tic de dégâts
     public float lastAttackTime; // Temps de la dernière attaque
     private Dictionary<Unit, float> damageAccumulators = new Dictionary<Unit, float>(); // Accumulateurs de dégâts infligés par les ennemis
-    private int ageCount = 0; // Compteur d'âge de la base
+    public GlobalAge ageValue;
     private const int maxAgeCount = 5; // Nombre maximum d'augmentations d'âge autorisées
 
     void Start()
@@ -71,7 +71,7 @@ public class Bases : MonoBehaviour
 public void AgeUp()
 {
     // Vérifie si l'âge de la base est inférieur au maximum autorisé
-    if (ageCount < maxAgeCount)
+    if (ageValue.getAge() < maxAgeCount)
     {
         // Calcule le pourcentage de points de vie actuels
         float currentHealthPercentage = currentHealthBase / maxHealthBase;
@@ -84,8 +84,6 @@ public void AgeUp()
 
         healthBarBase.SetMaxHealth((int)maxHealthBase); // Met à jour la barre de santé avec la nouvelle valeur maximale
 
-        // Incrémente le compteur d'âge
-        ageCount++;
 
         Debug.Log("Base has aged up. New max health: " + maxHealthBase);
     }

@@ -6,7 +6,7 @@ public class SpawnButton : MonoBehaviour
 {
     public List<GameObject> unitPrefabs; // Liste des préfabs d'unités
     public PlayerSpawner playerSpawner; // Référence au script PlayerSpawner
-    private int currentAge = 0; // Variable pour stocker l'âge actuel
+    public GlobalAge ageValue;
 
     void Start()
     {
@@ -30,11 +30,7 @@ public class SpawnButton : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             // Instancier un nouveau joueur en passant le préfab d'unité spécifié
-            Debug.Log("currentAge: " + currentAge);
-        }
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            currentAge +=1;
+            Debug.Log("currentAge: " + ageValue.getAge());
         }
     }
 
@@ -44,10 +40,10 @@ public class SpawnButton : MonoBehaviour
         if (playerSpawner != null)
         {
             // Vérifier si l'index d'âge est valide
-            if (currentAge >= 0 && currentAge < unitPrefabs.Count)
+            if (ageValue.getAge() >= 0 && ageValue.getAge() < unitPrefabs.Count)
             {
                 // Récupérer la préfab d'unité correspondant à l'âge actuel
-                GameObject unitPrefab = unitPrefabs[currentAge];
+                GameObject unitPrefab = unitPrefabs[ageValue.getAge()];
                 
                 // Appeler la méthode SpawnPlayer du PlayerSpawner en passant la préfab d'unité
                 playerSpawner.SpawnPlayer(unitPrefab);

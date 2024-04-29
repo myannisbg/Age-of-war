@@ -53,5 +53,6 @@ public class PlayerSpawner : MonoBehaviour
         {
             playerHealth.SetMaxHealth(100f); // Adjust as needed
         }
+        
     }
 }

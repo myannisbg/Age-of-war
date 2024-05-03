@@ -176,6 +176,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tank
       objectReference: {fileID: 0}
+    - target: {fileID: 4969270038623667323, guid: 2579ca3163798da49bc80ce08964b667, type: 3}
+      propertyPath: m_TagString
+      value: Ennemy
+      objectReference: {fileID: 0}
     - target: {fileID: 5119922472321686541, guid: 2579ca3163798da49bc80ce08964b667, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.9850903

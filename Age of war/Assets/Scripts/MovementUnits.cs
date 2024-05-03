@@ -15,7 +15,9 @@ public class MovePlayer : MonoBehaviour
         MovePlayers(horizontalMovement);
 
         CheckForBase();
-    Debug.DrawRay(transform.position,Vector2.right * 1.5f, Color.red);
+    Debug.DrawRay(transform.position,Vector2.right * 0.5f, Color.red);
+     Debug.DrawRay(transform.position,Vector2.right * 0.5f, Color.green);
+
     }
 
     void MovePlayers(float _horizontalMovement)
@@ -36,6 +38,8 @@ public class MovePlayer : MonoBehaviour
 
     // Raycast vers l'avant pour détecter une base
     RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, 0.5f, LayerMask.GetMask("Base"));
+    RaycastHit2D hit2 = Physics2D.Raycast(transform.position, Vector2.left, 0.5f, LayerMask.GetMask("BaseEnnemy"));
+
 
     // Si une base est détectée
     if (hit.collider != null)

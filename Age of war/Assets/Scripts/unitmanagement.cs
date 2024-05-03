@@ -33,10 +33,11 @@ public class Unit : MonoBehaviour
             Die();
         }
     }
-
-void OnTriggerStay2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D other)
 {
-    if (other.CompareTag("Ennemy"))
+    string currentTag = transform.root.tag; // Obtenir le tag du joueur
+
+    if (other.CompareTag("Ennemy") && currentTag == "Ally" || other.CompareTag("Ally") && currentTag == "Ennemy")
     {
         // Vérifier si suffisamment de temps s'est écoulé depuis le dernier coup
         if (Time.time - lastDamageTime >= attackCooldown)
@@ -50,7 +51,7 @@ void OnTriggerStay2D(Collider2D other)
             }
         }
     }
-    else if (other.CompareTag("Chateaux"))
+    else if ( other.CompareTag("BaseEnnemy") && currentTag == "Ally" || (other.CompareTag("Base") && currentTag == "Ennemy"))
     {
         Bases baseObject = other.GetComponent<Bases>();
         if (baseObject != null)
@@ -66,17 +67,15 @@ void OnTriggerStay2D(Collider2D other)
     }
 }
 
-
-
-
-
     public void DealDamage(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Ennemy")
+        string currentTag = transform.root.tag; // Obtenir le tag du joueur
+
+        if (collision.gameObject.CompareTag("Ennemy") && currentTag == "Ally"|| collision.gameObject.CompareTag("Ally") && currentTag == "Ennemy" )
         {
             TakeDamage(damageDealt);
         }
-        else if (collision.gameObject.tag == "Chateaux")
+        else if (collision.gameObject.CompareTag("Base") && currentTag == "Ennemy" || collision.gameObject.CompareTag("BaseEnnemy") && currentTag == "Ally")
         {
             Bases baseObject = collision.gameObject.GetComponent<Bases>();
             if (baseObject != null)

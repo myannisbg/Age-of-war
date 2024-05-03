@@ -4058,10 +4058,11 @@ GameObject:
   m_Component:
   - component: {fileID: 530252795}
   - component: {fileID: 530252794}
+  - component: {fileID: 530252796}
   m_Layer: 0
   m_Name: respawn ennemi
   m_TagString: Respawn
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -4078,7 +4079,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthSliderPrefab: {fileID: 580171190}
-  moveRight: 1
+  moveRight: 0
   currentAge: 0
 --- !u!4 &530252795
 Transform:
@@ -4089,12 +4090,37 @@ Transform:
   m_GameObject: {fileID: 530252793}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.398, y: -3.02, z: 1.4219193}
+  m_LocalPosition: {x: 8.64, y: -3.16, z: 1.4219193}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &530252796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530252793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06ced9f28aec5e24e91501fd90429525, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isBot: 1
+  botSpawnInterval: 5
+  timeSinceLastSpawn: 0
+  spawner: {fileID: 530252794}
+  unitPrefabs:
+  - {fileID: 270766951686396539, guid: 78baec4459f326849a26e51067a7ce99, type: 3}
+  - {fileID: 5753165178247412384, guid: 12030b2efa5c46947a0eaaf2ea71eaa2, type: 3}
+  - {fileID: 270766951686396539, guid: 78baec4459f326849a26e51067a7ce99, type: 3}
+  - {fileID: 5753165178247412384, guid: 12030b2efa5c46947a0eaaf2ea71eaa2, type: 3}
+  - {fileID: 5753165178247412384, guid: 12030b2efa5c46947a0eaaf2ea71eaa2, type: 3}
+  - {fileID: 5753165178247412384, guid: 12030b2efa5c46947a0eaaf2ea71eaa2, type: 3}
+  - {fileID: 5753165178247412384, guid: 12030b2efa5c46947a0eaaf2ea71eaa2, type: 3}
+  ageValue: {fileID: 333553887}
 --- !u!1 &555594552
 GameObject:
   m_ObjectHideFlags: 0
@@ -13956,7 +13982,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.06709188, y: 0.45780802}
+  m_Offset: {x: -0.28687352, y: 0.45780802}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -13967,7 +13993,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.865816, y: 1.915616}
+  m_Size: {x: 0.42625272, y: 1.915616}
   m_EdgeRadius: 0
 --- !u!4 &1471105741
 Transform:
@@ -13978,7 +14004,7 @@ Transform:
   m_GameObject: {fileID: 1471105737}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.75, y: -3.5, z: 0.0051498413}
+  m_LocalPosition: {x: 8.519, y: -3.508, z: 0.0051498413}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16362,7 +16388,7 @@ GameObject:
   - component: {fileID: 1890622485}
   m_Layer: 3
   m_Name: Bases
-  m_TagString: BaseEnnemy
+  m_TagString: Base
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -22,7 +22,7 @@ public class bottomMenu : MonoBehaviour
         Time.timeScale = 1;
     }
     public void MadeInHaven(){
-        Time.timeScale = 2;
+        Time.timeScale = 10;
     }
     public void kingCrimson(){
         SceneManager.LoadScene("ça marche");

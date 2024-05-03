@@ -4062,7 +4062,7 @@ GameObject:
   m_Layer: 0
   m_Name: respawn ennemi
   m_TagString: Respawn
-  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -4108,6 +4108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ced9f28aec5e24e91501fd90429525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentFunction: 1
+  availableFunctions: 00000000010000000200000003000000
   isBot: 1
   botSpawnInterval: 5
   timeSinceLastSpawn: 0
@@ -4116,9 +4118,11 @@ MonoBehaviour:
   - {fileID: 270766951686396539, guid: 78baec4459f326849a26e51067a7ce99, type: 3}
   - {fileID: 5753165178247412384, guid: 12030b2efa5c46947a0eaaf2ea71eaa2, type: 3}
   - {fileID: 270766951686396539, guid: 78baec4459f326849a26e51067a7ce99, type: 3}
+  - {fileID: 4969270038623667323, guid: 2579ca3163798da49bc80ce08964b667, type: 3}
   - {fileID: 5753165178247412384, guid: 12030b2efa5c46947a0eaaf2ea71eaa2, type: 3}
+  - {fileID: 270766951686396539, guid: 78baec4459f326849a26e51067a7ce99, type: 3}
   - {fileID: 5753165178247412384, guid: 12030b2efa5c46947a0eaaf2ea71eaa2, type: 3}
-  - {fileID: 5753165178247412384, guid: 12030b2efa5c46947a0eaaf2ea71eaa2, type: 3}
+  - {fileID: 4969270038623667323, guid: 2579ca3163798da49bc80ce08964b667, type: 3}
   - {fileID: 5753165178247412384, guid: 12030b2efa5c46947a0eaaf2ea71eaa2, type: 3}
   ageValue: {fileID: 333553887}
 --- !u!1 &555594552

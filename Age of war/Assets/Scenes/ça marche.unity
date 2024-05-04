@@ -1550,6 +1550,7 @@ MonoBehaviour:
   updateBG: {fileID: 1702855627}
   ageValue: {fileID: 333553887}
   basesHp: {fileID: 1890622485}
+  bot: {fileID: 530252796}
 --- !u!114 &119837122
 MonoBehaviour:
   m_ObjectHideFlags: 0

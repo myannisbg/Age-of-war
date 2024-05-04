@@ -22,8 +22,16 @@ public class Bot : MonoBehaviour
     public List<GameObject> unitPrefabs;
     public GlobalAge ageValue;
 
+
+private Dictionary<int, float> lastSpawnTimes = new Dictionary<int, float>();
+
+
     void Start()
     {
+        for (int i = 0; i < unitPrefabs.Count / 4; i++)
+    {
+        lastSpawnTimes.Add(i, 0f); // Initialiser tous les âges à 0 secondes
+    }
         // Récupérer la référence au script PlayerSpawner s'il n'est pas attribué
         if (spawner == null)
         {
@@ -76,16 +84,16 @@ public class Bot : MonoBehaviour
         // Vérifier si le script PlayerSpawner est assigné
         if (spawner != null)
         {
-            // Définir les bornes des tranches d'âge
-            int ageIndex = ageValue.getAge();
-            int lowerBound = ageIndex * 3;
-            int upperBound = ageIndex * 3 + 2;
+             int lowerBound = ageValue.getAge() * 4; // Born inférieure de la tranche d'âge
+        int upperBound = lowerBound + 3; // Born supérieure de la tranche d'âge
+
+
 
             // Vérifier si l'âge est valide
-            if (ageIndex >= 0 && upperBound < unitPrefabs.Count)
+            if (ageValue.getAge() >= 0 && upperBound < unitPrefabs.Count)
             {
                 // Générer un nombre aléatoire dans la plage de l'âge actuel
-                int randomIndex = Random.Range(lowerBound, upperBound + 1);
+                int randomIndex = Random.Range(lowerBound, upperBound);
 
                 // Récupérer la préfab d'unité correspondant au nombre aléatoire
                 GameObject unitPrefab = unitPrefabs[randomIndex];
@@ -105,49 +113,31 @@ public class Bot : MonoBehaviour
         }
     }
 
-
-// Déclarer une variable pour stocker le temps écoulé depuis le dernier spawn pour chaque âge
-private Dictionary<int, float> lastSpawnTimes = new Dictionary<int, float>();
-
-    void BotIsTrying()
+void BotIsTrying()
+{
+    // Vérifier si le script PlayerSpawner est assigné
+    if (spawner != null)
     {
-        // Vérifier si le script PlayerSpawner est assigné
-        if (spawner != null)
+        // Définir les bornes des tranches d'âge
+        int ageIndex = ageValue.getAge();
+        int lowerBound = ageIndex * 4; // Born inférieure de la tranche d'âge
+        int upperBound = lowerBound + 3; // Born supérieure de la tranche d'âge
+
+        // Vérifier si l'âge est valide
+        if (ageIndex >= 0 && upperBound < unitPrefabs.Count)
         {
-            // Définir les bornes des tranches d'âge
-            int ageIndex = ageValue.getAge();
-            int lowerBound = ageIndex * 3;
-            int upperBound = lowerBound + 2; 
+            // Générer un nombre aléatoire dans la plage de l'âge actuel
+            int randomIndex = Random.Range(lowerBound, upperBound + 1);
 
-            // Vérifier si l'âge est valide
-            if (ageIndex >= 0 && upperBound < unitPrefabs.Count)
+            // Si le temps requis est écoulé pour l'unité du upperBound, ou si l'index correspond à une unité précédente, alors procéder au spawn
+            if (Time.timeSinceLevelLoad - lastSpawnTimes[ageIndex] >= 60 || randomIndex != upperBound)
             {
-                // Vérifier si la clé existe dans le dictionnaire
-                if (!lastSpawnTimes.ContainsKey(ageIndex))
+                // Si le temps requis est écoulé pour l'unité du upperBound, réinitialiser le temps écoulé pour cet âge
+                if (randomIndex == upperBound && Time.timeSinceLevelLoad - lastSpawnTimes[ageIndex] >= 60)
                 {
-                    // Ajouter la clé au dictionnaire avec le temps actuel comme valeur
-                    lastSpawnTimes.Add(ageIndex, Time.timeSinceLevelLoad);
-                }
-
-                // Vérifier si suffisamment de temps s'est écoulé pour permettre le spawn de la quatrième unité
-                if (Time.timeSinceLevelLoad - lastSpawnTimes[ageIndex] >= 20) // 20 secondes et plus depuis le dernier spawn de cet âge
-                {
-                    // Augmenter l'indice supérieur pour inclure la quatrième unité
-                    upperBound++;
-
-                    // Réinitialiser le temps écoulé pour cet âge
                     lastSpawnTimes[ageIndex] = Time.timeSinceLevelLoad;
                 }
 
-                // Générer un nombre aléatoire dans la plage de l'âge actuel
-                int randomIndex = Random.Range(lowerBound, upperBound + 1);
-
-                // Si randomIndex dépasse le nombre total d'unités, le ramener à la plage correcte
-                if (randomIndex >= unitPrefabs.Count)
-                {
-                    randomIndex = Random.Range(lowerBound, upperBound);
-                }
-
                 // Récupérer la préfab d'unité correspondant au nombre aléatoire
                 GameObject unitPrefab = unitPrefabs[randomIndex];
 
@@ -155,15 +145,27 @@ private Dictionary<int, float> lastSpawnTimes = new Dictionary<int, float>();
                 spawner.SpawnPlayer(unitPrefab);
                 print(unitPrefab);
             }
-            else
-            {
-                Debug.LogError("Invalid age index or unit prefab list is empty!");
-            }
         }
         else
         {
-            Debug.LogError("PlayerSpawner script is not assigned!");
+            Debug.LogError("Invalid age index or unit prefab list is empty!");
         }
     }
+    else
+    {
+        Debug.LogError("PlayerSpawner script is not assigned!");
+    }
+}
+
+// Fonction pour réinitialiser le timer lorsque l'âge change
+public void ResetSpawnTimer()
+{
+    int ageIndex = ageValue.getAge(); // Obtenez l'âge actuel
+
+    // Mettre à jour le temps écoulé pour cet âge
+    lastSpawnTimes[ageIndex] = Time.timeSinceLevelLoad;
+}
+
+
 
 }

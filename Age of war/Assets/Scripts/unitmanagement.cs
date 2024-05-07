@@ -86,6 +86,8 @@ public class Unit : MonoBehaviour
         }
     }
 
+    
+
     void Die()
     {
         // Mettre ici le code pour gérer la mort du joueur

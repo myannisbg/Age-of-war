@@ -47,15 +47,11 @@ public static void ResetInitialValues(GameObject prefab)
         currentHealth = maxHealth;
         healthBar.SetMaxHealth((int)maxHealth); // Convertir maxHealth en int
         attackCooldown = 1f / attackSpeed; // Calcul de l'interval de temps entre chaque attaque
-        print(isFirstUse);
         if (isFirstUse)
         {
             firstUse();
             isFirstUse = false;
-            print(isFirstUse);
         }
-        print(GetCurrentDamage()+"currentdamage");
-        print(GetStartDamage()+"startdamage du start");
 
 
 
@@ -63,12 +59,10 @@ public static void ResetInitialValues(GameObject prefab)
 
 void firstUse()
 {
-    print(startDamage+"startDamage");
-    print(startHealth+"startHealth");
+
     SetStartDamage(damageDealt);
     SetStartHealth(maxHealth);
-    print(startDamage+"startDamage modifié");
-    print(startHealth+"startHealth modifié");
+
 }
 
 

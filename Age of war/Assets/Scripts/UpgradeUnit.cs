@@ -11,7 +11,7 @@ public class UpgradeUnit : MonoBehaviour
 
     public int buttonNumber; 
 
-    private int damageBoostsRemainingBtn1 = 3; // Nombre d'utilisations restantes pour augmenter les dégâts avec le bouton 1
+    public int damageBoostsRemainingBtn1 = 3; // Nombre d'utilisations restantes pour augmenter les dégâts avec le bouton 1
     private int damageBoostsRemainingBtn2 = 3; // Nombre d'utilisations restantes pour augmenter les dégâts avec le bouton 2
     private int damageBoostsRemainingBtn3 = 3; // Nombre d'utilisations restantes pour augmenter les dégâts avec le bouton 3
     private int damageBoostsRemainingBtn4 = 3; // Nombre d'utilisations restantes pour augmenter les dégâts avec le bouton 4
@@ -64,7 +64,7 @@ public class UpgradeUnit : MonoBehaviour
     }
 
     // Fonction pour augmenter les dégâts des unités alliées
-    private void BoostDamageForAllies(ref int damageBoostsRemaining)
+    public void BoostDamageForAllies(ref int damageBoostsRemaining)
     {
         // Vérifier s'il reste des utilisations de la fonction
         if (damageBoostsRemaining > 0)
@@ -85,6 +85,7 @@ public class UpgradeUnit : MonoBehaviour
                 {
                     // Augmenter les dégâts de l'unité
                     unitComponent.damageDealt *= (1f + percentageIncrease / 100f);
+                    print(unitComponent.damageDealt);
                 }
                 else
                 {

@@ -143,7 +143,7 @@ void BotIsTrying()
 
                 // Appeler la méthode SpawnPlayer du PlayerSpawner en passant la préfab d'unité
                 spawner.SpawnPlayer(unitPrefab);
-                print(unitPrefab);
+                
             }
         }
         else

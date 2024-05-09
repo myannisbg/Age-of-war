@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Unit : MonoBehaviour
-{
+{       
+    private static float startDamage;
+    private static float startHealth;
     public Bases baseObject;
     public float maxHealth = 100f;
     private float currentHealth;
@@ -13,15 +15,102 @@ public class Unit : MonoBehaviour
     public float attackSpeed = 1f; //vitesse d'attaque 
     private float lastDamageTime; // Temps de la dernière application de dégâts
     private float attackCooldown; // Temps d'attente entre chaque attaque
+    private static bool isFirstUse = true;
 
     public Healthbar healthBar; // Utilisation du composant Healthbar au lieu de PlayerHealth
+
+    // Méthode statique pour réinitialiser les valeurs initiales des unités
+public static void ResetInitialValues(GameObject prefab)
+{
+    // Assurez-vous que le prefab est valide
+    if (prefab != null)
+    {
+        Unit unitPrefab = prefab.GetComponent<Unit>();
+        if (unitPrefab != null)
+        {
+            // Récupérez les valeurs initiales des dégâts et de la santé du prefab
+            float startDamage = unitPrefab.GetStartDamage();
+            float startHealth = unitPrefab.GetStartHealth();
+
+            // Réinitialiser les valeurs actuelles des dégâts et de la santé
+            unitPrefab.SetCurrentDamage(startDamage);
+            unitPrefab.SetCurrentHealth(startHealth);
+        }
+    }
+}
+
+
+
 
     void Start()
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth((int)maxHealth); // Convertir maxHealth en int
         attackCooldown = 1f / attackSpeed; // Calcul de l'interval de temps entre chaque attaque
+        print(isFirstUse);
+        if (isFirstUse)
+        {
+            firstUse();
+            isFirstUse = false;
+            print(isFirstUse);
+        }
+        print(GetCurrentDamage()+"currentdamage");
+        print(GetStartDamage()+"startdamage du start");
+
+
+
+}
+
+void firstUse()
+{
+    print(startDamage+"startDamage");
+    print(startHealth+"startHealth");
+    SetStartDamage(damageDealt);
+    SetStartHealth(maxHealth);
+    print(startDamage+"startDamage modifié");
+    print(startHealth+"startHealth modifié");
+}
+
+
+    public float GetCurrentDamage()
+    {
+        return damageDealt;
     }
+
+    public void SetCurrentDamage(float value)
+    {
+        damageDealt = value;
+    }
+    public void SetStartDamage(float value)
+    {
+        startDamage = value;
+    }
+    public void SetStartHealth(float value)
+    {
+        startHealth=value;
+    }
+
+    public float GetCurrentHealth()
+    {
+        return maxHealth;
+    }
+
+    public void SetCurrentHealth(float value)
+    {
+        maxHealth = value;
+    }
+
+    public float GetStartDamage()
+    {
+        return startDamage;
+    }
+
+    public float GetStartHealth()
+    {
+        return startHealth;
+    }
+
+
 
     public void TakeDamage(float damageDealt)
     {

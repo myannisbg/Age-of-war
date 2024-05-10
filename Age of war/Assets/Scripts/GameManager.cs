@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+
 public class GameManager : MonoBehaviour
 {
     public List<Unit> units = new List<Unit>();
@@ -8,27 +9,39 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         // Obtenez toutes les instances de la classe Unit dans la scène et ajoutez-les à la liste
-        Unit[] unitArray = FindObjectsOfType<Unit>();
-        units.AddRange(unitArray);
+        Unit[] allUnits = FindObjectsOfType<Unit>();
+
+        // Parcourir toutes les unités trouvées
+        foreach (Unit unit in allUnits)
+        {
+            // Vérifiez si l'unité appartient à la liste de suivi ou si elle a un tag spécifique
+            if (unit.CompareTag("Ally"))
+            {
+                // Ajoutez l'unité à la liste de suivi
+                units.Add(unit);
+            }
+        }
     }
 
     private void OnApplicationQuit()
     {
-        // Convertissez la liste de Unit en une liste de GameObject
-        List<GameObject> unitPrefabs = units.ConvertAll(unit => unit.gameObject);
-
-        // Appelez la méthode de réinitialisation lors de la fermeture de l'application
-        StatReset.ResetStats(unitPrefabs);
-         Debug.Log("Resetting initial values on quit");
+        // Vérifiez si au moins une unité a été initialisée
+        if (Unit.UnitsSpawned)
+        {
+            // Convertissez la liste de Unit en une liste de GameObject
+            List<GameObject> unitPrefabs = units.ConvertAll(unit => unit.gameObject);
+            
+            // Appelez la méthode de réinitialisation des statistiques uniquement si des unités ont été initialisées
+            StatReset.ResetStats(unitPrefabs);
+            Debug.Log("Resetting initial values on quit");
+        }
+        else
+        {
+            Debug.Log("No Ally units spawned, skipping stat reset");
+        }
     }
-
-    // private void OnApplicationPause(bool pauseStatus)
-    // {
-    //     // Convertissez la liste de Unit en une liste de GameObject
-    //     List<GameObject> unitPrefabs = units.ConvertAll(unit => unit.gameObject);
-
-    //     // Appelez la méthode de réinitialisation lors de la mise en pause de l'application
-    //     StatReset.ResetInitialValues(unitPrefabs);
-    //      Debug.Log("Resetting initial values on pause");
-    // }
 }
+
+
+
+

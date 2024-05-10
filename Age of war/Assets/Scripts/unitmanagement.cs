@@ -15,11 +15,13 @@ public class Unit : MonoBehaviour
     public float attackSpeed = 1f; //vitesse d'attaque 
     private float lastDamageTime; // Temps de la dernière application de dégâts
     private float attackCooldown; // Temps d'attente entre chaque attaque
-    private static bool isFirstUse = true;
+    public static bool isFirstUse = true;
+    public static bool UnitsSpawned { get; private set; } = false;
+
 
     public Healthbar healthBar; // Utilisation du composant Healthbar au lieu de PlayerHealth
 
-    // Méthode statique pour réinitialiser les valeurs initiales des unités
+// Méthode statique pour réinitialiser les valeurs initiales des unités
 public static void ResetInitialValues(GameObject prefab)
 {
     // Assurez-vous que le prefab est valide
@@ -28,25 +30,23 @@ public static void ResetInitialValues(GameObject prefab)
         Unit unitPrefab = prefab.GetComponent<Unit>();
         if (unitPrefab != null)
         {
-            // Récupérez les valeurs initiales des dégâts et de la santé du prefab
-            float startDamage = unitPrefab.GetStartDamage();
-            float startHealth = unitPrefab.GetStartHealth();
-
-            // Réinitialiser les valeurs actuelles des dégâts et de la santé
+            // Affectez les valeurs initiales des dégâts et de la santé aux variables statiques
+            startDamage = unitPrefab.GetStartDamage();
+            startHealth = unitPrefab.GetStartHealth();
             unitPrefab.SetCurrentDamage(startDamage);
             unitPrefab.SetCurrentHealth(startHealth);
+            
+
         }
     }
 }
-
-
-
 
     void Start()
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth((int)maxHealth); // Convertir maxHealth en int
         attackCooldown = 1f / attackSpeed; // Calcul de l'interval de temps entre chaque attaque
+        
         if (isFirstUse)
         {
             firstUse();
@@ -62,6 +62,7 @@ void firstUse()
 
     SetStartDamage(damageDealt);
     SetStartHealth(maxHealth);
+    UnitsSpawned = true;
 
 }
 

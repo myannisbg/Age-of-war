@@ -24,15 +24,6 @@ public class SpawnButton : MonoBehaviour
             button.onClick.AddListener(SpawnUnitByAge);
         }
     }
-    void Update()
-    {
-        // Exemple : Appuyez sur la touche "P" pour instancier un nouveau joueur
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            // Instancier un nouveau joueur en passant le préfab d'unité spécifié
-            Debug.Log("currentAge: " + ageValue.getAge());
-        }
-    }
 
     void SpawnUnitByAge()
     {

@@ -21,6 +21,8 @@ public class Bot : MonoBehaviour
     public PlayerSpawner spawner;
     public List<GameObject> unitPrefabs;
     public GlobalAge ageValue;
+    
+    
 
 
 private Dictionary<int, float> lastSpawnTimes = new Dictionary<int, float>();
@@ -28,6 +30,8 @@ private Dictionary<int, float> lastSpawnTimes = new Dictionary<int, float>();
 
     void Start()
     {
+        string unitTag = gameObject.tag;
+        gameObject.tag = "Ennemy";
         for (int i = 0; i < unitPrefabs.Count / 4; i++)
     {
         lastSpawnTimes.Add(i, 0f); // Initialiser tous les âges à 0 secondes

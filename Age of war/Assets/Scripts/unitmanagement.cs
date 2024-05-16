@@ -127,20 +127,23 @@ void firstUse()
             {
                 Money moneyComponent = eventSystem.GetComponent<Money>();
                 Xp xpComponent = eventSystem.GetComponent<Xp>();
-                if (moneyComponent != null)
-                {
+                
                     // Vous avez maintenant accès au composant Money
                     moneyComponent.addGold(moneyGain);
                     xpComponent.addXp(expGain);
-        }
+                    }
+        
         else
         {
             Debug.Log("Unité ennemie non détectée. Aucun ajout d'argent.");
         }
+        
+        }
         }
     }
-        }
-    }
+
+
+    
     void OnTriggerStay2D(Collider2D other)
 {
     string currentTag = transform.root.tag; // Obtenir le tag du joueur

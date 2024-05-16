@@ -8,8 +8,10 @@ public class PassageAge : MonoBehaviour
     public GlobalAge ageValue;
     public Bases basesHp;
     public Bot bot;
+    public Xp xp;
     public void ToggleButton(){
         ageValue.incAge();
+        xp.UpdateXpBarre();
         updateBG.updateBackground();
         basesHp.AgeUp();
         bot.ResetSpawnTimer();

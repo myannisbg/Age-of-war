@@ -10,13 +10,17 @@ public class Unit : MonoBehaviour
     public float maxHealth = 100f;
     private float currentHealth;
     public float damageDealt = 1f; // dégats que l'unité inflige 
-    public float expGain = 1f; //experience gagné en tuant cette unité
-    public float moneyGain = 1f; //money gagné en tuant cette unité
+    public int expGain = 1; //experience gagné en tuant cette unité
+    public int moneyGain = 1; //money gagné en tuant cette unité
     public float attackSpeed = 1f; //vitesse d'attaque 
     private float lastDamageTime; // Temps de la dernière application de dégâts
     private float attackCooldown; // Temps d'attente entre chaque attaque
     public static bool isFirstUse = true;
     public static bool UnitsSpawned { get; private set; } = false;
+    public Money moneyClass;
+    public Xp xpClass;
+
+ 
 
 
     public Healthbar healthBar; // Utilisation du composant Healthbar au lieu de PlayerHealth
@@ -115,6 +119,26 @@ void firstUse()
         if (currentHealth <= 0)
         {
             Die();
+            if (gameObject.CompareTag("Ennemy"))
+        {
+            // Dans le script de vos unités, vous pouvez trouver l'EventSystem par son tag
+            GameObject eventSystem = GameObject.FindGameObjectWithTag("EventSystem");
+            if (eventSystem != null)
+            {
+                Money moneyComponent = eventSystem.GetComponent<Money>();
+                Xp xpComponent = eventSystem.GetComponent<Xp>();
+                if (moneyComponent != null)
+                {
+                    // Vous avez maintenant accès au composant Money
+                    moneyComponent.addGold(moneyGain);
+                    xpComponent.addXp(expGain);
+        }
+        else
+        {
+            Debug.Log("Unité ennemie non détectée. Aucun ajout d'argent.");
+        }
+        }
+    }
         }
     }
     void OnTriggerStay2D(Collider2D other)
@@ -176,6 +200,7 @@ void firstUse()
     {
         // Mettre ici le code pour gérer la mort du joueur
         Destroy(gameObject);
+
     }
 }
 	

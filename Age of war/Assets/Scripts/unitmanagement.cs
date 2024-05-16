@@ -20,7 +20,7 @@ public class Unit : MonoBehaviour
     public Money moneyClass;
     public Xp xpClass;
 
- 
+
 
 
     public Healthbar healthBar; // Utilisation du composant Healthbar au lieu de PlayerHealth

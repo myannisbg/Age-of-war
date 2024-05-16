@@ -9,7 +9,9 @@ public class Xp : MonoBehaviour
     public int xp = 0;
     public Slider xpBarre; // La référence à l'élément de texte UI
     public int maxXP = 100;
+    public float multipiclateur = 2;
     public GameObject AmeliorationButton;
+    public GlobalAge age;
 
 
     void Start()
@@ -51,17 +53,21 @@ public class Xp : MonoBehaviour
     }
 
 
-    // Met à jour le texte avec le montant d'or
     public void UpdateXpBarre()
     {
-        xpBarre.maxValue = maxXP; 
+        xpBarre.maxValue = maxXP*(age.getAge()+1)*multipiclateur; 
         xpBarre.value = xp;
 
-        if (xp >= maxXP){
+        print(xpBarre.value);
+        print(xpBarre.maxValue);
+
+        if (xp >= xpBarre.maxValue){
             AmeliorationButton.SetActive(true);
+            print("affiche");
         }
         else {
             AmeliorationButton.SetActive(false);
+            print("enleve");
         }
     }
 }

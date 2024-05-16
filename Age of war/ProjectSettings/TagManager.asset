@@ -10,6 +10,7 @@ TagManager:
   - Base
   - Ally
   - BaseEnnemy
+  - EventSystem
   layers:
   - Default
   - TransparentFX

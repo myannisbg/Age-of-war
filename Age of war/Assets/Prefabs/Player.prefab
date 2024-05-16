@@ -645,8 +645,9 @@ MonoBehaviour:
   maxHealth: 100
   damageDealt: 50
   expGain: 1
-  moneyGain: 1
+  moneyGain: 100
   attackSpeed: 1
+  moneyClass: {fileID: 0}
   healthBar: {fileID: 8829783979555124523}
 --- !u!114 &7385159503886139740
 MonoBehaviour:

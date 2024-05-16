@@ -4124,7 +4124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ced9f28aec5e24e91501fd90429525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentFunction: 1
+  currentFunction: 2
   availableFunctions: 00000000010000000200000003000000
   isBot: 1
   botSpawnInterval: 5
@@ -13405,6 +13405,8 @@ MonoBehaviour:
   - {fileID: 4969270038623667323, guid: 2579ca3163798da49bc80ce08964b667, type: 3}
   playerSpawner: {fileID: 44059583}
   ageValue: {fileID: 333553887}
+  money: {fileID: 333553885}
+  priceOfUnit: 640000002c010000801a0600
 --- !u!114 &1382498962
 MonoBehaviour:
   m_ObjectHideFlags: 0

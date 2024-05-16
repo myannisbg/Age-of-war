@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Ennemy
       objectReference: {fileID: 0}
+    - target: {fileID: 6084262739745849428, guid: 12030b2efa5c46947a0eaaf2ea71eaa2, type: 3}
+      propertyPath: moneyGain
+      value: 150
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

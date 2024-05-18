@@ -5,7 +5,7 @@ public class MovePlayer : MonoBehaviour
     public float moveSpeed = 0.5f;
     public Rigidbody2D rb;
     private Vector3 velocity = Vector3.zero;
-    public Vector3 offset = new Vector3(0.5f, 0.0f, 0.0f); // Exemple : décalage de 0.5 unité vers la droite
+    public Vector3 offset = new Vector3(0.2f, 0.0f, 0.0f); // Exemple : décalage de 0.5 unité vers la droite
 
     void FixedUpdate()
     {
@@ -16,12 +16,14 @@ public class MovePlayer : MonoBehaviour
         MovePlayers(horizontalMovement);
 
         CheckForBase();
-        // Debug.DrawRay(transform.position,Vector2.right * 0.5f, Color.red);
-        // Debug.DrawRay(transform.position,Vector2.right * 0.5f, Color.green);
+        Debug.DrawRay(transform.position,Vector2.right * 0.5f, Color.red);
+        Debug.DrawRay(transform.position,Vector2.left * 0.5f, Color.green);
         // Définir le décalage (offset) à partir du centre de l'objet
 
         // Dessiner un rayon à partir du point de départ ajusté
         Debug.DrawRay(transform.position + offset, Vector2.right , Color.blue);
+        Debug.DrawRay(transform.position  -offset, Vector2.left , Color.blue);
+
 
     }
 
@@ -41,15 +43,10 @@ public class MovePlayer : MonoBehaviour
         // Récupérer le tag de l'unité
         string unitTag = gameObject.tag;
 
-
-
-        // Convertir la position de l'unité en Vector2
-        Vector2 unitPosition = new Vector2(transform.position.x, transform.position.y);
-
         // Raycast vers l'avant pour détecter une base ennemie
-        RaycastHit2D hitEnemyBase = Physics2D.Raycast(unitPosition, Vector2.left, 0.5f);
+        RaycastHit2D hitEnemyBase = Physics2D.Raycast(transform.position+offset, Vector2.left, 1f);
         // Raycast vers l'avant pour détecter une base alliée
-        RaycastHit2D hitBase = Physics2D.Raycast(unitPosition, Vector2.right, 0.5f);
+        RaycastHit2D hitBase = Physics2D.Raycast(transform.position-offset, Vector2.right, 1f);
         // Raycast vers l'avant pour détecter une unité ennemie
         RaycastHit2D hitEnemy = Physics2D.Raycast(transform.position - offset, Vector2.left, 0.5f);
         // Raycast vers l'avant pour détecter une unité alliée

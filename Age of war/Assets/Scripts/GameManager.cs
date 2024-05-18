@@ -33,12 +33,12 @@ public class GameManager : MonoBehaviour
             
             // Appelez la méthode de réinitialisation des statistiques uniquement si des unités ont été initialisées
             StatReset.ResetStats(unitPrefabs);
-            Debug.Log("Resetting initial values on quit");
+            // Debug.Log("Resetting initial values on quit");
         }
-        else
-        {
-            Debug.Log("No Ally units spawned, skipping stat reset");
-        }
+        // else
+        // {
+        //     Debug.Log("No Ally units spawned, skipping stat reset");
+        // }
     }
 }
 

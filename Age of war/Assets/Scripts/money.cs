@@ -6,9 +6,10 @@ using TMPro;
 
 public class Money : MonoBehaviour
 {
-    public int gold = 0;
+    public float gold = 0;
     public TextMeshProUGUI goldText; // La référence à l'élément de texte UI
-
+    
+    
 
     void Start()
     {
@@ -21,16 +22,19 @@ public class Money : MonoBehaviour
         UpdateGoldText(); // Met à jour le texte au démarrage
     }
     
-    public int getGold(){
+    public float getGold(){
         return gold;
     }
 
-    public void addGold(int amount){
-        gold += amount;
+    public void addGold(float amount){
+        gold += amount;  
         UpdateGoldText(); // Mettre à jour le texte avec le nouveau montant
     }
 
-    public bool canBuy(int amount){
+    
+
+
+    public bool canBuy(float amount){
 
         if (gold - amount < 0) {
             return false;

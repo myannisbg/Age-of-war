@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 64b23a5c4e8a6f14eafa34cb1a1cac8a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - gameMap: {fileID: 4154044166487060797, guid: dbadac93322735a4582300e61582d98a, type: 3}
+  - turretSlotPrefab: {fileID: 260034849728646365, guid: 788b381c38f00b345bba44b1bfced3a5, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

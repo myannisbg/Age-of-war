@@ -6,6 +6,7 @@ public class bottomMenu : MonoBehaviour
 
 {
     public GameObject Button;
+    public GameObject panelDark;
     
     // Fonction appelée lorsque le bouton est cliqué
     public void ToggleButton()
@@ -16,9 +17,11 @@ public class bottomMenu : MonoBehaviour
     }
 
     public void ThaWarudo(){
+        panelDark.SetActive(true);
         Time.timeScale = 0;
     }
     public void GoldExperience(){
+        panelDark.SetActive(false);
         Time.timeScale = 1;
     }
     public void MadeInHaven(){

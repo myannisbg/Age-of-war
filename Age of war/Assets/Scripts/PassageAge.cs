@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PassageAge : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class PassageAge : MonoBehaviour
     public Bot bot;
     public Xp xp;
     public DebloquageUnitee bouttonBloquageUnite4;
+    public GameObject xpBarre;
+    public GameObject AmeliorationButton;
 
 
     public void ToggleButton(){
@@ -19,6 +22,11 @@ public class PassageAge : MonoBehaviour
         basesHp.AgeUp();
         bot.ResetSpawnTimer();
         bouttonBloquageUnite4.bloqueUnite4();
+
+        if (ageValue.getAge() == 4){
+            AmeliorationButton.SetActive(false);
+            xpBarre.SetActive(false);
+        }
     }
 }
 

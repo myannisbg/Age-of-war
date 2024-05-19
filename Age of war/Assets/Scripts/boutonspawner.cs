@@ -9,7 +9,7 @@ public class SpawnButton : MonoBehaviour
     public GlobalAge ageValue;
     public Money money;
     public List<int> priceOfUnit;
-
+    public UpgradeUnit upgrade;
     void Start()
     {
         // Récupérer la référence au script PlayerSpawner s'il n'est pas attribué

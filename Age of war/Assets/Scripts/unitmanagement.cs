@@ -6,19 +6,22 @@ public class Unit : MonoBehaviour
 {       
     private static float startDamage;
     private static float startHealth;
+    private static float startMoney;
     public Bases baseObject;
     public float maxHealth = 100f;
     private float currentHealth;
     public float damageDealt = 1f; // dégats que l'unité inflige 
     public int expGain = 1; //experience gagné en tuant cette unité
-    public int moneyGain = 1; //money gagné en tuant cette unité
+    public float moneyGain = 1; //money gagné en tuant cette unité
     public float attackSpeed = 1f; //vitesse d'attaque 
     private float lastDamageTime; // Temps de la dernière application de dégâts
+    public float attackRange = 1f; //Porté de l'attaque
     private float attackCooldown; // Temps d'attente entre chaque attaque
     public static bool isFirstUse = true;
     public static bool UnitsSpawned { get; private set; } = false;
     public Money moneyClass;
     public Xp xpClass;
+    public UpgradeUnit upgrade;
 
 
 
@@ -37,8 +40,10 @@ public static void ResetInitialValues(GameObject prefab)
             // Affectez les valeurs initiales des dégâts et de la santé aux variables statiques
             startDamage = unitPrefab.GetStartDamage();
             startHealth = unitPrefab.GetStartHealth();
+            startMoney = unitPrefab.GetStartMoney();
             unitPrefab.SetCurrentDamage(startDamage);
             unitPrefab.SetCurrentHealth(startHealth);
+            unitPrefab.SetCurrentMoney(startMoney);
             
 
         }
@@ -66,6 +71,7 @@ void firstUse()
 
     SetStartDamage(damageDealt);
     SetStartHealth(maxHealth);
+    SetStartMoney(moneyGain);
     UnitsSpawned = true;
 
 }
@@ -83,6 +89,18 @@ void firstUse()
     public void SetStartDamage(float value)
     {
         startDamage = value;
+    }
+    public float GetStartMoney()
+    {
+        return startMoney;
+    }
+    public void SetStartMoney(float value)
+    {
+        startMoney = value;
+    }
+    public void SetCurrentMoney(float value)
+    {
+        moneyGain = value;
     }
     public void SetStartHealth(float value)
     {
@@ -119,28 +137,18 @@ void firstUse()
         if (currentHealth <= 0)
         {
             Die();
-            if (gameObject.CompareTag("Ennemy"))
-        {
-            // Dans le script de vos unités, vous pouvez trouver l'EventSystem par son tag
-            GameObject eventSystem = GameObject.FindGameObjectWithTag("EventSystem");
-            if (eventSystem != null)
-            {
-                Money moneyComponent = eventSystem.GetComponent<Money>();
-                Xp xpComponent = eventSystem.GetComponent<Xp>();
-                if (moneyComponent != null)
-                {
-                    // Vous avez maintenant accès au composant Money
-                    moneyComponent.addGold(moneyGain);
-                    xpComponent.addXp(expGain);
         }
         else
         {
             Debug.Log("Unité ennemie non détectée. Aucun ajout d'argent.");
         }
+        
+        
         }
-    }
-        }
-    }
+    
+
+
+
     void OnTriggerStay2D(Collider2D other)
 {
     string currentTag = transform.root.tag; // Obtenir le tag du joueur
@@ -175,6 +183,39 @@ void firstUse()
     }
 }
 
+
+// void AttackTarget(GameObject targetObject)
+// {
+//     // Effectuer un raycast vers la cible
+//     Vector2 direction = (targetObject.transform.position - transform.position).normalized;
+//     RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, Mathf.Infinity);
+
+//     // Vérifier si le raycast a touché la cible
+//     if (hit.collider != null && hit.collider.gameObject == targetObject)
+//     {
+//         if (targetObject.CompareTag("Ennemy"))
+//         {
+//             Unit unit = targetObject.GetComponent<Unit>();
+//             if (unit != null)
+//             {
+//                 // Effectuer une attaque sur l'unité
+//                 unit.TakeDamage(damageDealt);
+//             }
+//         }
+//         else if (targetObject.CompareTag("Base") || targetObject.CompareTag("BaseEnnemy"))
+//         {
+//             Bases baseComponent = targetObject.GetComponent<Bases>();
+//             if (baseComponent != null)
+//             {
+//                 // Effectuer une attaque sur la base
+//                 baseComponent.DealDamage(this, damageDealt);
+//             }
+//         }
+
+//         lastDamageTime = Time.time;
+//     }
+// }
+
     public void DealDamage(Collider2D collision)
     {
         string currentTag = transform.root.tag; // Obtenir le tag du joueur
@@ -198,9 +239,22 @@ void firstUse()
 
     void Die()
     {
-        // Mettre ici le code pour gérer la mort du joueur
+        
         Destroy(gameObject);
+        if (gameObject.CompareTag("Ennemy"))
+        {
+            // Dans le script de vos unités, vous pouvez trouver l'EventSystem par son tag
+            GameObject eventSystem = GameObject.FindGameObjectWithTag("EventSystem");
+            if (eventSystem != null)
+            {
+                Money moneyComponent = eventSystem.GetComponent<Money>();
+                Xp xpComponent = eventSystem.GetComponent<Xp>();
+                
+                    // Vous avez maintenant accès au composant Money
+                    moneyComponent.addGold(moneyGain);
+                    xpComponent.addXp(expGain);
+                    }
 
     }
 }
-	
+}

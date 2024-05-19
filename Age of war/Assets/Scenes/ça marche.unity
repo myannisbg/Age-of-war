@@ -1343,7 +1343,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: turet+
+  m_text: money
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2648,6 +2648,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   units:
   - {fileID: -2355777041220960625, guid: 2579ca3163798da49bc80ce08964b667, type: 3}
+  - {fileID: 6084262739745849428, guid: 12030b2efa5c46947a0eaaf2ea71eaa2, type: 3}
 --- !u!1 &334053663
 GameObject:
   m_ObjectHideFlags: 0
@@ -4127,7 +4128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ced9f28aec5e24e91501fd90429525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentFunction: 2
+  currentFunction: 0
   availableFunctions: 00000000010000000200000003000000
   isBot: 1
   botSpawnInterval: 5
@@ -11931,9 +11932,10 @@ GameObject:
   - component: {fileID: 1230889307}
   - component: {fileID: 1230889306}
   - component: {fileID: 1230889305}
+  - component: {fileID: 1230889308}
   m_Layer: 5
   m_Name: up3
-  m_TagString: Untagged
+  m_TagString: UpgradeButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12040,6 +12042,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1230889303}
   m_CullTransparentMesh: 1
+--- !u!114 &1230889308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230889303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1233b1b2b8622d4e8343a6cac2e3e8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  percentageIncrease: 10
+  unitPrefabsToUpgrade:
+  - {fileID: 5753165178247412384, guid: 12030b2efa5c46947a0eaaf2ea71eaa2, type: 3}
+  moneyBoost: 10
+  buttonNumber: 8
+  unit: {fileID: -2355777041220960625, guid: 2579ca3163798da49bc80ce08964b667, type: 3}
+  money: {fileID: 333553885}
+  damageBoostsRemainingBtn1: 3
 --- !u!1 &1232987719
 GameObject:
   m_ObjectHideFlags: 0
@@ -13410,6 +13432,7 @@ MonoBehaviour:
   ageValue: {fileID: 333553887}
   money: {fileID: 333553885}
   priceOfUnit: 640000002c010000801a0600
+  upgrade: {fileID: 1230889308}
 --- !u!114 &1382498962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13574,7 +13597,10 @@ MonoBehaviour:
   percentageIncrease: 10
   unitPrefabsToUpgrade:
   - {fileID: 4969270038623667323, guid: 2579ca3163798da49bc80ce08964b667, type: 3}
+  moneyBoost: 10
   buttonNumber: 1
+  unit: {fileID: 0}
+  money: {fileID: 0}
   damageBoostsRemainingBtn1: 3
 --- !u!1 &1438915402
 GameObject:
@@ -17657,7 +17683,10 @@ MonoBehaviour:
   percentageIncrease: 10
   unitPrefabsToUpgrade:
   - {fileID: 4969270038623667323, guid: 2579ca3163798da49bc80ce08964b667, type: 3}
+  moneyBoost: 10
   buttonNumber: 5
+  unit: {fileID: 0}
+  money: {fileID: 0}
   damageBoostsRemainingBtn1: 3
 --- !u!1 &2012739660
 GameObject:

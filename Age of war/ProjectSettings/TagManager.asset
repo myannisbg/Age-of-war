@@ -11,6 +11,7 @@ TagManager:
   - Ally
   - BaseEnnemy
   - EventSystem
+  - UpgradeButton
   layers:
   - Default
   - TransparentFX

@@ -8,17 +8,21 @@ public class UpgradeUnit : MonoBehaviour
     public float percentageIncrease = 10f; // Pourcentage d'augmentation des dégâts ou des points de vie
 
     public List<GameObject> unitPrefabsToUpgrade; // Liste des préfabriqués d'unités à améliorer
+    public float moneyBoost=10f;
+    
 
     public int buttonNumber; 
+    public Unit unit; 
+    public Money money;
 
     public int damageBoostsRemainingBtn1 = 3; // Nombre d'utilisations restantes pour augmenter les dégâts avec le bouton 1
     private int damageBoostsRemainingBtn2 = 3; // Nombre d'utilisations restantes pour augmenter les dégâts avec le bouton 2
     private int damageBoostsRemainingBtn3 = 3; // Nombre d'utilisations restantes pour augmenter les dégâts avec le bouton 3
     private int damageBoostsRemainingBtn4 = 3; // Nombre d'utilisations restantes pour augmenter les dégâts avec le bouton 4
-
     private int healthBoostsRemainingBtn5 = 3; // Nombre d'utilisations restantes pour augmenter les points de vie avec le bouton 5
     private int healthBoostsRemainingBtn6 = 3; // Nombre d'utilisations restantes pour augmenter les points de vie avec le bouton 6
     private int healthBoostsRemainingBtn7 = 3; // Nombre d'utilisations restantes pour augmenter les points de vie avec le bouton 7
+    private int moneyBoostsRemainingBtn8 =3; // Nombre d'utilisations restantes pour augmenter l'argent
 
     void Start()
 {
@@ -56,6 +60,9 @@ public class UpgradeUnit : MonoBehaviour
                 break;
             case 7:
                 BoostHealthForAllies(ref healthBoostsRemainingBtn7);
+                break;
+            case 8:
+                BoostMoneyForAllies(ref moneyBoostsRemainingBtn8);
                 break;
             default:
                 Debug.LogWarning("Numéro de bouton non reconnu !");
@@ -139,4 +146,44 @@ public class UpgradeUnit : MonoBehaviour
             Debug.LogWarning("Vous avez utilisé toutes les améliorations disponibles pour les points de vie !");
         }
     }
+
+
+private void BoostMoneyForAllies(ref int moneyBoostsRemaining)
+    {
+        // Vérifier s'il reste des utilisations de la fonction
+        if (moneyBoostsRemaining > 0)
+        {
+            // Parcourir la liste des préfabriqués d'unités à améliorer
+            foreach (var prefab in unitPrefabsToUpgrade)
+            {
+                // Vérifier si le préfabriqué a le bon tag, sinon le mettre à jour
+                if (!prefab.CompareTag("Ennemy"))
+                {
+                    //ici on regarde que c'est bien des prefab ennemy parce que ce sont les prefab ennemy qui donne l'argent via la stats moneyGain de la class Unit
+                    Debug.Log("Le préfabriqué " + prefab.name + " n'a pas le bon tag. Mise à jour en cours...");
+                    prefab.tag = "Ennemy";
+                }
+                
+                // Vérifier si le préfabriqué a un composant Unit
+                var unitComponent = prefab.GetComponent<Unit>();
+                if (unitComponent != null)
+                {
+                    // Augmenter les points de l'argent 'unité
+                    unitComponent.moneyGain *= (1f + percentageIncrease / 100f);
+                }
+                else
+                {
+                    Debug.LogWarning("Le préfabriqué " + prefab.name + " n'a pas de composant Unit. Veuillez ajouter un composant Unit à cette unité pour la mise à niveau des statistiques.");
+                }
+            }
+
+            // Décrémenter le nombre d'utilisations restantes
+            moneyBoostsRemaining--;
+        }
+        else
+        {
+            Debug.LogWarning("Vous avez utilisé toutes les améliorations disponibles pour l'argent !");
+        }
+    }
 }
+

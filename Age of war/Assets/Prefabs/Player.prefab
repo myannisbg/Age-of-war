@@ -503,7 +503,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2.1
   rb: {fileID: 5159465721213534262}
-  offset: {x: 1, y: 0, z: 0}
+  offset: {x: 0.5, y: 0, z: 0}
 --- !u!61 &7397229047097414888
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -647,7 +647,10 @@ MonoBehaviour:
   expGain: 1
   moneyGain: 100
   attackSpeed: 1
+  attackRange: 1
   moneyClass: {fileID: 0}
+  xpClass: {fileID: 0}
+  upgrade: {fileID: 0}
   healthBar: {fileID: 8829783979555124523}
 --- !u!114 &7385159503886139740
 MonoBehaviour:

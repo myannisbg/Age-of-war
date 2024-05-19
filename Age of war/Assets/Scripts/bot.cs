@@ -205,11 +205,11 @@ void BotIsPlaying()
                         // Appeler la méthode SpawnPlayer du PlayerSpawner en passant la préfab d'unité
                         spawner.SpawnPlayerBoosted(unitPrefab);
                         countOfUnits++;
-                        print("countOfUnits = " + countOfUnits);
+                        //print("countOfUnits = " + countOfUnits);
                         if (countOfUnits == 3)
                         {
                             scenarioSpecific = true;
-                            print("retour a 0");
+                            // print("retour a 0");
                             countOfUnits = 0;
                         }
                         
@@ -224,7 +224,7 @@ void BotIsPlaying()
                     // Spawn d'un tank (unité 2) et incrémentation du compteur de tanks
                     SpawnTank();
                     tankCount++;
-                    print("tank");
+                    // print("tank");
                     print(tankCount);
                 }
                 // Si le nombre de tanks est égal à 1 et le nombre d'archers est égal à 0
@@ -233,7 +233,7 @@ void BotIsPlaying()
                     // Spawn d'un archer (unité 3) et incrémentation du compteur d'archers
                     SpawnArcher();
                     archerCount++;
-                    print("archer 1");
+                    // print("archer 1");
                 }
                 // Si le nombre de tanks est égal à 1 et le nombre d'archers est égal à 1
                 else if (tankCount == 1 && archerCount == 1)
@@ -243,7 +243,7 @@ void BotIsPlaying()
                     tankCount = 0;
                     archerCount = 0;
                     scenarioSpecific=false;
-                    print("archer 2");
+                    // print("archer 2");
                 }
             }
         }

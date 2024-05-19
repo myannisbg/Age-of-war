@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 505465569948341341, guid: 12030b2efa5c46947a0eaaf2ea71eaa2, type: 3}
       propertyPath: offset.x
-      value: 0.5
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 3622360161235450702, guid: 12030b2efa5c46947a0eaaf2ea71eaa2, type: 3}
       propertyPath: m_IsTrigger

@@ -15,11 +15,10 @@ public class GameManager : MonoBehaviour
         foreach (Unit unit in allUnits)
         {
             // Vérifiez si l'unité appartient à la liste de suivi ou si elle a un tag spécifique
-            if (unit.CompareTag("Ally"))
-            {
+            
                 // Ajoutez l'unité à la liste de suivi
                 units.Add(unit);
-            }
+            
         }
     }
 

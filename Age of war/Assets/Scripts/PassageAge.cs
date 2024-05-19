@@ -9,14 +9,16 @@ public class PassageAge : MonoBehaviour
     public Bases basesHp;
     public Bot bot;
     public Xp xp;
+    public DebloquageUnitee bouttonBloquageUnite4;
+
+
     public void ToggleButton(){
         ageValue.incAge();
         xp.UpdateXpBarre();
         updateBG.updateBackground();
         basesHp.AgeUp();
         bot.ResetSpawnTimer();
-
-
+        bouttonBloquageUnite4.bloqueUnite4();
     }
 }
 

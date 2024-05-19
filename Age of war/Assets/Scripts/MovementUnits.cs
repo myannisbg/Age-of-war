@@ -16,25 +16,26 @@ public class MovePlayer : MonoBehaviour
         MovePlayers(horizontalMovement);
 
         CheckForBase();
-        Debug.DrawRay(transform.position,Vector2.right * 0.5f, Color.red);
-        Debug.DrawRay(transform.position,Vector2.left * 0.5f, Color.green);
+        Debug.DrawRay(transform.position,Vector2.right * 1f, Color.red);
+        Debug.DrawRay(transform.position,Vector2.left * 1f, Color.green);
         // Définir le décalage (offset) à partir du centre de l'objet
 
         // Dessiner un rayon à partir du point de départ ajusté
-        Debug.DrawRay(transform.position + offset, Vector2.right , Color.blue);
-        Debug.DrawRay(transform.position  -offset, Vector2.left , Color.blue);
-
+        // Debug.DrawRay(transform.position + offset, Vector2.right , Color.blue);
+        // Debug.DrawRay(transform.position  -offset, Vector2.left , Color.blue);
+        Debug.DrawRay(transform.position - offset, Vector2.left * 1f, Color.red); // Pour les unités ennemies
+    Debug.DrawRay(transform.position + offset, Vector2.right * 0.5f, Color.blue); // Pour les unités alliées
 
     }
 
-    void MovePlayers(float _horizontalMovement)
+    void MovePlayers(float horizontalMovement)
     {
         // Utilisez l'échelle locale pour déterminer la direction du mouvement
         float horizontalScale = Mathf.Sign(transform.localScale.x);
-        _horizontalMovement *= horizontalScale;
+        horizontalMovement *= horizontalScale;
 
         // Calculer la nouvelle vélocité du joueur
-        Vector3 targetVelocity = new Vector2(_horizontalMovement * moveSpeed, rb.velocity.y);
+        Vector3 targetVelocity = new Vector2(horizontalMovement * moveSpeed, rb.velocity.y);
         rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, .05f);
     }
 
@@ -44,11 +45,11 @@ public class MovePlayer : MonoBehaviour
         string unitTag = gameObject.tag;
 
         // Raycast vers l'avant pour détecter une base ennemie
-        RaycastHit2D hitEnemyBase = Physics2D.Raycast(transform.position+offset, Vector2.left, 1f);
+        RaycastHit2D hitEnemyBase = Physics2D.Raycast(transform.position+offset, Vector2.right, 1f);
         // Raycast vers l'avant pour détecter une base alliée
-        RaycastHit2D hitBase = Physics2D.Raycast(transform.position-offset, Vector2.right, 1f);
+        RaycastHit2D hitBase = Physics2D.Raycast(transform.position-offset, Vector2.left, 0.5f);
         // Raycast vers l'avant pour détecter une unité ennemie
-        RaycastHit2D hitEnemy = Physics2D.Raycast(transform.position - offset, Vector2.left, 0.5f);
+        RaycastHit2D hitEnemy = Physics2D.Raycast(transform.position - offset, Vector2.left, 1f);
         // Raycast vers l'avant pour détecter une unité alliée
         RaycastHit2D hitAlly = Physics2D.Raycast(transform.position + offset, Vector2.right, 0.5f);
 
@@ -58,6 +59,16 @@ public class MovePlayer : MonoBehaviour
             // Arrêter le mouvement
             rb.velocity = Vector2.zero;
         }
+
+    //      if (hitAlly.collider != null)
+    // {
+    //     Debug.Log($"Hit Ally: {hitAlly.collider.tag}");
+    // }
+
+    //     if (hitEnemy.collider != null)
+    // {
+    //     Debug.Log($"Hit Enemy: {hitEnemy.collider.tag}");
+    // }
 
         // Si une base alliée est détectée et que l'unité actuelle est ennemie
         if (hitBase.collider != null && hitBase.collider.CompareTag("Base") && unitTag == "Ennemy")

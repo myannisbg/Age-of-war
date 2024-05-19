@@ -58,16 +58,13 @@ public class Xp : MonoBehaviour
         xpBarre.maxValue = maxXP*(age.getAge()+1)*multipiclateur; 
         xpBarre.value = xp;
 
-        print(xpBarre.value);
-        print(xpBarre.maxValue);
-
         if (xp >= xpBarre.maxValue){
             AmeliorationButton.SetActive(true);
-            print("affiche");
+            
         }
         else {
             AmeliorationButton.SetActive(false);
-            print("enleve");
+            
         }
     }
 }

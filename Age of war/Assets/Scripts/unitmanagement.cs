@@ -76,12 +76,10 @@ void firstUse()
 
 }
 
-
-    public float GetCurrentDamage()
+    public float GetStartDamage()
     {
-        return damageDealt;
+        return startDamage;
     }
-
     public void SetCurrentDamage(float value)
     {
         damageDealt = value;
@@ -106,22 +104,10 @@ void firstUse()
     {
         startHealth=value;
     }
-
-    public float GetCurrentHealth()
-    {
-        return maxHealth;
-    }
-
     public void SetCurrentHealth(float value)
     {
         maxHealth = value;
     }
-
-    public float GetStartDamage()
-    {
-        return startDamage;
-    }
-
     public float GetStartHealth()
     {
         return startHealth;

@@ -7,6 +7,7 @@ public class bottomMenu : MonoBehaviour
 {
     public GameObject Button;
     public GameObject panelDark;
+    public GameManager gameManager;
     
     // Fonction appelée lorsque le bouton est cliqué
     public void ToggleButton()
@@ -29,5 +30,7 @@ public class bottomMenu : MonoBehaviour
     }
     public void kingCrimson(){
         SceneManager.LoadScene("ça marche");
+        gameManager.call();
+    
     }
 }

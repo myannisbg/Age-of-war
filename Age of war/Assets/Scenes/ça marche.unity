@@ -1971,6 +1971,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &183913032 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9139728175804803738, guid: dbadac93322735a4582300e61582d98a, type: 3}
+  m_PrefabInstance: {fileID: 8504126487903279108}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &236386357
 GameObject:
   m_ObjectHideFlags: 0
@@ -2840,7 +2845,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 392961491}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11500000, guid: 64b23a5c4e8a6f14eafa34cb1a1cac8a, type: 3}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &392961491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8677,6 +8694,21 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3270140886503806303, guid: dbadac93322735a4582300e61582d98a, type: 3}
   m_PrefabInstance: {fileID: 8504126487903279108}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1146556772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183913032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64b23a5c4e8a6f14eafa34cb1a1cac8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameMap: {fileID: 4154044166487060797, guid: dbadac93322735a4582300e61582d98a, type: 3}
+  turretSlotPrefab: {fileID: 260034849728646365, guid: 788b381c38f00b345bba44b1bfced3a5, type: 3}
+  castleTilePosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1155606512
 GameObject:
   m_ObjectHideFlags: 0
@@ -10623,7 +10655,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1325250837}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11500000, guid: 64b23a5c4e8a6f14eafa34cb1a1cac8a, type: 3}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1325250837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15244,22 +15288,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5050622157392246149, guid: dbadac93322735a4582300e61582d98a, type: 3}
-      propertyPath: turretSlotPrefab
-      value: 
-      objectReference: {fileID: 3827276896765238260, guid: 31251cbb929a26f4c86b57a832ba3927, type: 3}
-    - target: {fileID: 5050622157392246149, guid: dbadac93322735a4582300e61582d98a, type: 3}
-      propertyPath: castleTilePosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5050622157392246149, guid: dbadac93322735a4582300e61582d98a, type: 3}
-      propertyPath: castleTilePosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5050622157392246149, guid: dbadac93322735a4582300e61582d98a, type: 3}
-      propertyPath: castleTilePosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9139728175804803738, guid: dbadac93322735a4582300e61582d98a, type: 3}
       propertyPath: m_Name
       value: Fondation
@@ -15267,7 +15295,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9139728175804803738, guid: dbadac93322735a4582300e61582d98a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1146556772}
   m_SourcePrefab: {fileID: 100100000, guid: dbadac93322735a4582300e61582d98a, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

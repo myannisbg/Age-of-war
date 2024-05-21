@@ -6,6 +6,7 @@ public class TurretPlacementOnTilemap : MonoBehaviour
     public Tilemap gameMap;
     public GameObject turretSlotPrefab;
     public Vector3Int castleTilePosition; // Position de la tile du château sur la Tilemap
+    public Money money;
 
     void Update()
     {

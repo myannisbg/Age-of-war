@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenShots: 2
-  maxShootingDistance: 5
+  maxShootingDistance: 7
   bullet: {fileID: 7095733949093003047, guid: 95b7f31153d073c45af31d29f164b260, type: 3}
 --- !u!1 &3930623270020015590
 GameObject:
@@ -153,10 +153,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3930623270020015590}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.009, y: 0.403, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.95073265, w: 0.31001213}
+  m_LocalPosition: {x: -0.008998871, y: 0.40299988, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4386743826662878421}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -143.88}

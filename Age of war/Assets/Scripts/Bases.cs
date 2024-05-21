@@ -12,6 +12,7 @@ public class Bases : MonoBehaviour
     private Dictionary<Unit, float> damageAccumulators = new Dictionary<Unit, float>(); // Accumulateurs de dégâts infligés par les ennemis
     public GlobalAge ageValue;
     private const int maxAgeCount = 5; // Nombre maximum d'augmentations d'âge autorisées
+    public VictoiryCondition endGame;
 
     void Start()
     {
@@ -20,15 +21,18 @@ public class Bases : MonoBehaviour
         StartCoroutine(DealDamageOverTime());
     }
     void Update()
-{
-    // Vérifie si la touche J est enfoncée
-    if (Input.GetKeyDown(KeyCode.J))
     {
-        // Appelle la fonction AgeUp
-        AgeUp();
+        // Vérifie si la touche J est enfoncée
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            // Appelle la fonction AgeUp
+            AgeUp();
+        }
     }
-}
 
+    public float getCurrentHealthBase(){
+        return currentHealthBase;
+    }
 
     public void DealDamage(Unit unit, float damageDealt)
     {
@@ -62,6 +66,15 @@ public class Bases : MonoBehaviour
             // Vérifier si la base est toujours en vie
             if (currentHealthBase <= 0)
             {
+                if (gameObject.CompareTag("BaseEnnemy")){
+                    endGame.victory();
+                }
+                else if (gameObject.CompareTag("Base")){
+                    endGame.loose();
+                }
+                else {
+                    print("erreur niveau de la condition de victoire");
+                }
                 // La base est détruite, terminer la coroutine
                 yield break;
             }

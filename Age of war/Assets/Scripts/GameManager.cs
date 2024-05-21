@@ -22,6 +22,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void call()
+    {
+        OnApplicationQuit();
+    }
+
     private void OnApplicationQuit()
     {
         // Vérifiez si au moins une unité a été initialisée

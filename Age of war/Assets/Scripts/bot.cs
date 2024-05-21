@@ -34,6 +34,7 @@ private Dictionary<int, float> lastSpawnTimes = new Dictionary<int, float>();
 
     void Start()
     {
+        UpdateBotFunction();
         string unitTag = gameObject.tag;
         gameObject.tag = "Ennemy";
         for (int i = 0; i < unitPrefabs.Count / 4; i++)
@@ -51,6 +52,55 @@ private Dictionary<int, float> lastSpawnTimes = new Dictionary<int, float>();
     void Update()
     {
         SpawnUnits();
+    }
+
+    void UpdateBotFunction()
+    {
+        int difficulty = PlayerPrefs.GetInt("Difficulty",0);
+
+        switch (difficulty)
+        {
+            case 0:
+                currentFunction = BotFunction.BotIsDumb;
+                break;
+            case 1:
+                currentFunction = BotFunction.BotIsTrying;
+                break;
+            case 2:
+                currentFunction = BotFunction.BotIsPlaying;
+                break;
+            case 3:
+                currentFunction = BotFunction.BotIsTooStrong;
+                break;
+            default:
+                Debug.LogWarning("Unknown difficulty setting: " + difficulty);
+                break;
+        }
+
+        ApplyBotFunction();
+    }
+
+    void ApplyBotFunction()
+    {
+        switch (currentFunction)
+        {
+            case BotFunction.BotIsDumb:
+                // Logic for dumb bot
+                Debug.Log("Bot is set to Dumb");
+                break;
+            case BotFunction.BotIsTrying:
+                // Logic for trying bot
+                Debug.Log("Bot is set to Trying");
+                break;
+            case BotFunction.BotIsPlaying:
+                // Logic for playing bot
+                Debug.Log("Bot is set to Playing");
+                break;
+            case BotFunction.BotIsTooStrong:
+                // Logic for too strong bot
+                Debug.Log("Bot is set to Too Strong");
+                break;
+        }
     }
 
     void SpawnUnits()

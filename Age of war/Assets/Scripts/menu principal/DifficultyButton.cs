@@ -8,9 +8,9 @@ public class DifficultyButton : MonoBehaviour
     public int difficulty;
 
 
-    public void SetDifficulty(string difficulty)
+    public void SetDifficulty(int difficulty)
     {
-        PlayerPrefs.SetString("Difficulty", difficulty);
+        PlayerPrefs.SetInt("Difficulty", difficulty);
         SceneManager.LoadScene("ça marche");
     }
 }

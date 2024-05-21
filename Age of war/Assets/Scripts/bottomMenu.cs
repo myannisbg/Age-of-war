@@ -30,4 +30,8 @@ public class bottomMenu : MonoBehaviour
     public void kingCrimson(){
         SceneManager.LoadScene("ça marche");
     }
+
+    public void retourMenu(){
+        SceneManager.LoadScene("menus");
+    }
 }

@@ -44,13 +44,29 @@ public class FriendList : MonoBehaviour
 
     void DisplayFriends(List<FriendInfo> friendsCache)
     {
+        if (friendsCache == null)
+        {
+            Debug.LogWarning("Friends cache is null.");
+            return;
+        }
+
         foreach (FriendInfo f in friendsCache)
         {
             GameObject listing = Instantiate(listingPrefab, friendScrollView);
             ListingPrefab tempListing = listing.GetComponent<ListingPrefab>();
-            tempListing.playerNameText.text = f.TitleDisplayName ?? "Unknown";
+            print(tempListing);
+            if (tempListing != null && tempListing.playerNameText != null)
+            {
+                // Assurez-vous que ListingPrefab a un TMP_Text nommé playerNameText
+                tempListing.playerNameText.text = f.TitleDisplayName ?? "Unknown"; // Utilisez TitleDisplayName ou utilisez "Unknown" en cas de valeur null
+            }
+            else
+            {
+                Debug.LogWarning("Temp listing or player name text is null.");
+            }
         }
     }
+
 
     void DisplayPlayFabError(PlayFabError error)
     {

@@ -2,12 +2,18 @@ using UnityEngine;
 using PlayFab;
 using PlayFab.ClientModels;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayFabManager : MonoBehaviour
 {
     public InputField usernameInput;
     public InputField passwordInput;
     public InputField emailInput;
+
+    public GameObject canvaRegister;
+    public GameObject canvaLogin;
+    public GameObject canvaProfil;
+    public TMP_Text playerIdText;
 
     // Méthode appelée lorsque l'utilisateur appuie sur le bouton de connexion
     public void OnLoginButtonClicked()
@@ -58,17 +64,16 @@ public class PlayFabManager : MonoBehaviour
     }
 
 
-
-
-
-
-
     private void OnLoginSuccess(LoginResult result)
     {
         Debug.Log("Logged in successfully!");
         string name = null;
         name = result.InfoResultPayload.PlayerProfile.DisplayName;
         Debug.Log(name);
+        canvaLogin.SetActive(false);
+        canvaProfil.SetActive(true);
+        string id = result.PlayFabId;
+        playerIdText.text = "Player ID: " + id;
     }
 
     private void OnLoginFailure(PlayFabError error)
@@ -79,6 +84,11 @@ public class PlayFabManager : MonoBehaviour
     private void OnRegisterSuccess(RegisterPlayFabUserResult result)
     {
         Debug.Log("Registered successfully!");
+        
+        canvaRegister.SetActive(false);
+        canvaProfil.SetActive(true);
+        string id = result.PlayFabId;
+        playerIdText.text = "Player ID: " + id;
     }
 
     private void OnRegisterFailure(PlayFabError error)

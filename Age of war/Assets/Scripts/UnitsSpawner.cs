@@ -38,13 +38,13 @@ public class PlayerSpawner : MonoBehaviour
         // Vérifier s'il y a déjà 10 unités alliées ou ennemies sur le terrain
         if (allyCount >= 11)
         {
-            Debug.LogWarning("Nombre maximum d'unités alliées atteint !");
+            // Debug.LogWarning("Nombre maximum d'unités alliées atteint !");
             return;
         }
 
         if (enemyCount >= 11)
         {
-            Debug.LogWarning("Nombre maximum d'unités ennemies atteint !");
+            // Debug.LogWarning("Nombre maximum d'unités ennemies atteint !");
             return;
         }
 
@@ -105,13 +105,13 @@ public class PlayerSpawner : MonoBehaviour
         // Vérifier s'il y a déjà 10 unités alliées ou ennemies sur le terrain
         if (allyCount >= 10)
         {
-            Debug.LogWarning("Nombre maximum d'unités alliées atteint !");
+            // Debug.LogWarning("Nombre maximum d'unités alliées atteint !");
             return;
         }
 
         if (enemyCount >= 10)
         {
-            Debug.LogWarning("Nombre maximum d'unités ennemies atteint !");
+            // Debug.LogWarning("Nombre maximum d'unités ennemies atteint !");
             return;
         }
 
@@ -142,10 +142,10 @@ private void ApplyStatBoost(GameObject unit)
             unitStats.damageDealt *= 1.2f; // Augmenter les dégâts infligés
             // Ajoutez d'autres modifications au besoin
         }
-        else
-        {
-            Debug.LogWarning("L'unité " + unit.name + " n'a pas de composant Bases pour appliquer le boost de statistiques.");
-        }
+        // else
+        // {
+        //     Debug.LogWarning("L'unité " + unit.name + " n'a pas de composant Bases pour appliquer le boost de statistiques.");
+        // }
     }
 }
 
@@ -170,20 +170,17 @@ private void ApplyStatBoost(GameObject unit)
             // Compter le nombre d'unités alliées et ennemies sur le terrain
             int allyCount = GameObject.FindGameObjectsWithTag("Ally").Length;
             int enemyCount = GameObject.FindGameObjectsWithTag("Ennemy").Length;
-
             // Vérifier s'il y a déjà 10 unités alliées ou ennemies sur le terrain
             if (allyCount >= 10)
             {
-                Debug.LogWarning("Nombre maximum d'unités alliées atteint !");
+                // Debug.LogWarning("Nombre maximum d'unités alliées atteint !");
                 break; // Sortir de la boucle si le nombre maximum d'unités alliées est atteint
             }
-
             if (enemyCount >= 10)
             {
-                Debug.LogWarning("Nombre maximum d'unités ennemies atteint !");
+                // Debug.LogWarning("Nombre maximum d'unités ennemies atteint !");
                 break; // Sortir de la boucle si le nombre maximum d'unités ennemies est atteint
             }
-
             GameObject unitPrefab = unitsWaitingToSpawn.Peek(); // Obtenir le premier prefab d'unité en attente
 
             // Vérifier s'il y a de la place pour faire spawn l'unité
@@ -196,10 +193,8 @@ private void ApplyStatBoost(GameObject unit)
             {
                 // Instancier l'unité à la position actuelle du spawner en utilisant le prefab de l'unité fourni
                 GameObject currentPlayer = Instantiate(unitPrefab, transform.position, Quaternion.identity);
-
                 // Ajouter le joueur à la liste des joueurs actifs
                 activePlayers.Add(currentPlayer);
-
                 // Retirer l'unité de la file d'attente
                 unitsWaitingToSpawn.Dequeue();
             }

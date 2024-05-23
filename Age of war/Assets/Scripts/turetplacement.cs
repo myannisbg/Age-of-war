@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class turetPlacement : MonoBehaviour
+public class TurretPlacement : MonoBehaviour
 {
     public Tilemap gameMap;
     public GameObject turretSlotPrefab;
@@ -24,27 +24,38 @@ public class turetPlacement : MonoBehaviour
     public void AddTurretSlotOnCastle()
     {
         Debug.Log("Add Turret Slot button clicked.");
-        if (turretSlotPrefab != null && gameMap != null && currentTurrets < maxTurrets)
+        if (turretSlotPrefab != null && gameMap != null)
         {
-            if (currentTurrets == 0)
+            if (currentTurrets < maxTurrets)
             {
-                lastPosition = gameMap.CellToWorld(castleTilePosition) + new Vector3(-10.7246f, -0.2499f, 0);
+                if (currentTurrets == 0)
+                {
+                    lastPosition = gameMap.CellToWorld(castleTilePosition) + new Vector3(-10.7246f, -0.2499f, 0);
+                }
+                else
+                {
+                    lastPosition += new Vector3(0, 1, 0); // Décale chaque nouvelle tourelle d'une unité vers le haut
+                }
+
+                Instantiate(turretSlotPrefab, lastPosition, Quaternion.identity);
+                currentTurrets++; // Incrémenter le nombre de tourelles placées
+                Debug.Log("Turret slot added at position: " + lastPosition);
             }
             else
             {
-                lastPosition += new Vector3(0, 1, 0); // Décale chaque nouvelle tourelle d'une unité vers le haut
+                Debug.LogWarning("Maximum turret slots reached!");
             }
-
-            Instantiate(turretSlotPrefab, lastPosition, Quaternion.identity);
-            currentTurrets++; // Incrémenter le nombre de tourelles placées
-        }
-        else if (currentTurrets >= maxTurrets)
-        {
-            Debug.LogError("Maximum turret slots reached!");
         }
         else
         {
-            Debug.LogError("Turret slot prefab or gameMap not set!");
+            if (turretSlotPrefab == null)
+            {
+                Debug.LogError("Turret slot prefab not set!");
+            }
+            if (gameMap == null)
+            {
+                Debug.LogError("Game map not set!");
+            }
         }
     }
 }

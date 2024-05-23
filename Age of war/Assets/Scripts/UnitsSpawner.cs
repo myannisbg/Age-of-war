@@ -9,7 +9,7 @@ public class PlayerSpawner : MonoBehaviour
     private Queue<GameObject> unitsWaitingToSpawn = new Queue<GameObject>();
     private List<GameObject> activePlayers = new List<GameObject>();
     public int currentAge = 0;
-    int damageBoostsRemaining=1000;
+    bool damageBoostsBool;
 
     void FixedUpdate()
     {
@@ -84,14 +84,14 @@ public void SpawnPlayerBoosted(GameObject unitPrefab)
     SpawnPlayer(unitPrefab);
 
     // Si un boost est disponible, appliquer les boosts nécessaires
-    if (damageBoostsRemaining > 0)
+    if (damageBoostsBool)
     {
         // Chercher le dernier joueur actif (celui qui vient d'être spawné)
         GameObject currentPlayer = activePlayers[activePlayers.Count - 1];
 
         // Appliquer le boost de statistiques si nécessaire
         ApplyStatBoost(currentPlayer);
-        damageBoostsRemaining--; // Réduire le nombre de boosts restants
+         // Réduire le nombre de boosts restants
     }
 }
 

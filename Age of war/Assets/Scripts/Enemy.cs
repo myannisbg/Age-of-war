@@ -12,52 +12,92 @@ public class Enemy : MonoBehaviour
     public GameObject bullet;  // Préfab de la balle
 
     private float shotTimer;  // Compteur pour le prochain tir
+    private bool isDeletionMode = false;
+
+    private Camera mainCamera;
+    private Renderer objectRenderer;
 
     void Start()
     {
         shotTimer = timeBetweenShots;
+        mainCamera = Camera.main;
+        objectRenderer = GetComponent<Renderer>(); // Utilise le Renderer pour déterminer les limites de l'objet
     }
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            isDeletionMode = !isDeletionMode;  // Active ou désactive le mode suppression
+            Debug.Log("Mode suppression: " + (isDeletionMode ? "activé" : "désactivé"));
+        }
+
         if (shotTimer <= 0)
         {
-            AttackClosestEnemy();
+            AttackClosestEnnemy();
             shotTimer = timeBetweenShots;
         }
         else
         {
             shotTimer -= Time.deltaTime;
         }
+
+        // Vérifie les clics de souris pour la suppression
+        if (isDeletionMode && Input.GetMouseButtonDown(0))
+        {
+            CheckForObjectDeletion();
+        }
     }
 
-    private void AttackClosestEnemy()
+    private void CheckForObjectDeletion()
     {
-        Transform closestEnemy = FindClosestEnemy();
-        if (closestEnemy != null)
+        Vector2 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+
+        // Vérifie si la position de la souris est à l'intérieur des limites de l'objet
+        if (IsMouseOverGameObject(mousePosition))
         {
-            float distanceToEnemy = Vector2.Distance(transform.position, closestEnemy.position);
-            if (distanceToEnemy <= maxShootingDistance)  // Vérifie si l'ennemi est à portée
+            Debug.Log("Objet détruit.");
+            Destroy(gameObject);
+        }
+    }
+
+    private bool IsMouseOverGameObject(Vector2 mousePosition)
+    {
+        if (objectRenderer != null)
+        {
+            Bounds bounds = objectRenderer.bounds;
+            return bounds.Contains(mousePosition);
+        }
+        return false;
+    }
+
+    private void AttackClosestEnnemy()
+    {
+        Transform closestEnnemy = FindClosestEnnemy();
+        if (closestEnnemy != null)
+        {
+            float distanceToEnnemy = Vector2.Distance(transform.position, closestEnnemy.position);
+            if (distanceToEnnemy <= maxShootingDistance)  // Vérifie si l'ennemi est à portée
             {
                 Instantiate(bullet, transform.position, Quaternion.identity);  // Tir
             }
         }
     }
 
-    private Transform FindClosestEnemy()
+    private Transform FindClosestEnnemy()
     {
-        Transform closestEnemy = null;
+        Transform closestEnnemy = null;
         float closestDistance = Mathf.Infinity;
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Ennemy");
-        foreach (GameObject enemy in enemies)
+        GameObject[] ennemies = GameObject.FindGameObjectsWithTag("Ennemy");
+        foreach (GameObject ennemy in ennemies)
         {
-            float distance = Vector2.Distance(transform.position, enemy.transform.position);
+            float distance = Vector2.Distance(transform.position, ennemy.transform.position);
             if (distance < closestDistance)
             {
-                closestEnemy = enemy.transform;
+                closestEnnemy = ennemy.transform;
                 closestDistance = distance;
             }
         }
-        return closestEnemy;
+        return closestEnnemy;
     }
 }

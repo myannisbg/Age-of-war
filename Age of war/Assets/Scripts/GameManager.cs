@@ -14,8 +14,6 @@ public class GameManager : MonoBehaviour
         // Parcourir toutes les unités trouvées
         foreach (Unit unit in allUnits)
         {
-            // Vérifiez si l'unité appartient à la liste de suivi ou si elle a un tag spécifique
-            
                 // Ajoutez l'unité à la liste de suivi
                 units.Add(unit);
             

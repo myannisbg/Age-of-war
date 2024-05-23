@@ -14794,7 +14794,6 @@ MonoBehaviour:
   ageValue: {fileID: 333553887}
   money: {fileID: 333553885}
   priceOfUnit: 640000002c010000801a0600
-  upgrade: {fileID: 1230889308}
 --- !u!114 &1382498962
 MonoBehaviour:
   m_ObjectHideFlags: 0

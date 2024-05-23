@@ -19,15 +19,7 @@ public class Bases : MonoBehaviour
         healthBarBase.SetMaxHealth((int)maxHealthBase);
         StartCoroutine(DealDamageOverTime());
     }
-    void Update()
-{
-    // Vérifie si la touche J est enfoncée
-    if (Input.GetKeyDown(KeyCode.J))
-    {
-        // Appelle la fonction AgeUp
-        AgeUp();
-    }
-}
+
 
 
     public void DealDamage(Unit unit, float damageDealt)

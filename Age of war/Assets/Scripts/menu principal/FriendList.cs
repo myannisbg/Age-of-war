@@ -3,6 +3,7 @@ using UnityEngine;
 using PlayFab;
 using PlayFab.ClientModels;
 using TMPro;
+using System.Collections;
 
 public class FriendList : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class FriendList : MonoBehaviour
     Transform friendScrollView;
     [SerializeField]
     TMP_InputField friendInputField; // Champ de saisie pour l'ID de l'ami
+    [SerializeField]
+    List<FriendInfo> myFriends;
 
     public void InputFriendID(string idIn)
     {
@@ -44,6 +47,15 @@ public class FriendList : MonoBehaviour
 
     void DisplayFriends(List<FriendInfo> friendsCache)
     {
+        // Effacer le contenu actuel du scrollView
+        foreach (Transform child in friendScrollView)
+        {
+            Destroy(child.gameObject);
+        }
+
+        // Effacer la liste des amis actuels
+        myFriends.Clear();
+
         if (friendsCache == null)
         {
             Debug.LogWarning("Friends cache is null.");
@@ -52,20 +64,38 @@ public class FriendList : MonoBehaviour
 
         foreach (FriendInfo f in friendsCache)
         {
-            GameObject listing = Instantiate(listingPrefab, friendScrollView);
-            ListingPrefab tempListing = listing.GetComponent<ListingPrefab>();
-            print(tempListing);
-            if (tempListing != null && tempListing.playerNameText != null)
+            bool isFound = false;
+            // Vérifier si l'ami est déjà dans myFriends pour éviter les doublons
+            foreach(FriendInfo g in myFriends)
             {
-                // Assurez-vous que ListingPrefab a un TMP_Text nommé playerNameText
-                tempListing.playerNameText.text = f.TitleDisplayName ?? "Unknown"; // Utilisez TitleDisplayName ou utilisez "Unknown" en cas de valeur null
+                if(f.FriendPlayFabId == g.FriendPlayFabId)
+                {
+                    isFound = true;
+                    break;
+                }
             }
-            else
+
+            // Ajouter l'ami uniquement s'il n'est pas déjà dans myFriends
+            if (!isFound)
             {
-                Debug.LogWarning("Temp listing or player name text is null.");
+                myFriends.Add(f);
+                
+                GameObject listing = Instantiate(listingPrefab, friendScrollView);
+                ListingPrefab tempListing = listing.GetComponent<ListingPrefab>();
+                if (tempListing != null && tempListing.playerNameText != null)
+                {
+                    // Assurez-vous que ListingPrefab a un TMP_Text nommé playerNameText
+                    tempListing.playerNameText.text = f.TitleDisplayName ?? "Unknown"; // Utilisez TitleDisplayName ou utilisez "Unknown" en cas de valeur null
+                }
+                else
+                {
+                    Debug.LogWarning("Temp listing or player name text is null.");
+                }
             }
         }
     }
+
+
 
 
     void DisplayPlayFabError(PlayFabError error)
@@ -78,7 +108,17 @@ public class FriendList : MonoBehaviour
         Debug.LogError(error);
     }
 
-    void GetFriends()
+    IEnumerator WaitForFriend()
+    {
+        yield return new WaitForSeconds(2);
+        GetFriends();
+    }
+
+    public void RunWaitFunction(){
+        StartCoroutine(WaitForFriend());
+    }
+
+    public void GetFriends()
     {
         PlayFabClientAPI.GetFriendsList(new GetFriendsListRequest(), result =>
         {

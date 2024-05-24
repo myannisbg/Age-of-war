@@ -33,16 +33,10 @@ public class Healthbar : MonoBehaviour
         {
             // Instancie un Slider et l'attache à cet objet
             slider = gameObject.AddComponent<Slider>();
-
-            // Configurez le Slider selon vos besoins
             slider.minValue = 0;
             slider.maxValue = maxHealth;
             slider.value = maxHealth;
-
-            // Vous pouvez également ajouter un background, une barre de remplissage, etc.
-            // Assurez-vous de configurer les éléments visuels du Slider comme vous le souhaitez.
         }
-
         // Définit la santé maximale
         SetMaxHealth((int)maxHealth);
     }

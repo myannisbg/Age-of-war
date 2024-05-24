@@ -28,7 +28,6 @@ public class LanguageObject : MonoBehaviour
                 languageButtons[i].transform.position = transform.position + Vector3.up * i * buttonSpacing;
             }
             isUnfold = true;
-
         }
         else{
             selectedButton = button;

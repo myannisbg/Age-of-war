@@ -21,7 +21,9 @@ public class Unit : MonoBehaviour
     public static bool UnitsSpawned { get; private set; } = false;
     public Money moneyClass;
     public Xp xpClass;
-    public UpgradeUnit upgrade;
+    private string unitTag;
+    public int type;
+    public GameObject bullet;
 
 
 
@@ -52,6 +54,7 @@ public static void ResetInitialValues(GameObject prefab)
 
     void Start()
     {
+        unitTag = transform.root.tag;
         currentHealth = maxHealth;
         healthBar.SetMaxHealth((int)maxHealth); // Convertir maxHealth en int
         attackCooldown = 1f / attackSpeed; // Calcul de l'interval de temps entre chaque attaque
@@ -124,10 +127,10 @@ void firstUse()
         {
             Die();
         }
-        else
-        {
-            Debug.Log("Unité ennemie non détectée. Aucun ajout d'argent.");
-        }
+        // else
+        // {
+        //     Debug.Log("Unité ennemie non détectée. Aucun ajout d'argent.");
+        // }
         
         
         }
@@ -170,37 +173,6 @@ void firstUse()
 }
 
 
-// void AttackTarget(GameObject targetObject)
-// {
-//     // Effectuer un raycast vers la cible
-//     Vector2 direction = (targetObject.transform.position - transform.position).normalized;
-//     RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, Mathf.Infinity);
-
-//     // Vérifier si le raycast a touché la cible
-//     if (hit.collider != null && hit.collider.gameObject == targetObject)
-//     {
-//         if (targetObject.CompareTag("Ennemy"))
-//         {
-//             Unit unit = targetObject.GetComponent<Unit>();
-//             if (unit != null)
-//             {
-//                 // Effectuer une attaque sur l'unité
-//                 unit.TakeDamage(damageDealt);
-//             }
-//         }
-//         else if (targetObject.CompareTag("Base") || targetObject.CompareTag("BaseEnnemy"))
-//         {
-//             Bases baseComponent = targetObject.GetComponent<Bases>();
-//             if (baseComponent != null)
-//             {
-//                 // Effectuer une attaque sur la base
-//                 baseComponent.DealDamage(this, damageDealt);
-//             }
-//         }
-
-//         lastDamageTime = Time.time;
-//     }
-// }
 
     public void DealDamage(Collider2D collision)
     {
@@ -220,6 +192,99 @@ void firstUse()
             }
         }
     }
+    // private void AttackClosestEnemy()
+    // {
+    //     Transform closestEnemy = FindClosestEnemy();
+    //     if (closestEnemy != null)
+    //     {
+    //         float distanceToEnemy = Vector2.Distance(transform.position, closestEnemy.position);
+    //         if (distanceToEnemy <= attackRange)
+    //         {
+    //             if (Time.time - lastDamageTime >= attackCooldown)
+    //             {
+    //                 if (type == 2)
+    //                 {
+    //                     Instantiate(bullet, transform.position, Quaternion.identity);
+    //                 }
+    //                 else
+    //                 {
+    //                     if (unitTag == "Ally") // Si l'unité est un allié
+    //                     {
+    //                         // Vérifier si l'ennemi n'est pas un allié
+    //                         if (closestEnemy.CompareTag("Ennemy"))
+    //                         {
+    //                             DealDirectDamage(closestEnemy);
+    //                             lastDamageTime = Time.time;
+    //                         }
+    //                     }
+    //                     else // Si l'unité est un ennemi
+    //                     {
+    //                         // Vérifier si l'ennemi n'est pas un ennemi
+    //                         if (closestEnemy.CompareTag("Ally"))
+    //                         {
+    //                             DealDirectDamage(closestEnemy);
+    //                             lastDamageTime = Time.time;
+    //                         }
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
+
+//     private void DealDirectDamage(Transform enemy)
+// {
+//     Unit enemyUnit = enemy.GetComponent<Unit>();
+//     if (enemyUnit != null)
+//     {
+//         // Vérifier le type de l'unité
+//         if (type == 2)
+//         {
+//             // L'unité tire un projectile
+//             Instantiate(bullet, transform.position, Quaternion.identity);
+//         }
+//         else
+//         {
+//             // L'unité inflige des dégâts directs sans faire apparaître de projectile
+//             enemyUnit.TakeDamage(damageDealt);
+//         }
+//     }
+
+//     Bases enemyBase = enemy.GetComponent<Bases>();
+//     if (enemyBase != null)
+//     {
+//         // Vérifier le type de l'unité
+//         if (type == 2)
+//         {
+//             // L'unité tire un projectile
+//             Instantiate(bullet, transform.position, Quaternion.identity);
+//         }
+//         else
+//         {
+//             // L'unité inflige des dégâts directs sans faire apparaître de projectile
+//             enemyBase.DealDamage(this, damageDealt);
+//         }
+//     }
+// }
+
+
+//     private Transform FindClosestEnemy()
+//     {
+//         Transform closestEnemy = null;
+//         float closestDistance = Mathf.Infinity;
+//         GameObject[] enemies = GameObject.FindGameObjectsWithTag(unitTag == "Ally" ? "Ennemy" : "Ally"); // Sélection des ennemis en fonction du tag de l'unité
+
+//         foreach (GameObject enemy in enemies)
+//         {
+//             float distance = Vector2.Distance(transform.position, enemy.transform.position);
+//             if (distance < closestDistance)
+//             {
+//                 closestEnemy = enemy.transform;
+//                 closestDistance = distance;
+//             }
+//         }
+//         return closestEnemy;
+//     }
 
     
 
@@ -241,6 +306,6 @@ void firstUse()
                     xpComponent.addXp(expGain);
                     }
 
+        }   
     }
-}
 }

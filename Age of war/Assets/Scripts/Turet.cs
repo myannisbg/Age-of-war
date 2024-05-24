@@ -9,10 +9,9 @@ public class Turet : MonoBehaviour
     public float maxShootingDistance = 10f;  // Distance maximale de tir
 
     [Header("References")]
-    public GameObject bullet;  // Pr�fab de la balle
+    public GameObject bullet;  // Préfab de la balle
 
     private float shotTimer;  // Compteur pour le prochain tir
-    private bool isDeletionMode = false;
 
     private Camera mainCamera;
     private Renderer objectRenderer;
@@ -21,17 +20,11 @@ public class Turet : MonoBehaviour
     {
         shotTimer = timeBetweenShots;
         mainCamera = Camera.main;
-        objectRenderer = GetComponent<Renderer>(); // Utilise le Renderer pour d�terminer les limites de l'objet
+        objectRenderer = GetComponent<Renderer>(); // Utilise le Renderer pour déterminer les limites de l'objet
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            isDeletionMode = !isDeletionMode;  // Active ou d�sactive le mode suppression
-            Debug.Log("Mode suppression: " + (isDeletionMode ? "activ�" : "d�sactiv�"));
-        }
-
         if (shotTimer <= 0)
         {
             AttackClosestEnnemy();
@@ -42,23 +35,6 @@ public class Turet : MonoBehaviour
             shotTimer -= Time.deltaTime;
         }
 
-        // V�rifie les clics de souris pour la suppression
-        if (isDeletionMode && Input.GetMouseButtonDown(0))
-        {
-            CheckForObjectDeletion();
-        }
-    }
-
-    private void CheckForObjectDeletion()
-    {
-        Vector2 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-
-        // V�rifie si la position de la souris est � l'int�rieur des limites de l'objet
-        if (IsMouseOverGameObject(mousePosition))
-        {
-            Debug.Log("Objet d�truit.");
-            Destroy(gameObject);
-        }
     }
 
     private bool IsMouseOverGameObject(Vector2 mousePosition)
@@ -74,13 +50,9 @@ public class Turet : MonoBehaviour
     private void AttackClosestEnnemy()
     {
         Transform closestEnnemy = FindClosestEnnemy();
-        if (closestEnnemy != null)
+        if (closestEnnemy != null && Vector2.Distance(transform.position, closestEnnemy.position) <= maxShootingDistance)
         {
-            float distanceToEnnemy = Vector2.Distance(transform.position, closestEnnemy.position);
-            if (distanceToEnnemy <= maxShootingDistance)  // V�rifie si l'ennemi est � port�e
-            {
-                Instantiate(bullet, transform.position, Quaternion.identity);  // Tir
-            }
+            Instantiate(bullet, transform.position, Quaternion.identity);
         }
     }
 

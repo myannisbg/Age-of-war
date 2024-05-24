@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
 
     public void call()
     {
-        OnApplicationQuit();
+        
     }
 
     private void OnApplicationQuit()

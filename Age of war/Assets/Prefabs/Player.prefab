@@ -650,7 +650,6 @@ MonoBehaviour:
   attackRange: 1
   moneyClass: {fileID: 0}
   xpClass: {fileID: 0}
-  upgrade: {fileID: 0}
   healthBar: {fileID: 8829783979555124523}
 --- !u!114 &7385159503886139740
 MonoBehaviour:

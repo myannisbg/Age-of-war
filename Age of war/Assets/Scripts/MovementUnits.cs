@@ -6,24 +6,25 @@ public class MovePlayer : MonoBehaviour
     public Rigidbody2D rb;
     private Vector3 velocity = Vector3.zero;
     public Vector3 offset = new Vector3(0.2f, 0.0f, 0.0f); // Exemple : décalage de 0.5 unité vers la droite
+    float horizontalMovement = 0.5f; // Modification de la direction du mouvement
 
     void FixedUpdate()
     {
         // Définir la direction dans laquelle le joueur doit se déplacer (horizontalement)
-        float horizontalMovement = 0.5f; // Modification de la direction du mouvement
+       
 
         // Déplacer le joueur
         MovePlayers(horizontalMovement);
 
         CheckForBase();
-        Debug.DrawRay(transform.position,Vector2.right * 1f, Color.red);
-        Debug.DrawRay(transform.position,Vector2.left * 1f, Color.green);
+        // Debug.DrawRay(transform.position,Vector2.right * 1f, Color.red);
+        // Debug.DrawRay(transform.position,Vector2.left * 1f, Color.green);
         // Définir le décalage (offset) à partir du centre de l'objet
 
         // Dessiner un rayon à partir du point de départ ajusté
         // Debug.DrawRay(transform.position + offset, Vector2.right , Color.blue);
         // Debug.DrawRay(transform.position  -offset, Vector2.left , Color.blue);
-        Debug.DrawRay(transform.position - offset, Vector2.left * 1f, Color.red); // Pour les unités ennemies
+        Debug.DrawRay(transform.position - offset, Vector2.left * 0.5f, Color.red); // Pour les unités ennemies
     Debug.DrawRay(transform.position + offset, Vector2.right * 0.5f, Color.blue); // Pour les unités alliées
 
     }

@@ -21,7 +21,6 @@ public class Unit : MonoBehaviour
     public static bool UnitsSpawned { get; private set; } = false;
     public Money moneyClass;
     public Xp xpClass;
-    public UpgradeUnit upgrade;
 
 
 
@@ -241,6 +240,6 @@ void firstUse()
                     xpComponent.addXp(expGain);
                     }
 
+        }   
     }
-}
 }

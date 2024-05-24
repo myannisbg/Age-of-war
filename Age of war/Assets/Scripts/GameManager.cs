@@ -14,8 +14,6 @@ public class GameManager : MonoBehaviour
         // Parcourir toutes les unités trouvées
         foreach (Unit unit in allUnits)
         {
-            // Vérifiez si l'unité appartient à la liste de suivi ou si elle a un tag spécifique
-            
                 // Ajoutez l'unité à la liste de suivi
                 units.Add(unit);
             
@@ -24,7 +22,15 @@ public class GameManager : MonoBehaviour
 
     public void call()
     {
-        OnApplicationQuit();
+    if (Unit.UnitsSpawned)
+        {
+            // Convertissez la liste de Unit en une liste de GameObject
+            List<GameObject> unitPrefabs = units.ConvertAll(unit => unit.gameObject);
+            
+            // Appelez la méthode de réinitialisation des statistiques uniquement si des unités ont été initialisées
+            StatReset.ResetStats(unitPrefabs);
+            // Debug.Log("Resetting initial values on quit");
+        }
     }
 
     private void OnApplicationQuit()

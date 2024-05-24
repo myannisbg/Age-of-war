@@ -34,6 +34,7 @@ private Dictionary<int, float> lastSpawnTimes = new Dictionary<int, float>();
 
     void Start()
     {
+        SpawnUnits();
         UpdateBotFunction();
         string unitTag = gameObject.tag;
         gameObject.tag = "Ennemy";
@@ -46,6 +47,7 @@ private Dictionary<int, float> lastSpawnTimes = new Dictionary<int, float>();
         {
             spawner = FindObjectOfType<PlayerSpawner>();
         }
+        
 
     }
 

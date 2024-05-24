@@ -3391,6 +3391,7 @@ GameObject:
   - component: {fileID: 392961492}
   - component: {fileID: 392961491}
   - component: {fileID: 392961490}
+  - component: {fileID: 392961493}
   m_Layer: 5
   m_Name: turet1
   m_TagString: Untagged
@@ -3461,7 +3462,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 392961491}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 392961493}
+        m_TargetAssemblyTypeName: TurretManager, Assembly-CSharp
+        m_MethodName: SelectTurret
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &392961491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3500,6 +3513,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 392961488}
   m_CullTransparentMesh: 1
+--- !u!114 &392961493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392961488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9959fc059ef61e74582a4ec0c1d31686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turretPrefabs:
+  - {fileID: 1070098456149786746, guid: 8d668da4a49d0ed439829cef4f0c142b, type: 3}
+  selectedTurretPrefab: {fileID: 0}
 --- !u!1 &395672893
 GameObject:
   m_ObjectHideFlags: 0
@@ -10074,6 +10102,7 @@ GameObject:
   - component: {fileID: 1134112166}
   - component: {fileID: 1134112165}
   - component: {fileID: 1134112164}
+  - component: {fileID: 1134112167}
   m_Layer: 5
   m_Name: sellTuret
   m_TagString: Untagged
@@ -10144,7 +10173,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1134112165}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1134112167}
+        m_TargetAssemblyTypeName: SellTuret, Assembly-CSharp
+        m_MethodName: ToggleDeletionMode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1134112165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10183,6 +10224,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1134112162}
   m_CullTransparentMesh: 1
+--- !u!114 &1134112167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134112162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90f2b9520fcb84544a371f8f7f48a14b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1135239141
 GameObject:
   m_ObjectHideFlags: 0
@@ -12949,7 +13002,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -11, y: -1, z: 0}
+  - first: {x: -14, y: -1, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 14
@@ -12959,7 +13012,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 26, y: -1, z: 0}
+  - first: {x: 30, y: -1, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 9
@@ -12969,7 +13022,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -11, y: 0, z: 0}
+  - first: {x: -14, y: 0, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 12
@@ -12979,7 +13032,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -10, y: 0, z: 0}
+  - first: {x: -13, y: 0, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 11
@@ -12989,7 +13042,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 25, y: 0, z: 0}
+  - first: {x: 29, y: 0, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 8
@@ -12999,7 +13052,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 26, y: 0, z: 0}
+  - first: {x: 30, y: 0, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 7

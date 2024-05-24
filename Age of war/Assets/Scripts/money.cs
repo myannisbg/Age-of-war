@@ -31,16 +31,32 @@ public class Money : MonoBehaviour
         UpdateGoldText(); // Mettre à jour le texte avec le nouveau montant
     }
 
-    
 
 
-    public bool canBuy(float amount){
 
-        if (gold - amount < 0) {
+    public bool canBuy(float amount)
+    {
+
+        if (gold - amount < 0)
+        {
             return false;
         }
-        else {
+        else
+        {
             return true;
+        }
+    }
+
+    public void SpendGold(float amount)
+    {
+        if (canBuy(amount))
+        {
+            gold -= amount;
+            UpdateGoldText();
+        }
+        else
+        {
+            Debug.LogError("Pas assez d'or pour effectuer cet achat");
         }
     }
 

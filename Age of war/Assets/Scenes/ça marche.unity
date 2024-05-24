@@ -4645,7 +4645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ced9f28aec5e24e91501fd90429525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentFunction: 0
+  currentFunction: 3
   availableFunctions: 00000000010000000200000003000000
   isBot: 1
   botSpawnInterval: 5

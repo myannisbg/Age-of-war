@@ -54,6 +54,25 @@ private Dictionary<int, float> lastSpawnTimes = new Dictionary<int, float>();
     void Update()
     {
         SpawnUnits();
+         if (Time.timeSinceLevelLoad - lastModeChangeTime >= modeDuration)
+        {
+            ToggleMode();
+            lastModeChangeTime = Time.timeSinceLevelLoad;
+        }
+
+        // Spawner une unité à intervalles réguliers
+        if (Time.timeSinceLevelLoad - lastSpawnTime >= spawnInterval)
+        {
+            if (currentMode == Mode.Offense)
+            {
+                SpawnNextInOffenseSequence();
+            }
+            else
+            {
+                SpawnNextInDefenseSequence();
+            }
+            lastSpawnTime = Time.timeSinceLevelLoad;
+        }
     }
 
     void UpdateBotFunction()
@@ -243,10 +262,10 @@ void BotIsPlaying()
 
             if (scenarioSpecific==false){
             // Si le temps requis est écoulé pour l'unité du upperBound, ou si l'index correspond à une unité précédente, alors procéder au spawn
-                    if (Time.timeSinceLevelLoad - lastSpawnTimes[ageIndex] >= 60 || randomIndex != upperBound)
+                    if (Time.timeSinceLevelLoad - lastSpawnTimes[ageIndex] >= 20 || randomIndex != upperBound)
                     {
                         // Si le temps requis est écoulé pour l'unité du upperBound, réinitialiser le temps écoulé pour cet âge
-                        if (randomIndex == upperBound && Time.timeSinceLevelLoad - lastSpawnTimes[ageIndex] >= 60)
+                        if (randomIndex == upperBound && Time.timeSinceLevelLoad - lastSpawnTimes[ageIndex] >= 20)
                         {
                             lastSpawnTimes[ageIndex] = Time.timeSinceLevelLoad;
                         }
@@ -305,6 +324,156 @@ void BotIsPlaying()
         }
     }
 }
+public enum Mode
+{
+    Offense,
+    Defense
+}
+
+private Mode currentMode = Mode.Offense; // Mode initial
+private float lastModeChangeTime;
+private float modeDuration = 60f; // Durée de chaque mode en secondes
+private float lastSpawnTime;
+private float spawnInterval = 5f; // Intervalle de temps entre chaque spawn
+
+private int offenseIndex = 0;
+private int defenseIndex = 0;
+
+
+
+private string[] offenseSequence = { "Infanterie", "Archer", "Tank", "Archer", "AntiTank", "Archer" };
+private string[] defenseSequence = { "AntiTank", "Tank", "Archer" };
+private int maxAllies = 10; // Nombre maximum d'unités alliées
+
+private bool scenarioSpecific2 = false;
+
+
+  void BotIsTooStrong()
+{
+    // Vérifier si le script PlayerSpawner est assigné
+    if (spawner != null)
+    {
+        // Définir les bornes des tranches d'âge
+        int ageIndex = ageValue.getAge();
+        int lowerBound = ageIndex * 4; // Born inférieure de la tranche d'âge
+        int upperBound = lowerBound + 3; // Born supérieure de la tranche d'âge
+
+        // Vérifier si l'âge est valide
+        if (ageIndex >= 0 && upperBound < unitPrefabs.Count)
+        {
+            // Vérifier si le temps de changement de scénario est écoulé
+            if (Time.timeSinceLevelLoad - lastModeChangeTime >= modeDuration)
+            {
+                scenarioSpecific2 = !scenarioSpecific2; // Alterner le scénario
+                lastModeChangeTime = Time.timeSinceLevelLoad;
+            }
+
+            if (!scenarioSpecific2)
+            {
+                // Vérifier si le temps requis est écoulé pour l'unité du upperBound
+                if (Time.timeSinceLevelLoad - lastSpawnTimes.GetValueOrDefault(ageIndex, 0f) >= 20)
+                {
+                    lastSpawnTimes[ageIndex] = Time.timeSinceLevelLoad;
+                    GameObject unitPrefab = unitPrefabs[upperBound];
+                    spawner.SpawnPlayerBoosted(unitPrefab);
+                }
+            }
+            
+        }
+        else
+        {
+            Debug.LogError("Age index is out of range!");
+        }
+
+        // Changer de mode après une certaine durée
+        if (Time.timeSinceLevelLoad - lastModeChangeTime >= modeDuration)
+        {
+            ToggleMode();
+            lastModeChangeTime = Time.timeSinceLevelLoad;
+        }
+
+        // Gérer les séquences en fonction du mode actuel
+        if (currentMode == Mode.Offense)
+        {
+            if (Time.timeSinceLevelLoad - lastSpawnTime >= spawnInterval)
+            {
+                SpawnNextInOffenseSequence();
+                lastSpawnTime = Time.timeSinceLevelLoad;
+            }
+        }
+        else if (currentMode == Mode.Defense)
+        {
+            if (Time.timeSinceLevelLoad - lastSpawnTime >= spawnInterval)
+            {
+                SpawnNextInDefenseSequence();
+                lastSpawnTime = Time.timeSinceLevelLoad;
+            }
+        }
+    }
+    else
+    {
+        Debug.LogError("PlayerSpawner script is not assigned!");
+    }
+}
+
+
+private void SpawnNextInOffenseSequence()
+{
+    if (CountUnitsWithTag("Ally") >= maxAllies) return;
+
+    string unitType = offenseSequence[offenseIndex];
+    offenseIndex = (offenseIndex + 1) % offenseSequence.Length;
+
+    SpawnUnitByType(unitType);
+}
+
+private void SpawnNextInDefenseSequence()
+{
+    if (CountUnitsWithTag("Ally") >= maxAllies) return;
+
+    string unitType = defenseSequence[defenseIndex];
+    defenseIndex = (defenseIndex + 1) % defenseSequence.Length;
+
+    SpawnUnitByType(unitType);
+}
+
+private void SpawnUnitByType(string unitType)
+{
+    int ageIndex = ageValue.getAge();
+    int lowerBound = ageIndex * 4;
+
+    GameObject unitPrefab = null;
+    switch (unitType)
+    {
+        case "Infanterie":
+            unitPrefab = unitPrefabs[lowerBound];
+            break;
+        case "Tank":
+            unitPrefab = unitPrefabs[lowerBound + 2];
+            break;
+        case "Archer":
+            unitPrefab = unitPrefabs[lowerBound + 1];
+            break;
+        case "AntiTank":
+            unitPrefab = unitPrefabs[lowerBound + 3];
+            break;
+    }
+
+    if (unitPrefab != null && spawner != null)
+    {
+        spawner.SpawnPlayerBoosted(unitPrefab);
+    }
+}
+
+private int CountUnitsWithTag(string tag)
+{
+    return GameObject.FindGameObjectsWithTag(tag).Length;
+}
+
+private void ToggleMode()
+{
+    currentMode = currentMode == Mode.Offense ? Mode.Defense : Mode.Offense;
+}
 
 
 
@@ -317,7 +486,7 @@ void BotIsPlaying()
         // Utilisez les bornes pour déterminer l'index de l'unité de tank dans votre liste
         int tankIndex = lowerBound+1; // Utilisez le lowerBound pour l'index du tank
         GameObject tankPrefab = unitPrefabs[tankIndex];
-        spawner.SpawnPlayerBoosted(tankPrefab); // Supposons que vous avez une fonction SpawnPlayer dans votre spawner
+        spawner.SpawnPlayerBoosted(tankPrefab); 
     }
 
     // Fonction pour faire apparaître un archer
@@ -329,7 +498,28 @@ void BotIsPlaying()
         // Utilisez les bornes pour déterminer l'index de l'unité de l'archer dans votre liste
         int archerIndex = lowerBound+2 ; // Utilisez le lowerBound pour l'index de l'archer
         GameObject archerPrefab = unitPrefabs[archerIndex];
-        spawner.SpawnPlayerBoosted(archerPrefab); // Supposons que vous avez une fonction SpawnPlayer dans votre spawner
+        spawner.SpawnPlayerBoosted(archerPrefab);
+    }
+
+    void SpawnInfanterie()
+    {
+        int ageIndex = ageValue.getAge();
+        int lowerBound = ageIndex * 4; // Born inférieure de la tranche d'âge
+        int upperBound = lowerBound + 3; // Born supérieure de la tranche d'âge
+        // Utilisez les bornes pour déterminer l'index de l'unité de tank dans votre liste
+        int infanterieIndex = lowerBound; // Utilisez le lowerBound pour l'index de l'infanterie
+        GameObject infanteriePrefab = unitPrefabs[infanterieIndex];
+        spawner.SpawnPlayerBoosted(infanteriePrefab); 
+    }
+    void SpawnAntiTank()
+    {
+        int ageIndex = ageValue.getAge();
+        int lowerBound = ageIndex * 4; // Born inférieure de la tranche d'âge
+        int upperBound = lowerBound + 3; // Born supérieure de la tranche d'âge
+        // Utilisez les bornes pour déterminer l'index de l'unité de tank dans votre liste
+        int antiArmorIndex = lowerBound+4; // Utilisez le lowerBound pour l'index de l'anti-armure
+        GameObject antiArmorPrefab = unitPrefabs[antiArmorIndex];
+        spawner.SpawnPlayerBoosted(antiArmorPrefab); 
     }
 
 

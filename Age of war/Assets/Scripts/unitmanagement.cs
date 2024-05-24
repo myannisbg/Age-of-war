@@ -123,10 +123,10 @@ void firstUse()
         {
             Die();
         }
-        else
-        {
-            Debug.Log("Unité ennemie non détectée. Aucun ajout d'argent.");
-        }
+        // else
+        // {
+        //     Debug.Log("Unité ennemie non détectée. Aucun ajout d'argent.");
+        // }
         
         
         }

@@ -22,7 +22,15 @@ public class GameManager : MonoBehaviour
 
     public void call()
     {
-        OnApplicationQuit();
+    if (Unit.UnitsSpawned)
+        {
+            // Convertissez la liste de Unit en une liste de GameObject
+            List<GameObject> unitPrefabs = units.ConvertAll(unit => unit.gameObject);
+            
+            // Appelez la méthode de réinitialisation des statistiques uniquement si des unités ont été initialisées
+            StatReset.ResetStats(unitPrefabs);
+            // Debug.Log("Resetting initial values on quit");
+        }
     }
 
     private void OnApplicationQuit()

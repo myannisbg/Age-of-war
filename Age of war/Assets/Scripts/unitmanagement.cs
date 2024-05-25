@@ -25,6 +25,7 @@ public class Unit : MonoBehaviour
     public int type;
     public GameObject bullet;
     public Vector3 offset = new Vector3(0.2f, 0.0f, 0.0f); 
+    float detectionRadius = 2f;
 
 
 
@@ -176,84 +177,89 @@ void firstUse()
 void detectObject()
 {
     string currentTag = transform.root.tag;
-    Vector3 offset = new Vector3(0.5f, 0, 0); // Vous pouvez ajuster ce décalage selon vos besoins
 
-    // Raycast vers l'avant pour détecter une base ennemie
-    RaycastHit2D hitEnemyBase = Physics2D.Raycast(transform.position + offset, Vector2.right, 1f);
-    Debug.DrawRay(transform.position + offset, Vector2.right * 1f, Color.red);
-    // Raycast vers l'avant pour détecter une base alliée
-    RaycastHit2D hitBase = Physics2D.Raycast(transform.position - offset, Vector2.left, 1f);
-    Debug.DrawRay(transform.position - offset, Vector2.left * 1f, Color.blue);
-    // Raycast vers l'avant pour détecter une unité ennemie
-    RaycastHit2D hitEnemy = Physics2D.Raycast(transform.position + offset, Vector2.right, 2f);
-    Debug.DrawRay(transform.position + offset, Vector2.right * 2f, Color.green);
-    // Raycast vers l'avant pour détecter une unité alliée
-    RaycastHit2D hitAlly = Physics2D.Raycast(transform.position - offset, Vector2.left, 2f);
-    Debug.DrawRay(transform.position - offset, Vector2.left * 2f, Color.yellow);
+
+    // Cercle de détection pour les unités ennemies
+    Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position + offset, detectionRadius);
+    // Cercle de détection pour les unités alliées
+    Collider2D[] hitAllies = Physics2D.OverlapCircleAll(transform.position - offset, detectionRadius);
+    // Cercle de détection pour les bases ennemies
+    Collider2D[] hitEnemyBases = Physics2D.OverlapCircleAll(transform.position + offset, detectionRadius);
+    // Cercle de détection pour les bases alliées
+    Collider2D[] hitBases = Physics2D.OverlapCircleAll(transform.position - offset, detectionRadius);
 
     // Vérifier les collisions avec les unités ennemies
-    if (hitEnemy.collider != null && hitEnemy.collider.CompareTag("Ennemy") && currentTag == "Ally")
+    foreach (var hit in hitEnemies)
     {
-        Debug.Log("Hit an enemy unit");
-        // Vérifier si suffisamment de temps s'est écoulé depuis le dernier coup
-        if (Time.time - lastDamageTime >= attackCooldown)
+        if (hit != null && hit.CompareTag("Ennemy") && currentTag == "Ally")
         {
-            Unit unit = hitEnemy.collider.GetComponent<Unit>();
-            if (unit != null)
+            // Vérifier si suffisamment de temps s'est écoulé depuis le dernier coup
+            if (Time.time - lastDamageTime >= attackCooldown)
             {
-                // Effectuer une attaque sur l'ennemi
-                unit.TakeDamage(damageDealt);
-                lastDamageTime = Time.time;
+                Unit unit = hit.GetComponent<Unit>();
+                if (unit != null)
+                {
+                    // Effectuer une attaque sur l'ennemi
+                    unit.TakeDamage(damageDealt);
+                    lastDamageTime = Time.time;
+                }
             }
         }
     }
 
-    if (hitAlly.collider != null && hitAlly.collider.CompareTag("Ally") && currentTag == "Ennemy")
+    // Vérifier les collisions avec les unités alliées
+    foreach (var hit in hitAllies)
     {
-        Debug.Log("Hit an ally unit");
-        // Vérifier si suffisamment de temps s'est écoulé depuis le dernier coup
-        if (Time.time - lastDamageTime >= attackCooldown)
+        if (hit != null && hit.CompareTag("Ally") && currentTag == "Ennemy")
         {
-            Unit unit = hitAlly.collider.GetComponent<Unit>();
-            if (unit != null)
+            // Vérifier si suffisamment de temps s'est écoulé depuis le dernier coup
+            if (Time.time - lastDamageTime >= attackCooldown)
             {
-                // Effectuer une attaque sur l'allié
-                unit.TakeDamage(damageDealt);
-                lastDamageTime = Time.time;
+                Unit unit = hit.GetComponent<Unit>();
+                if (unit != null)
+                {
+                    // Effectuer une attaque sur l'allié
+                    unit.TakeDamage(damageDealt);
+                    lastDamageTime = Time.time;
+                }
             }
         }
     }
 
     // Vérifier les collisions avec les bases ennemies
-    if (hitEnemyBase.collider != null && hitEnemyBase.collider.CompareTag("BaseEnnemy") && currentTag == "Ally")
+    foreach (var hit in hitEnemyBases)
     {
-        Debug.Log("Hit an enemy base");
-        Bases baseObject = hitEnemyBase.collider.GetComponent<Bases>();
-        if (baseObject != null)
+        if (hit != null && hit.CompareTag("BaseEnnemy") && currentTag == "Ally")
         {
-            // Vérifier si suffisamment de temps s'est écoulé depuis la dernière attaque
-            if (Time.time - baseObject.lastAttackTime >= attackCooldown)
+            Bases baseObject = hit.GetComponent<Bases>();
+            if (baseObject != null)
             {
-                // Effectuer une attaque sur la base
-                baseObject.DealDamage(this, damageDealt);
-                baseObject.lastAttackTime = Time.time; // Mettre à jour le temps de la dernière attaque
+                // Vérifier si suffisamment de temps s'est écoulé depuis la dernière attaque
+                if (Time.time - baseObject.lastAttackTime >= attackCooldown)
+                {
+                    // Effectuer une attaque sur la base
+                    baseObject.DealDamage(this, damageDealt);
+                    baseObject.lastAttackTime = Time.time; // Mettre à jour le temps de la dernière attaque
+                }
             }
         }
     }
 
     // Vérifier les collisions avec les bases alliées
-    if (hitBase.collider != null && hitBase.collider.CompareTag("Base") && currentTag == "Ennemy")
+    foreach (var hit in hitBases)
     {
-        Debug.Log("Hit an ally base");
-        Bases baseObject = hitBase.collider.GetComponent<Bases>();
-        if (baseObject != null)
+        if (hit != null && hit.CompareTag("Base") && currentTag == "Ennemy")
         {
-            // Vérifier si suffisamment de temps s'est écoulé depuis la dernière attaque
-            if (Time.time - baseObject.lastAttackTime >= attackCooldown)
+            Bases baseObject = hit.GetComponent<Bases>();
+            if (baseObject != null)
             {
-                // Effectuer une attaque sur la base
-                baseObject.DealDamage(this, damageDealt);
-                baseObject.lastAttackTime = Time.time; // Mettre à jour le temps de la dernière attaque
+                // Vérifier si suffisamment de temps s'est écoulé depuis la dernière attaque
+                if (Time.time - baseObject.lastAttackTime >= attackCooldown)
+                {
+                    // Effectuer une attaque sur la base
+                    baseObject.DealDamage(this, damageDealt);
+                    baseObject.lastAttackTime = Time.time; // Mettre à jour le temps de la dernière attaque
+                }
             }
         }
     }
@@ -285,56 +291,95 @@ void detectObject()
 
 public void DealDamage()
 {
-    // Obtenir le tag du joueur
-    string currentTag = transform.root.tag; 
-    Vector3 offset = new Vector3(0.5f, 0, 0); // Assurez-vous que ce décalage est défini quelque part
+    string currentTag = transform.root.tag;
+   
 
-    // Raycast vers l'avant pour détecter une base ennemie
-    RaycastHit2D hitEnemyBase = Physics2D.Raycast(transform.position + offset, Vector2.right, 1f);
-    // Raycast vers l'avant pour détecter une base alliée
-    RaycastHit2D hitBase = Physics2D.Raycast(transform.position - offset, Vector2.left, 1f);
-    // Raycast vers l'avant pour détecter une unité ennemie
-    RaycastHit2D hitEnemy = Physics2D.Raycast(transform.position + offset, Vector2.right, 2f);
-    // Raycast vers l'avant pour détecter une unité alliée
-    RaycastHit2D hitAlly = Physics2D.Raycast(transform.position - offset, Vector2.left, 2f);
+    // Cercle de détection pour les unités ennemies
+    Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position + offset, detectionRadius);
+    // Cercle de détection pour les unités alliées
+    Collider2D[] hitAllies = Physics2D.OverlapCircleAll(transform.position - offset, detectionRadius);
+    // Cercle de détection pour les bases ennemies
+    Collider2D[] hitEnemyBases = Physics2D.OverlapCircleAll(transform.position + offset, detectionRadius);
+    // Cercle de détection pour les bases alliées
+    Collider2D[] hitBases = Physics2D.OverlapCircleAll(transform.position - offset, detectionRadius);
 
     // Vérifier les collisions avec les unités ennemies
-    if ((hitEnemy.collider != null && hitEnemy.collider.CompareTag("Ennemy") && currentTag == "Ally") ||
-        (hitAlly.collider != null && hitAlly.collider.CompareTag("Ally") && currentTag == "Ennemy"))
+    foreach (var hit in hitEnemies)
     {
-        print("la");
-
-        // Vérifier si suffisamment de temps s'est écoulé depuis le dernier coup
-        if (Time.time - lastDamageTime >= attackCooldown)
+        if (hit != null && hit.CompareTag("Ennemy") && currentTag == "Ally")
         {
-            Unit unit = hitEnemy.collider != null ? hitEnemy.collider.GetComponent<Unit>() : hitAlly.collider.GetComponent<Unit>();
-            if (unit != null)
+            // Vérifier si suffisamment de temps s'est écoulé depuis le dernier coup
+            if (Time.time - lastDamageTime >= attackCooldown)
             {
-                // Effectuer une attaque sur l'unité
-                unit.TakeDamage(damageDealt);
-                lastDamageTime = Time.time;
+                Unit unit = hit.GetComponent<Unit>();
+                if (unit != null)
+                {
+                    // Effectuer une attaque sur l'ennemi
+                    unit.TakeDamage(damageDealt);
+                    lastDamageTime = Time.time;
+                }
             }
         }
     }
-    // Vérifier les collisions avec les bases
-    else if ((hitEnemyBase.collider != null && hitEnemyBase.collider.CompareTag("BaseEnnemy") && currentTag == "Ally") ||
-             (hitBase.collider != null && hitBase.collider.CompareTag("Base") && currentTag == "Ennemy"))
-    {
-        print("oui");
 
-        Bases baseObject = hitEnemyBase.collider != null ? hitEnemyBase.collider.GetComponent<Bases>() : hitBase.collider.GetComponent<Bases>();
-        if (baseObject != null)
+    // Vérifier les collisions avec les unités alliées
+    foreach (var hit in hitAllies)
+    {
+        if (hit != null && hit.CompareTag("Ally") && currentTag == "Ennemy")
         {
-            // Vérifier si suffisamment de temps s'est écoulé depuis la dernière attaque
-            if (Time.time - baseObject.lastAttackTime >= attackCooldown)
+            // Vérifier si suffisamment de temps s'est écoulé depuis le dernier coup
+            if (Time.time - lastDamageTime >= attackCooldown)
             {
-                // Effectuer une attaque sur la base
-                baseObject.DealDamage(this, damageDealt);
-                baseObject.lastAttackTime = Time.time; // Mettre à jour le temps de la dernière attaque
+                Unit unit = hit.GetComponent<Unit>();
+                if (unit != null)
+                {
+                    // Effectuer une attaque sur l'allié
+                    unit.TakeDamage(damageDealt);
+                    lastDamageTime = Time.time;
+                }
+            }
+        }
+    }
+
+    // Vérifier les collisions avec les bases ennemies
+    foreach (var hit in hitEnemyBases)
+    {
+        if (hit != null && hit.CompareTag("BaseEnnemy") && currentTag == "Ally")
+        {
+            Bases baseObject = hit.GetComponent<Bases>();
+            if (baseObject != null)
+            {
+                // Vérifier si suffisamment de temps s'est écoulé depuis la dernière attaque
+                if (Time.time - baseObject.lastAttackTime >= attackCooldown)
+                {
+                    // Effectuer une attaque sur la base
+                    baseObject.DealDamage(this, damageDealt);
+                    baseObject.lastAttackTime = Time.time; // Mettre à jour le temps de la dernière attaque
+                }
+            }
+        }
+    }
+
+    // Vérifier les collisions avec les bases alliées
+    foreach (var hit in hitBases)
+    {
+        if (hit != null && hit.CompareTag("Base") && currentTag == "Ennemy")
+        {
+            Bases baseObject = hit.GetComponent<Bases>();
+            if (baseObject != null)
+            {
+                // Vérifier si suffisamment de temps s'est écoulé depuis la dernière attaque
+                if (Time.time - baseObject.lastAttackTime >= attackCooldown)
+                {
+                    // Effectuer une attaque sur la base
+                    baseObject.DealDamage(this, damageDealt);
+                    baseObject.lastAttackTime = Time.time; // Mettre à jour le temps de la dernière attaque
+                }
             }
         }
     }
 }
+
 
 
 

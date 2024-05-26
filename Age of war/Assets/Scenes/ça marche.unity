@@ -4649,7 +4649,7 @@ MonoBehaviour:
   availableFunctions: 00000000010000000200000003000000
   isBot: 1
   botSpawnInterval: 5
-  timeSinceLastSpawn: 6
+  timeSinceLastSpawn: 0
   spawner: {fileID: 530252794}
   unitPrefabs:
   - {fileID: 270766951686396539, guid: 78baec4459f326849a26e51067a7ce99, type: 3}

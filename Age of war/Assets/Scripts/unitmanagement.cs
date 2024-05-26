@@ -7,6 +7,7 @@ public class Unit : MonoBehaviour
     private static float startDamage;
     private static float startHealth;
     private static float startMoney;
+    private static float startAttackRange;
     public Bases baseObject;
     public float maxHealth = 100f;
     private float currentHealth;
@@ -45,9 +46,11 @@ public static void ResetInitialValues(GameObject prefab)
             startDamage = unitPrefab.GetStartDamage();
             startHealth = unitPrefab.GetStartHealth();
             startMoney = unitPrefab.GetStartMoney();
+            startAttackRange=unitPrefab.GetStartRange();
             unitPrefab.SetCurrentDamage(startDamage);
             unitPrefab.SetCurrentHealth(startHealth);
             unitPrefab.SetCurrentMoney(startMoney);
+            unitPrefab.SetCurrentRange(startAttackRange);
             
 
         }
@@ -77,6 +80,7 @@ void firstUse()
     SetStartDamage(damageDealt);
     SetStartHealth(maxHealth);
     SetStartMoney(moneyGain);
+    SetStartRange(attackRange);
     UnitsSpawned = true;
 
 }
@@ -117,7 +121,17 @@ void firstUse()
     {
         return startHealth;
     }
-
+    public float GetStartRange(){
+        return attackRange;
+    }
+    public void SetCurrentRange(float value)
+    {
+        attackRange = value;
+    }
+    public void SetStartRange(float value)
+    {
+        startAttackRange = value;
+    }
 
 
     public void TakeDamage(float damageDealt)

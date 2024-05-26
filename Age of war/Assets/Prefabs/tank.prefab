@@ -21,10 +21,6 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: -2355777041220960625, guid: 2579ca3163798da49bc80ce08964b667, type: 3}
-      propertyPath: attackRange
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: -2355777041220960625, guid: 2579ca3163798da49bc80ce08964b667, type: 3}
       propertyPath: damageDealt
       value: 50
       objectReference: {fileID: 0}

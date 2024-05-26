@@ -23,7 +23,6 @@ public class UpgradeUnit : MonoBehaviour
     private int healthBoostsRemainingBtn6 = 3; // Nombre d'utilisations restantes pour augmenter les points de vie avec le bouton 6
     private int healthBoostsRemainingBtn7 = 3; // Nombre d'utilisations restantes pour augmenter les points de vie avec le bouton 7
     private int moneyBoostsRemainingBtn8 =3; // Nombre d'utilisations restantes pour augmenter l'argent
-    private int rangeBoostsRemainingBtn9 = 3; // Nombre dutilisations restantes pour augmenter la porté des archers
 
     private int actualDamageLevel = 1;
 
@@ -66,9 +65,6 @@ public class UpgradeUnit : MonoBehaviour
                 break;
             case 8:
                 BoostMoneyForAllies(ref moneyBoostsRemainingBtn8);
-                break;
-            case 9:
-                RangeBoostForAllies(ref rangeBoostsRemainingBtn9);
                 break;
             default:
                 Debug.LogWarning("Numéro de bouton non reconnu !");
@@ -193,44 +189,6 @@ private void BoostMoneyForAllies(ref int moneyBoostsRemaining)
         else
         {
             Debug.LogWarning("Vous avez utilisé toutes les améliorations disponibles pour l'argent !");
-        }
-    }
-
-    private void RangeBoostForAllies (ref int rangeBoostsRemaining)
-    {
-        // Vérifier s'il reste des utilisations de la fonction
-        if (rangeBoostsRemaining > 0)
-        {
-            // Parcourir la liste des préfabriqués d'unités à améliorer
-            foreach (var prefab in unitPrefabsToUpgrade)
-            {
-                // Vérifier si le préfabriqué a le bon tag, sinon le mettre à jour
-                if (!prefab.CompareTag("Ally"))
-                {
-                    //ici on regarde que c'est bien des prefab ennemy parce que ce sont les prefab ennemy qui donne l'argent via la stats moneyGain de la class Unit
-                    Debug.Log("Le préfabriqué " + prefab.name + " n'a pas le bon tag. Mise à jour en cours...");
-                    prefab.tag = "Ally";
-                }
-                
-                // Vérifier si le préfabriqué a un composant Unit
-                var unitComponent = prefab.GetComponent<Unit>();
-                if (unitComponent != null)
-                {
-                    // Augmenter les points de l'argent 'unité
-                    unitComponent.attackRange *= (1f + percentageIncrease / 100f);
-                }
-                else
-                {
-                    Debug.LogWarning("Le préfabriqué " + prefab.name + " n'a pas de composant Unit. Veuillez ajouter un composant Unit à cette unité pour la mise à niveau des statistiques.");
-                }
-            }
-
-            // Décrémenter le nombre d'utilisations restantes
-            rangeBoostsRemaining--;
-        }
-        else
-        {
-            Debug.LogWarning("Vous avez utilisé toutes les améliorations disponibles pour augmenter la porté des unités de support !");
         }
     }
 }

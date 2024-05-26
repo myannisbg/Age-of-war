@@ -3,8 +3,10 @@ using UnityEngine;
 public class MainScreen : MonoBehaviour
 {
     public GameObject soloScreen;
+    public GameObject settingsScreen;
     public GameObject multiScreen;
     public GameObject mainScreen;
+
     public GameObject LoginScreen;
     public GameObject RegisterScreen;
     
@@ -17,6 +19,7 @@ public class MainScreen : MonoBehaviour
     public void ShowMainScreen(){
         soloScreen.SetActive(false);
         multiScreen.SetActive(false);
+        settingsScreen.SetActive(false);
         mainScreen.SetActive(true);
     }
 
@@ -32,6 +35,11 @@ public class MainScreen : MonoBehaviour
         mainScreen.SetActive(false);
     }
 
+    public void ShowSettingsScreen()
+    {
+        settingsScreen.SetActive(true);
+        mainScreen.SetActive(false);
+    }
     
     public void ShowRegisterScreen()
     {
@@ -47,3 +55,4 @@ public class MainScreen : MonoBehaviour
 
     
 }
+ 

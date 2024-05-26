@@ -66,8 +66,7 @@ public static void ResetInitialValues(GameObject prefab)
             firstUse();
             isFirstUse = false;
         }
-
-}
+    }
 
 void FixedUpdate(){
     detectObject();

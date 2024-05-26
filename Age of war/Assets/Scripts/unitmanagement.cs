@@ -25,7 +25,7 @@ public class Unit : MonoBehaviour
     public int type;
     public GameObject bullet;
     public Vector3 offset = new Vector3(0.2f, 0.0f, 0.0f); 
-    float detectionRadius = 2f;
+    
 
 
 
@@ -180,13 +180,13 @@ void detectObject()
 
 
     // Cercle de détection pour les unités ennemies
-    Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position + offset, detectionRadius);
+    Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position + offset, attackRange);
     // Cercle de détection pour les unités alliées
-    Collider2D[] hitAllies = Physics2D.OverlapCircleAll(transform.position - offset, detectionRadius);
+    Collider2D[] hitAllies = Physics2D.OverlapCircleAll(transform.position - offset, attackRange);
     // Cercle de détection pour les bases ennemies
-    Collider2D[] hitEnemyBases = Physics2D.OverlapCircleAll(transform.position + offset, detectionRadius);
+    Collider2D[] hitEnemyBases = Physics2D.OverlapCircleAll(transform.position + offset, attackRange);
     // Cercle de détection pour les bases alliées
-    Collider2D[] hitBases = Physics2D.OverlapCircleAll(transform.position - offset, detectionRadius);
+    Collider2D[] hitBases = Physics2D.OverlapCircleAll(transform.position - offset, attackRange);
 
     // Vérifier les collisions avec les unités ennemies
     foreach (var hit in hitEnemies)
@@ -295,13 +295,13 @@ public void DealDamage()
    
 
     // Cercle de détection pour les unités ennemies
-    Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position + offset, detectionRadius);
+    Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position + offset, attackRange);
     // Cercle de détection pour les unités alliées
-    Collider2D[] hitAllies = Physics2D.OverlapCircleAll(transform.position - offset, detectionRadius);
+    Collider2D[] hitAllies = Physics2D.OverlapCircleAll(transform.position - offset, attackRange);
     // Cercle de détection pour les bases ennemies
-    Collider2D[] hitEnemyBases = Physics2D.OverlapCircleAll(transform.position + offset, detectionRadius);
+    Collider2D[] hitEnemyBases = Physics2D.OverlapCircleAll(transform.position + offset, attackRange);
     // Cercle de détection pour les bases alliées
-    Collider2D[] hitBases = Physics2D.OverlapCircleAll(transform.position - offset, detectionRadius);
+    Collider2D[] hitBases = Physics2D.OverlapCircleAll(transform.position - offset, attackRange);
 
     // Vérifier les collisions avec les unités ennemies
     foreach (var hit in hitEnemies)

@@ -33,8 +33,9 @@ private Dictionary<int, float> lastSpawnTimes = new Dictionary<int, float>();
 
     void Start()
     {
-        SpawnUnits();
+        
         UpdateBotFunction();
+        SpawnUnits();
         string unitTag = gameObject.tag;
         gameObject.tag = "Ennemy";
         for (int i = 0; i < unitPrefabs.Count / 4; i++)

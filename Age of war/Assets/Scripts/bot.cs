@@ -14,7 +14,6 @@ public class Bot : MonoBehaviour
 
     public BotFunction currentFunction;
     public List<BotFunction> availableFunctions;
-
     public bool isBot = false;
     public float botSpawnInterval = 5f; // Interval de spawn en secondes pour le bot
     public float timeSinceLastSpawn = 0f;
@@ -34,8 +33,9 @@ private Dictionary<int, float> lastSpawnTimes = new Dictionary<int, float>();
 
     void Start()
     {
-        SpawnUnits();
+        
         UpdateBotFunction();
+        SpawnUnits();
         string unitTag = gameObject.tag;
         gameObject.tag = "Ennemy";
         for (int i = 0; i < unitPrefabs.Count / 4; i++)
@@ -54,30 +54,40 @@ private Dictionary<int, float> lastSpawnTimes = new Dictionary<int, float>();
     void Update()
     {
         SpawnUnits();
-         if (Time.timeSinceLevelLoad - lastModeChangeTime >= modeDuration)
-        {
-            ToggleMode();
-            lastModeChangeTime = Time.timeSinceLevelLoad;
-        }
+            if (returnDifficulty()==3)
+            {
+                if (Time.timeSinceLevelLoad - lastModeChangeTime >= modeDuration)
+                {
+                    ToggleMode();
+                    lastModeChangeTime = Time.timeSinceLevelLoad;
+                }
 
-        // Spawner une unité à intervalles réguliers
-        if (Time.timeSinceLevelLoad - lastSpawnTime >= spawnInterval)
-        {
-            if (currentMode == Mode.Offense)
-            {
-                SpawnNextInOffenseSequence();
+                // Spawner une unité à intervalles réguliers
+                if (Time.timeSinceLevelLoad - lastSpawnTime >= spawnInterval)
+                {
+                    if (currentMode == Mode.Offense)
+                    {
+                        SpawnNextInOffenseSequence();
+                    }
+                    else
+                    {
+                        SpawnNextInDefenseSequence();
+                    }
+                    lastSpawnTime = Time.timeSinceLevelLoad;
+                }
             }
-            else
-            {
-                SpawnNextInDefenseSequence();
-            }
-            lastSpawnTime = Time.timeSinceLevelLoad;
-        }
+    }
+
+    int returnDifficulty(){
+
+        int difficulty = PlayerPrefs.GetInt("Difficulty",0);
+          return difficulty;
+
     }
 
     void UpdateBotFunction()
     {
-        int difficulty = PlayerPrefs.GetInt("Difficulty",0);
+         int difficulty = PlayerPrefs.GetInt("Difficulty",0);
 
         switch (difficulty)
         {
@@ -181,7 +191,7 @@ private Dictionary<int, float> lastSpawnTimes = new Dictionary<int, float>();
 
                 // Appeler la méthode SpawnPlayer du PlayerSpawner en passant la préfab d'unité
                 spawner.SpawnPlayer(unitPrefab);
-                print(unitPrefab);
+                // print(unitPrefab);
             }
             else
             {

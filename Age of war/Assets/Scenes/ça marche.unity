@@ -8797,6 +8797,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 954616157}
   m_CullTransparentMesh: 1
+--- !u!1 &958769859
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 958769861}
+  - component: {fileID: 958769860}
+  m_Layer: 0
+  m_Name: SpecialSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &958769860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 958769859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0a978a10148d774ea9900ba801bde27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 5592423590470507474, guid: bca75eb6667d7ee4c9aa736effe11f06, type: 3}
+  spawnInterval: 0.1
+  numberOfProjectiles: 10
+  spawnAreaSize: {x: 30, y: 30}
+  spawnHeight: 50
+--- !u!4 &958769861
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 958769859}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.02, y: 3.96, z: 0.013765449}
+  m_LocalScale: {x: 0.26638, y: 0.26638, z: 0.26638}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963040626
 GameObject:
   m_ObjectHideFlags: 0
@@ -9552,7 +9601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
@@ -10473,6 +10522,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4c4eefd47c6893a418cb4260ce3e6758, type: 3}
   - {fileID: 21300000, guid: 13bc44e6d2264924697b8f4bb55b1666, type: 3}
   tempEntreChaqueCharge: 10
+  spawner: {fileID: 958769860}
 --- !u!222 &1091903424
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -22403,3 +22453,4 @@ SceneRoots:
   - {fileID: 1991462292}
   - {fileID: 1702855626}
   - {fileID: 2126887882}
+  - {fileID: 958769861}

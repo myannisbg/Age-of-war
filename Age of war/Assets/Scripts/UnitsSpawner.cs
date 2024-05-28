@@ -70,7 +70,7 @@ public class PlayerSpawner : MonoBehaviour
 
             // Inverser la direction initiale en fonction de la propriété moveRight du spawner
             float horizontalScale = moveRight ? 1f : -1f;
-            currentPlayer.transform.localScale = new Vector3(horizontalScale, 1f, 1f);
+            // currentPlayer.transform.localScale = new Vector3(horizontalScale, 1f, 1f);
 
             // Attacher le composant DirectionComponent au joueur
             DirectionComponent directionComponent = currentPlayer.GetComponent<DirectionComponent>();

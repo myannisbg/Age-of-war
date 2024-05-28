@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 207543925367134070}
   - component: {fileID: 6029686856955630134}
   - component: {fileID: 7459999796370649643}
+  - component: {fileID: 6588178474355647004}
   m_Layer: 0
   m_Name: Unit0-2
-  m_TagString: Untagged
+  m_TagString: Ally
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -12.734, y: -11.004, z: 583.09766}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -150,7 +151,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &207543925367134070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,6 +173,9 @@ MonoBehaviour:
   attackRange: 0
   moneyClass: {fileID: 0}
   xpClass: {fileID: 0}
+  bullet: {fileID: 0}
+  offset: {x: 0.2, y: 0, z: 0}
+  type: 3
   healthBar: {fileID: 0}
 --- !u!114 &6029686856955630134
 MonoBehaviour:
@@ -200,4 +204,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   rb: {fileID: 814105450407997195}
-  offset: {x: 0.2, y: 0, z: 0}
+  offset: {x: 0.5, y: 0, z: 0}
+--- !u!61 &6588178474355647004
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3450811314224430299}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.36955452, y: 0.055039406}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.33, y: 5.33}
+    newSize: {x: 5.33, y: 5.33}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.1062202, y: 3.8989582}
+  m_EdgeRadius: 0

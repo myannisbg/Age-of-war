@@ -8,12 +8,15 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/menus.unity
     guid: 979ae5c4ceb7fe84484212fafc97bb45
   - enabled: 1
     path: "Assets/Scenes/\xE7a marche.unity"
     guid: ddd84e6ec9e4d9747986ad18156c4f3d
+  - enabled: 1
+    path: Assets/Scenes/menus principal.unity
+    guid: 0d76d9110f5686341ab2a28764a137b3
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 888e8dc41638a5b4a892202cd4b1eb6d, type: 2}
     com.unity.localization.settings: {fileID: 11400000, guid: 2cbf0048b09e568498c031d2015dfc14, type: 2}

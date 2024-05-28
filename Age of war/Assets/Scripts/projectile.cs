@@ -9,6 +9,7 @@ public class Projectile : MonoBehaviour
 
     private Transform target;
     private Vector2 targetPosition;
+    public Unit unitType;
 
     void Update()
     {
@@ -52,7 +53,7 @@ public class Projectile : MonoBehaviour
             Unit unit = other.gameObject.GetComponent<Unit>();
             if (unit != null)
             {
-                unit.TakeDamage(damage);
+                unit.TakeDamage(damage,unitType.type);
             }
             Destroy(gameObject);
         }

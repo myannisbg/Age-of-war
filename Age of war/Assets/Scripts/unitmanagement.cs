@@ -23,9 +23,17 @@ public class Unit : MonoBehaviour
     public Money moneyClass;
     public Xp xpClass;
     private string unitTag;
-    public int type;
     public GameObject bullet;
     public Vector3 offset = new Vector3(0.2f, 0.0f, 0.0f); 
+    public enum UnitType
+    {
+        Infantry,
+        Archer,
+        Tank,
+        AntiArmor
+    }
+    public UnitType type; 
+
     
 
 
@@ -134,9 +142,9 @@ void firstUse()
     }
 
 
-    public void TakeDamage(float damageDealt)
+    public void TakeDamage(float damageDealt,UnitType attackerType)
     {
-        currentHealth -= damageDealt;
+        currentHealth -= damageDealt* GetDamageMultiplier(attackerType, type);
         healthBar.SetHealth(currentHealth);
 
         if (currentHealth <= 0)
@@ -152,6 +160,22 @@ void firstUse()
         }
     
 
+ private float GetDamageMultiplier(UnitType attackerType, UnitType targetType)
+    {
+        switch (attackerType)
+        {
+            case UnitType.Infantry:
+                return targetType == UnitType.Archer ? 1.5f : 1.0f;
+            case UnitType.Archer:
+                return targetType == UnitType.AntiArmor ? 1.5f : 1.0f;
+            case UnitType.Tank:
+                return targetType == UnitType.Infantry ? 1.5f : 1.0f;
+            case UnitType.AntiArmor:
+                return targetType == UnitType.Tank ? 1.5f : 1.0f;
+            default:
+                return 1.0f;
+        }
+    }
 
 
 //     void OnTriggerStay2D(Collider2D other)
@@ -213,7 +237,7 @@ void detectObject()
                 if (unit != null)
                 {
                     // Effectuer une attaque sur l'ennemi
-                    unit.TakeDamage(damageDealt);
+                    unit.TakeDamage(damageDealt,type);
                     lastDamageTime = Time.time;
                 }
             }
@@ -232,7 +256,7 @@ void detectObject()
                 if (unit != null)
                 {
                     // Effectuer une attaque sur l'allié
-                    unit.TakeDamage(damageDealt);
+                    unit.TakeDamage(damageDealt,type);
                     lastDamageTime = Time.time;
                 }
             }
@@ -328,7 +352,7 @@ public void DealDamage()
                 if (unit != null)
                 {
                     // Effectuer une attaque sur l'ennemi
-                    unit.TakeDamage(damageDealt);
+                    unit.TakeDamage(damageDealt,type);
                     lastDamageTime = Time.time;
                 }
             }
@@ -347,7 +371,7 @@ public void DealDamage()
                 if (unit != null)
                 {
                     // Effectuer une attaque sur l'allié
-                    unit.TakeDamage(damageDealt);
+                    unit.TakeDamage(damageDealt,type);
                     lastDamageTime = Time.time;
                 }
             }

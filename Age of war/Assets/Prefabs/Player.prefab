@@ -650,9 +650,9 @@ MonoBehaviour:
   attackRange: 11
   moneyClass: {fileID: 0}
   xpClass: {fileID: 0}
-  type: 2
   bullet: {fileID: 0}
   offset: {x: 0.2, y: 0, z: 0}
+  type: 0
   healthBar: {fileID: 8829783979555124523}
 --- !u!114 &7385159503886139740
 MonoBehaviour:

@@ -4732,7 +4732,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Button: {fileID: 530359608}
   panelDark: {fileID: 0}
-  gameManager: {fileID: 0}
+  gameManager: {fileID: 333553888}
 --- !u!114 &530359611
 MonoBehaviour:
   m_ObjectHideFlags: 0

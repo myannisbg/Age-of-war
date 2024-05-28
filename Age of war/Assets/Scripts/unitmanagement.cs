@@ -167,7 +167,7 @@ void firstUse()
             case UnitType.Infantry:
                 return targetType == UnitType.Archer ? 1.5f : 1.0f;
             case UnitType.Archer:
-                return targetType == UnitType.Tank ? 1.5f : 1.0f;
+                return targetType == UnitType.AntiArmor ? 1.5f : 1.0f;
             case UnitType.Tank:
                 return targetType == UnitType.Infantry ? 1.5f : 1.0f;
             case UnitType.AntiArmor:

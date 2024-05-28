@@ -10,6 +10,7 @@ public class Turet : MonoBehaviour
 
     [Header("References")]
     public GameObject bullet;  // Préfab de la balle
+    public Transform bulletSpawnPoint;
 
     private float shotTimer;  // Compteur pour le prochain tir
 
@@ -49,10 +50,10 @@ public class Turet : MonoBehaviour
 
     private void AttackClosestEnnemy()
     {
-        Transform closestEnnemy = FindClosestEnnemy();
-        if (closestEnnemy != null && Vector2.Distance(transform.position, closestEnnemy.position) <= maxShootingDistance)
+        Transform closestEnemy = FindClosestEnnemy();
+        if (closestEnemy != null && Vector2.Distance(transform.position, closestEnemy.position) <= maxShootingDistance)
         {
-            Instantiate(bullet, transform.position, Quaternion.identity);
+            Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);  // Utilisez bulletSpawnPoint.position ici
         }
     }
 

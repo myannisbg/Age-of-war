@@ -3527,6 +3527,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretPrefabs:
   - {fileID: 1070098456149786746, guid: 8d668da4a49d0ed439829cef4f0c142b, type: 3}
+  - {fileID: 7249850965738593330, guid: 077c54d8c81847d4983ae20d43ca016d, type: 3}
   selectedTurretPrefab: {fileID: 0}
 --- !u!1 &395672893
 GameObject:
@@ -18150,7 +18151,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1810872080}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 392961493}
+        m_TargetAssemblyTypeName: TurretManager, Assembly-CSharp
+        m_MethodName: SelectTurret
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 2
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1810872080
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -35,7 +35,7 @@ public class bottomMenu : MonoBehaviour
     }
 
     public void retourMenu(){
-        SceneManager.LoadScene("menus principal");
+        SceneManager.LoadScene("Menus principal");
         gameManager.call();
     }
 }

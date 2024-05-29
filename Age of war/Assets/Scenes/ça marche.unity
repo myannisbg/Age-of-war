@@ -9004,6 +9004,7 @@ GameObject:
   - component: {fileID: 980888578}
   - component: {fileID: 980888582}
   - component: {fileID: 980888581}
+  - component: {fileID: 980888583}
   m_Layer: 5
   m_Name: soldat1
   m_TagString: Untagged
@@ -9140,6 +9141,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltipPanel: {fileID: 1297165251}
   offset: {x: 0, y: -200, z: 0}
+--- !u!114 &980888583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980888576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a94bda8f43ac884cb056c770953b291, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitPrefabs:
+  - {fileID: 316289043405635175, guid: 60625cc40b58397419df2aed31f80bde, type: 3}
+  - {fileID: 2402509700158517316, guid: 383b6821c99bf22469c1cbe83b21777c, type: 3}
+  - {fileID: 8550371526878490900, guid: e85c83e5303062342aafc55d41e4871a, type: 3}
+  - {fileID: 3182264860146940550, guid: c1106bb4822806441bcbcc9a18ff49f2, type: 3}
+  - {fileID: 5897595706987331755, guid: 72e0e77e1dcc4f847995dd07d28f56ca, type: 3}
+  - {fileID: 1253543521884486685, guid: de96f0a5733e1634e81c8524d1b39db7, type: 3}
+  - {fileID: 1210788019135763216, guid: 52ea4c39ac2dd7b4f9c8230bac45e75e, type: 3}
+  playerSpawner: {fileID: 44059583}
+  ageValue: {fileID: 333553887}
+  money: {fileID: 333553885}
+  priceOfUnit: 00000000000000000000000000000000
 --- !u!1 &995573580
 GameObject:
   m_ObjectHideFlags: 0
@@ -17898,6 +17923,7 @@ GameObject:
   - component: {fileID: 1550951602}
   - component: {fileID: 1550951606}
   - component: {fileID: 1550951605}
+  - component: {fileID: 1550951607}
   m_Layer: 5
   m_Name: soldat2
   m_TagString: Untagged
@@ -18034,6 +18060,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltipPanel: {fileID: 1233334968}
   offset: {x: 0, y: -200, z: 0}
+--- !u!114 &1550951607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550951600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a94bda8f43ac884cb056c770953b291, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitPrefabs:
+  - {fileID: 4433264446657499104, guid: 55c7a4e0107c9b44c944e6a5cfd99208, type: 3}
+  - {fileID: 8744282442920065175, guid: dd2e2933aa9183a4f9cbd713acac0333, type: 3}
+  - {fileID: 6320383014972569216, guid: 73da64ce924b8d746aa71c9f46b79727, type: 3}
+  - {fileID: 3026060110466296414, guid: 3197b81d08a27a54ba2108e68ce8fffd, type: 3}
+  - {fileID: 5531107227879078838, guid: c0bdf765842c427479fde7ecba403c39, type: 3}
+  - {fileID: 1863065466856145179, guid: 20c3e0f1be712234e835304e8b13794f, type: 3}
+  - {fileID: 8662468809095558078, guid: 59d6235a4f0d4ea4186ee2ab4d02f3b0, type: 3}
+  playerSpawner: {fileID: 44059583}
+  ageValue: {fileID: 333553887}
+  money: {fileID: 333553885}
+  priceOfUnit: 00000000000000000000000000000000000000000000000000000000
 --- !u!1 &1565516864
 GameObject:
   m_ObjectHideFlags: 0
@@ -20299,6 +20349,7 @@ GameObject:
   - component: {fileID: 1931813962}
   - component: {fileID: 1931813966}
   - component: {fileID: 1931813965}
+  - component: {fileID: 1931813967}
   m_Layer: 5
   m_Name: soldat3
   m_TagString: Untagged
@@ -20435,6 +20486,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooltip: {fileID: 1931813965}
+--- !u!114 &1931813967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931813960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a94bda8f43ac884cb056c770953b291, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitPrefabs:
+  - {fileID: 3450811314224430299, guid: e8456c5a19a541645a97a9970b47cb8f, type: 3}
+  - {fileID: 4884675501471331256, guid: 75bd169040794774891734541f7ea1f9, type: 3}
+  - {fileID: 3777498364682865235, guid: 2c2c3e556edf0664092e8bdc152405e0, type: 3}
+  - {fileID: 8019885929807840970, guid: 9e79cb3f67b973b46890735169b3cbe9, type: 3}
+  - {fileID: 8529055648832233686, guid: e4e862b0fb3714c4ba2f0ad23f29d35d, type: 3}
+  - {fileID: 3143377655396776911, guid: 0ceeede752228e447967a11ff71e3ac3, type: 3}
+  - {fileID: 7357743710690516368, guid: 39ae46132d50a6b41aae334b17bb8a3f, type: 3}
+  playerSpawner: {fileID: 44059583}
+  ageValue: {fileID: 333553887}
+  money: {fileID: 333553885}
+  priceOfUnit: 00000000000000000000000000000000000000000000000000000000
 --- !u!1 &1941300328
 GameObject:
   m_ObjectHideFlags: 0

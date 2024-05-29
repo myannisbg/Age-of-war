@@ -363,7 +363,7 @@ MonoBehaviour:
   expGain: 20
   moneyGain: 100
   attackSpeed: 1
-  attackRange: 0
+  attackRange: 2
   moneyClass: {fileID: 0}
   xpClass: {fileID: 0}
   bullet: {fileID: 0}

@@ -209,8 +209,8 @@ GameObject:
   - component: {fileID: 2891106971934583028}
   - component: {fileID: 576300529798842333}
   m_Layer: 0
-  m_Name: Unit0-1
-  m_TagString: Ally
+  m_Name: Unit0-1 ennemie
+  m_TagString: Ennemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

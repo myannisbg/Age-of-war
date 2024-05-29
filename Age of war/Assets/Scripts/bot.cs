@@ -188,6 +188,7 @@ private Dictionary<int, float> lastSpawnTimes = new Dictionary<int, float>();
 
                 // Récupérer la préfab d'unité correspondant au nombre aléatoire
                 GameObject unitPrefab = unitPrefabs[randomIndex];
+               
 
                 // Appeler la méthode SpawnPlayer du PlayerSpawner en passant la préfab d'unité
                 spawner.SpawnPlayer(unitPrefab);

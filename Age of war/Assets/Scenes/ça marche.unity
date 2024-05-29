@@ -4666,7 +4666,7 @@ MonoBehaviour:
   currentFunction: 3
   availableFunctions: 00000000010000000200000003000000
   isBot: 1
-  botSpawnInterval: 5
+  botSpawnInterval: 9
   timeSinceLastSpawn: 0
   spawner: {fileID: 530252794}
   unitPrefabs:
@@ -9183,7 +9183,7 @@ MonoBehaviour:
   playerSpawner: {fileID: 44059583}
   ageValue: {fileID: 333553887}
   money: {fileID: 333553885}
-  priceOfUnit: 00000000000000000000000000000000000000000000000000000000
+  priceOfUnit: 58020000f4010000bc0200008a020000ee02000020030000f4010000
 --- !u!1 &995573580
 GameObject:
   m_ObjectHideFlags: 0
@@ -16374,7 +16374,7 @@ MonoBehaviour:
   playerSpawner: {fileID: 44059583}
   ageValue: {fileID: 333553887}
   money: {fileID: 333553885}
-  priceOfUnit: 640000002c010000801a0600
+  priceOfUnit: 820000008c00000096000000af000000af00000096000000c8000000
 --- !u!114 &1382498962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18102,7 +18102,7 @@ MonoBehaviour:
   playerSpawner: {fileID: 44059583}
   ageValue: {fileID: 333553887}
   money: {fileID: 333553885}
-  priceOfUnit: 00000000000000000000000000000000000000000000000000000000
+  priceOfUnit: c8000000dc000000c8000000fa000000e100000096000000fa000000
 --- !u!1 &1565516864
 GameObject:
   m_ObjectHideFlags: 0
@@ -20528,7 +20528,7 @@ MonoBehaviour:
   playerSpawner: {fileID: 44059583}
   ageValue: {fileID: 333553887}
   money: {fileID: 333553885}
-  priceOfUnit: 00000000000000000000000000000000000000000000000000000000
+  priceOfUnit: 640000006e000000780000009600000096000000c8000000fa000000
 --- !u!1 &1941300328
 GameObject:
   m_ObjectHideFlags: 0

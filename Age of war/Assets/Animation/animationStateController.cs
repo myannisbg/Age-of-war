@@ -14,7 +14,6 @@ public Animator animator;
     // Update is called once per frame
     void Update()
     {
-        animator.SetBool("isWalking", true);
     /*if(self.attackDetection != None) {
         animator.SetBool("isWalking", false);
         animator.SetBool("isAttacking", true);

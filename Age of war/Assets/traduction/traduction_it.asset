@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: it
   m_SharedData: {fileID: 11400000, guid: 85c9c53c3ffb3384b8dd1c5cef1e3a16, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 4016880602435551246
   m_TableData:
   - m_Id: 121805864960
     m_Localized: TORRETTA
@@ -42,6 +43,67 @@ MonoBehaviour:
     m_Localized: AGGIORNAMENTO
     m_Metadata:
       m_Items: []
+  - m_Id: 22887843234971648
+    m_Localized: "+10% all'attacco sulle tue unit\xE0 di fanteria"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22889088469303296
+    m_Localized: "+10% all'attacco delle tue unit\xE0 corazzate"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22889253326422016
+    m_Localized: "+10% all'attacco sulle tue unit\xE0 di supporto"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22889420909838336
+    m_Localized: "+10% all'attacco delle tue unit\xE0 anti-corazzate"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22889547162583040
+    m_Localized: "+10% alla difesa delle tue unit\xE0 di fanteria"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22889692059009024
+    m_Localized: "+10% alla difesa delle tue unit\xE0 anti-corazzate"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22889821793026048
+    m_Localized: "+10% alla difesa delle tue unit\xE0 corazzate"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22890059102552064
+    m_Localized: +10% oro ottenuto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22891119103836160
+    m_Localized: +10% portata dell'arciere
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22891274620239872
+    m_Localized: +10% portata delle torrette
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22891414542221312
+    m_Localized: +10% danni alle torrette
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22892946834718720
+    m_Localized: aggiungi uno slot per la torretta
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22893225101623296
+    m_Localized: vendere una torretta
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22894663462682624
+    m_Localized: "sblocca l'unit\xE0 anti-armatura per 500 monete"
+    m_Metadata:
+      m_Items:
+      - rid: 4016880602435551246
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 4016880602435551246
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 0000f23a93565100

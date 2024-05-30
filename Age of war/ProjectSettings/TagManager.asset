@@ -12,6 +12,7 @@ TagManager:
   - BaseEnnemy
   - EventSystem
   - UpgradeButton
+  - Special
   layers:
   - Default
   - TransparentFX

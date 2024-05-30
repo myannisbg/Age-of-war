@@ -25,7 +25,6 @@ public class SpecialSpawner : MonoBehaviour
     private IEnumerator LaunchProjectiles()
     {
         isSpawning = true;
-        Quaternion fixedRotation = Quaternion.Euler(1, 0, 44);
         for (int i = 0; i < numberOfProjectiles; i++)
         {
             if (ageValue.getAge() >= 0 && ageValue.getAge() < projectilePrefabs.Count)
@@ -36,8 +35,8 @@ public class SpecialSpawner : MonoBehaviour
                 Vector3 spawnPosition = new Vector3(
                     Random.Range(-spawnAreaSize.x / 2, spawnAreaSize.x / 2), spawnHeight, 0) + transform.position;
 
-                Instantiate(projectilePrefab, spawnPosition, fixedRotation);
-                Debug.Log("Projectile instantiated at position: " + spawnPosition + " with fixed rotation: " + fixedRotation.eulerAngles);
+                Instantiate(projectilePrefab, spawnPosition, Quaternion.identity); // Pas de rotation supplémentaire
+                Debug.Log("Projectile instantiated at position: " + spawnPosition + " with default rotation.");
 
                 // Attendre avant de lancer le prochain projectile
                 yield return new WaitForSeconds(spawnInterval);
@@ -50,3 +49,4 @@ public class SpecialSpawner : MonoBehaviour
         isSpawning = false;
     }
 }
+

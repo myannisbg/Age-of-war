@@ -9078,6 +9078,10 @@ MonoBehaviour:
   - {fileID: 5592423590470507474, guid: bca75eb6667d7ee4c9aa736effe11f06, type: 3}
   - {fileID: 3006952940748669959, guid: 2257ff19ad2822845adfffa3b64ed346, type: 3}
   - {fileID: 161152508489461990, guid: dd13ee34495599a419f826417c8028f0, type: 3}
+  - {fileID: 8105738393127557185, guid: c171371b85b80a34a87d85b8f591ba72, type: 3}
+  - {fileID: 8984898016494916003, guid: 9e7e792caccb5e44c8a9a7bf461d2926, type: 3}
+  - {fileID: 8716187953839882618, guid: bec6855ef7704f24e8bb166d68c3a34b, type: 3}
+  - {fileID: 5244462310921944723, guid: aab301ac90171fa47b9511047b32b6c4, type: 3}
   spawnInterval: 0.1
   numberOfProjectiles: 10
   spawnAreaSize: {x: 30, y: 30}

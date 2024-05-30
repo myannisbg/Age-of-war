@@ -30,11 +30,17 @@ public class DeplacementCamera : MonoBehaviour, IPointerEnterHandler, IPointerEx
                 if (x < bloquagePlus){
                     mainCamera.transform.position += new Vector3(moveAmount * Time.deltaTime, 0f, 0f);
                 }
+                else{
+                    mainCamera.transform.position = new Vector3(20, -0.04f, -10f);
+                }
 
             }
             if (moveAmount < 0){
                 if (x > bloquageMoin){
                     mainCamera.transform.position += new Vector3(moveAmount * Time.deltaTime, 0f, 0f);
+                }
+                else{
+                    mainCamera.transform.position = new Vector3(-4, -0.04f, -10f);
                 }
             }
         }

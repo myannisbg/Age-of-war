@@ -355,7 +355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1.7
   rb: {fileID: 8791874349893129072}
-  offset: {x: 0.2, y: 0, z: 0}
+  offset: {x: 0.7, y: 0, z: 0}
 --- !u!61 &1638182436621315279
 BoxCollider2D:
   m_ObjectHideFlags: 0

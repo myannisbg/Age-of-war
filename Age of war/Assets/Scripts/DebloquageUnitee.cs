@@ -25,5 +25,7 @@ public class DebloquageUnitee : MonoBehaviour
     public void bloqueUnite4()
     {
         ButtonBlocage.SetActive(true);
+        float cost = 500f * (ageValue.getAge() + 1);
+        buttonText.text = "debloquer l'uniter anti armure pour " + cost.ToString() + " pièces";
     }
 }

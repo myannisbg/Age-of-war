@@ -10,6 +10,10 @@ public class LanguageObject : MonoBehaviour
     private float buttonSpacing = 50f;
     private bool active = false;
     public DebloquageUnitee unitebloquer;
+    public soldatText soldatText1;
+    public soldatText soldatText2;
+    public soldatText soldatText3;
+    public soldatText soldatText4;
 
     void Start()
     {
@@ -73,6 +77,10 @@ public class LanguageObject : MonoBehaviour
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[_localeID];
         active = false;
         unitebloquer.actualiseText();
+        soldatText1.textUniteActualise();
+        soldatText2.textUniteActualise();
+        soldatText3.textUniteActualise();
+        soldatText4.textUniteActualise();
     }
 
     public string getLangue(){
@@ -88,8 +96,11 @@ public class LanguageObject : MonoBehaviour
         else if(selectedButton == languageButtons[3]){
             return "it";
         }
-        else{
+        else if(selectedButton == languageButtons[4]){
             return "al";
+        }
+        else{
+            return "fr";
         }
     }
 }

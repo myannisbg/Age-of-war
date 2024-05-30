@@ -100,6 +100,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 4016880602435551246
+  - m_Id: 22906121181331456
+    m_Localized: "gojo satoru pi\xF9 potente 10.000 monete"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

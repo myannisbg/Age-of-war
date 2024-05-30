@@ -95,6 +95,10 @@ MonoBehaviour:
     m_Key: debloque3
     m_Metadata:
       m_Items: []
+  - m_Id: 22906121181331456
+    m_Key: gojo
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

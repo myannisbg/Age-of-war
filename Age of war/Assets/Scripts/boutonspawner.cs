@@ -58,4 +58,8 @@ public class SpawnButton : MonoBehaviour
             Debug.LogError("PlayerSpawner script is not assigned!");
         }
     }
+
+    public int getPrice(){
+        return priceOfUnit[ageValue.getAge()];
+    }
 }

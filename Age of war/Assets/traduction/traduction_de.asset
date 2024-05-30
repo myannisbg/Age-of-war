@@ -100,6 +100,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 4016880602435551245
+  - m_Id: 22906121181331456
+    m_Localized: "Gojo Satoru m\xE4chtigste 10.000 M\xFCnzen"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

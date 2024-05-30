@@ -1963,6 +1963,10 @@ MonoBehaviour:
   xpBarre: {fileID: 2130456725}
   AmeliorationButton: {fileID: 119837119}
   BouttonUnite5: {fileID: 1305821303}
+  soldatText1: {fileID: 1382498964}
+  soldatText2: {fileID: 980888584}
+  soldatText3: {fileID: 1550951608}
+  soldatText4: {fileID: 1931813968}
 --- !u!114 &119837122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3856,6 +3860,7 @@ GameObject:
   - component: {fileID: 365198903}
   - component: {fileID: 365198905}
   - component: {fileID: 365198904}
+  - component: {fileID: 365198906}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -3902,7 +3907,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: gojo satoru le plus puissant
+  m_text: "gojo satoru le plus puissant 10,000 pi\xE8ces"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3979,6 +3984,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 365198902}
   m_CullTransparentMesh: 1
+--- !u!114 &365198906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365198902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:85c9c53c3ffb3384b8dd1c5cef1e3a16
+    m_TableEntryReference:
+      m_KeyId: 22906121181331456
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 365198904}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &375564464
 GameObject:
   m_ObjectHideFlags: 0
@@ -9558,6 +9603,7 @@ GameObject:
   - component: {fileID: 980888582}
   - component: {fileID: 980888581}
   - component: {fileID: 980888583}
+  - component: {fileID: 980888584}
   m_Layer: 5
   m_Name: soldat1
   m_TagString: Untagged
@@ -9718,6 +9764,22 @@ MonoBehaviour:
   ageValue: {fileID: 333553887}
   money: {fileID: 333553885}
   priceOfUnit: 58020000f4010000bc0200008a020000ee02000020030000f4010000
+--- !u!114 &980888584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980888576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb6dca4d08ce5145b2d2fa597f9c19c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  langue: {fileID: 1146299115}
+  buttonText: {fileID: 1772762071}
+  unite: 1
+  price: {fileID: 980888583}
 --- !u!1 &995573580
 GameObject:
   m_ObjectHideFlags: 0
@@ -11369,6 +11431,10 @@ MonoBehaviour:
   - {fileID: 2006076018}
   - {fileID: 457940666}
   unitebloquer: {fileID: 158798824}
+  soldatText1: {fileID: 1382498964}
+  soldatText2: {fileID: 980888584}
+  soldatText3: {fileID: 1550951608}
+  soldatText4: {fileID: 1931813968}
 --- !u!1 &1146556766
 GameObject:
   m_ObjectHideFlags: 0
@@ -17431,6 +17497,7 @@ GameObject:
   - component: {fileID: 1382498959}
   - component: {fileID: 1382498958}
   - component: {fileID: 1382498961}
+  - component: {fileID: 1382498964}
   - component: {fileID: 1382498963}
   - component: {fileID: 1382498962}
   m_Layer: 5
@@ -17593,6 +17660,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltipPanel: {fileID: 2012739660}
   offset: {x: 0, y: -200, z: 0}
+--- !u!114 &1382498964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382498956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb6dca4d08ce5145b2d2fa597f9c19c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  langue: {fileID: 1146299115}
+  buttonText: {fileID: 65155686}
+  unite: 0
+  price: {fileID: 1382498961}
 --- !u!1 &1385932637
 GameObject:
   m_ObjectHideFlags: 0
@@ -19222,6 +19305,7 @@ GameObject:
   - component: {fileID: 1550951606}
   - component: {fileID: 1550951605}
   - component: {fileID: 1550951607}
+  - component: {fileID: 1550951608}
   m_Layer: 5
   m_Name: soldat2
   m_TagString: Untagged
@@ -19382,6 +19466,22 @@ MonoBehaviour:
   ageValue: {fileID: 333553887}
   money: {fileID: 333553885}
   priceOfUnit: c8000000dc000000c8000000fa000000e100000096000000fa000000
+--- !u!114 &1550951608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550951600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb6dca4d08ce5145b2d2fa597f9c19c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  langue: {fileID: 1146299115}
+  buttonText: {fileID: 1622308822}
+  unite: 2
+  price: {fileID: 1550951607}
 --- !u!1 &1565516864
 GameObject:
   m_ObjectHideFlags: 0
@@ -21697,6 +21797,7 @@ GameObject:
   - component: {fileID: 1931813966}
   - component: {fileID: 1931813965}
   - component: {fileID: 1931813967}
+  - component: {fileID: 1931813968}
   m_Layer: 5
   m_Name: soldat3
   m_TagString: Untagged
@@ -21857,6 +21958,22 @@ MonoBehaviour:
   ageValue: {fileID: 333553887}
   money: {fileID: 333553885}
   priceOfUnit: 640000006e000000780000009600000096000000c8000000fa000000
+--- !u!114 &1931813968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931813960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb6dca4d08ce5145b2d2fa597f9c19c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  langue: {fileID: 1146299115}
+  buttonText: {fileID: 1156467033}
+  unite: 3
+  price: {fileID: 1931813967}
 --- !u!1 &1941300328
 GameObject:
   m_ObjectHideFlags: 0

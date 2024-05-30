@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: +10% attaque
+  m_text: "+10% attaque sur vos unit\xE9s de support"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1287,7 +1287,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: +10% attaque
+  m_text: '+10% d''or '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2647,6 +2647,7 @@ GameObject:
   - component: {fileID: 236386359}
   - component: {fileID: 236386363}
   - component: {fileID: 236386362}
+  - component: {fileID: 236386364}
   m_Layer: 5
   m_Name: up8
   m_TagString: Untagged
@@ -2783,6 +2784,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooltip: {fileID: 236386362}
+--- !u!114 &236386364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236386357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1233b1b2b8622d4e8343a6cac2e3e8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  percentageIncrease: 10
+  unitPrefabsToUpgrade:
+  - {fileID: 4433264446657499104, guid: 55c7a4e0107c9b44c944e6a5cfd99208, type: 3}
+  - {fileID: 8744282442920065175, guid: dd2e2933aa9183a4f9cbd713acac0333, type: 3}
+  - {fileID: 6320383014972569216, guid: 73da64ce924b8d746aa71c9f46b79727, type: 3}
+  - {fileID: 3026060110466296414, guid: 3197b81d08a27a54ba2108e68ce8fffd, type: 3}
+  - {fileID: 5531107227879078838, guid: c0bdf765842c427479fde7ecba403c39, type: 3}
+  - {fileID: 1863065466856145179, guid: 20c3e0f1be712234e835304e8b13794f, type: 3}
+  - {fileID: 8662468809095558078, guid: 59d6235a4f0d4ea4186ee2ab4d02f3b0, type: 3}
+  moneyBoost: 10
+  buttonNumber: 9
+  unit: {fileID: 0}
+  money: {fileID: 333553885}
+  damageBoostsRemainingBtn1: 3
 --- !u!1 &236529902
 GameObject:
   m_ObjectHideFlags: 0
@@ -5593,7 +5620,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: +10% attaque
+  m_text: "+10% attaque sur vos unit\xE9s tank"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7065,6 +7092,7 @@ GameObject:
   - component: {fileID: 768823667}
   - component: {fileID: 768823671}
   - component: {fileID: 768823670}
+  - component: {fileID: 768823672}
   m_Layer: 5
   m_Name: up5
   m_TagString: Untagged
@@ -7201,6 +7229,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooltip: {fileID: 768823670}
+--- !u!114 &768823672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768823665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1233b1b2b8622d4e8343a6cac2e3e8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  percentageIncrease: 10
+  unitPrefabsToUpgrade:
+  - {fileID: 3450811314224430299, guid: e8456c5a19a541645a97a9970b47cb8f, type: 3}
+  - {fileID: 4884675501471331256, guid: 75bd169040794774891734541f7ea1f9, type: 3}
+  - {fileID: 3777498364682865235, guid: 2c2c3e556edf0664092e8bdc152405e0, type: 3}
+  - {fileID: 8019885929807840970, guid: 9e79cb3f67b973b46890735169b3cbe9, type: 3}
+  - {fileID: 8529055648832233686, guid: e4e862b0fb3714c4ba2f0ad23f29d35d, type: 3}
+  - {fileID: 3143377655396776911, guid: 0ceeede752228e447967a11ff71e3ac3, type: 3}
+  - {fileID: 7357743710690516368, guid: 39ae46132d50a6b41aae334b17bb8a3f, type: 3}
+  moneyBoost: 10
+  buttonNumber: 6
+  unit: {fileID: 0}
+  money: {fileID: 333553885}
+  damageBoostsRemainingBtn1: 3
 --- !u!1 &783128741
 GameObject:
   m_ObjectHideFlags: 0
@@ -7851,6 +7905,7 @@ GameObject:
   - component: {fileID: 838841313}
   - component: {fileID: 838841317}
   - component: {fileID: 838841316}
+  - component: {fileID: 838841318}
   m_Layer: 5
   m_Name: up2
   m_TagString: Untagged
@@ -7942,7 +7997,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 53564131e0a5876489fcad3b48911897, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 89829dbc29c0119478fb961131b81142, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7987,6 +8042,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooltip: {fileID: 838841316}
+--- !u!114 &838841318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838841311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1233b1b2b8622d4e8343a6cac2e3e8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  percentageIncrease: 10
+  unitPrefabsToUpgrade:
+  - {fileID: 4433264446657499104, guid: 55c7a4e0107c9b44c944e6a5cfd99208, type: 3}
+  - {fileID: 8744282442920065175, guid: dd2e2933aa9183a4f9cbd713acac0333, type: 3}
+  - {fileID: 6320383014972569216, guid: 73da64ce924b8d746aa71c9f46b79727, type: 3}
+  - {fileID: 3026060110466296414, guid: 3197b81d08a27a54ba2108e68ce8fffd, type: 3}
+  - {fileID: 5531107227879078838, guid: c0bdf765842c427479fde7ecba403c39, type: 3}
+  - {fileID: 1863065466856145179, guid: 20c3e0f1be712234e835304e8b13794f, type: 3}
+  - {fileID: 8662468809095558078, guid: 59d6235a4f0d4ea4186ee2ab4d02f3b0, type: 3}
+  moneyBoost: 10
+  buttonNumber: 3
+  unit: {fileID: 0}
+  money: {fileID: 333553885}
+  damageBoostsRemainingBtn1: 3
 --- !u!1 &872408431
 GameObject:
   m_ObjectHideFlags: 0
@@ -8317,7 +8398,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: +10% attaque
+  m_text: "+10% de d\xE9fence sur vos unit\xE9s d'infanterie"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9953,6 +10034,7 @@ GameObject:
   - component: {fileID: 1051491757}
   - component: {fileID: 1051491761}
   - component: {fileID: 1051491760}
+  - component: {fileID: 1051491762}
   m_Layer: 5
   m_Name: up6
   m_TagString: Untagged
@@ -10089,6 +10171,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooltip: {fileID: 1051491760}
+--- !u!114 &1051491762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051491755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1233b1b2b8622d4e8343a6cac2e3e8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  percentageIncrease: 10
+  unitPrefabsToUpgrade:
+  - {fileID: 316289043405635175, guid: 60625cc40b58397419df2aed31f80bde, type: 3}
+  - {fileID: 2402509700158517316, guid: 383b6821c99bf22469c1cbe83b21777c, type: 3}
+  - {fileID: 8550371526878490900, guid: e85c83e5303062342aafc55d41e4871a, type: 3}
+  - {fileID: 3182264860146940550, guid: c1106bb4822806441bcbcc9a18ff49f2, type: 3}
+  - {fileID: 5897595706987331755, guid: 72e0e77e1dcc4f847995dd07d28f56ca, type: 3}
+  - {fileID: 1253543521884486685, guid: de96f0a5733e1634e81c8524d1b39db7, type: 3}
+  - {fileID: 1210788019135763216, guid: 52ea4c39ac2dd7b4f9c8230bac45e75e, type: 3}
+  moneyBoost: 10
+  buttonNumber: 7
+  unit: {fileID: 0}
+  money: {fileID: 333553885}
+  damageBoostsRemainingBtn1: 3
 --- !u!1 &1055527890
 GameObject:
   m_ObjectHideFlags: 0
@@ -13678,6 +13786,7 @@ GameObject:
   - component: {fileID: 1155606514}
   - component: {fileID: 1155606518}
   - component: {fileID: 1155606517}
+  - component: {fileID: 1155606519}
   m_Layer: 5
   m_Name: up4
   m_TagString: Untagged
@@ -13814,6 +13923,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooltip: {fileID: 1155606517}
+--- !u!114 &1155606519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155606512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1233b1b2b8622d4e8343a6cac2e3e8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  percentageIncrease: 10
+  unitPrefabsToUpgrade:
+  - {fileID: 8546868957262333920, guid: 01eb412316d3ccb4aa05b2e191d21ef1, type: 3}
+  - {fileID: 3231260579545399120, guid: dd5acd6fec84e864aa21e397b5e13ce5, type: 3}
+  - {fileID: 6555365449194633847, guid: d01f5f7e2dc06a94faaf34fabbd9c7ac, type: 3}
+  - {fileID: 1872828249818178014, guid: 8133f26f549b17d40912b4ab9e1e1dcb, type: 3}
+  - {fileID: 5617918146232834373, guid: b405664a5807cfc4f9f55cf69b223b04, type: 3}
+  - {fileID: 2136208991182432391, guid: 7bd10b0bdf11c774a807e296fccdffcc, type: 3}
+  - {fileID: 7041424975999084292, guid: 6ca0c6efca1a5984a9ab739d826bd58c, type: 3}
+  moneyBoost: 10
+  buttonNumber: 5
+  unit: {fileID: 0}
+  money: {fileID: 333553885}
+  damageBoostsRemainingBtn1: 3
 --- !u!1 &1156467031
 GameObject:
   m_ObjectHideFlags: 0
@@ -14787,7 +14922,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9852ee40bfd418743a64afc05ea3fe99, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 53564131e0a5876489fcad3b48911897, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14819,9 +14954,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   percentageIncrease: 10
   unitPrefabsToUpgrade:
-  - {fileID: 5753165178247412384, guid: 12030b2efa5c46947a0eaaf2ea71eaa2, type: 3}
+  - {fileID: 3450811314224430299, guid: e8456c5a19a541645a97a9970b47cb8f, type: 3}
+  - {fileID: 4884675501471331256, guid: 75bd169040794774891734541f7ea1f9, type: 3}
+  - {fileID: 3777498364682865235, guid: 2c2c3e556edf0664092e8bdc152405e0, type: 3}
+  - {fileID: 8019885929807840970, guid: 9e79cb3f67b973b46890735169b3cbe9, type: 3}
+  - {fileID: 8529055648832233686, guid: e4e862b0fb3714c4ba2f0ad23f29d35d, type: 3}
+  - {fileID: 3143377655396776911, guid: 0ceeede752228e447967a11ff71e3ac3, type: 3}
+  - {fileID: 7357743710690516368, guid: 39ae46132d50a6b41aae334b17bb8a3f, type: 3}
   moneyBoost: 10
-  buttonNumber: 8
+  buttonNumber: 4
   unit: {fileID: -2355777041220960625, guid: 2579ca3163798da49bc80ce08964b667, type: 3}
   money: {fileID: 333553885}
   damageBoostsRemainingBtn1: 3
@@ -15164,7 +15305,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: +10% attaque
+  m_text: "+10% attaque sur vos unit\xE9s d'infanterie"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -16461,7 +16602,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: +10% attaque
+  m_text: "+10% attaque sur vos unit\xE9s anti-armur"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -16926,7 +17067,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   percentageIncrease: 10
   unitPrefabsToUpgrade:
-  - {fileID: 4969270038623667323, guid: 2579ca3163798da49bc80ce08964b667, type: 3}
+  - {fileID: 8546868957262333920, guid: 01eb412316d3ccb4aa05b2e191d21ef1, type: 3}
+  - {fileID: 3231260579545399120, guid: dd5acd6fec84e864aa21e397b5e13ce5, type: 3}
+  - {fileID: 6555365449194633847, guid: d01f5f7e2dc06a94faaf34fabbd9c7ac, type: 3}
+  - {fileID: 1872828249818178014, guid: 8133f26f549b17d40912b4ab9e1e1dcb, type: 3}
+  - {fileID: 5617918146232834373, guid: b405664a5807cfc4f9f55cf69b223b04, type: 3}
+  - {fileID: 2136208991182432391, guid: 7bd10b0bdf11c774a807e296fccdffcc, type: 3}
+  - {fileID: 7041424975999084292, guid: 6ca0c6efca1a5984a9ab739d826bd58c, type: 3}
   moneyBoost: 10
   buttonNumber: 1
   unit: {fileID: 0}
@@ -17016,7 +17163,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: +10% attaque
+  m_text: "+10% de d\xE9fence sur vos unit\xE9s tank"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -18148,7 +18295,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: +10% attaque
+  m_text: "+10% de d\xE9fence sur vos unit\xE9s anti-armur"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -20937,6 +21084,7 @@ GameObject:
   - component: {fileID: 1941300330}
   - component: {fileID: 1941300334}
   - component: {fileID: 1941300333}
+  - component: {fileID: 1941300335}
   m_Layer: 5
   m_Name: up7
   m_TagString: Untagged
@@ -21073,6 +21221,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooltip: {fileID: 1941300333}
+--- !u!114 &1941300335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941300328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1233b1b2b8622d4e8343a6cac2e3e8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  percentageIncrease: 10
+  unitPrefabsToUpgrade:
+  - {fileID: 8546868957262333920, guid: babc622b641f21d428d1b8d1ad6e92d6, type: 3}
+  - {fileID: 4433264446657499104, guid: cff1ed6708ed41a4d91adcb139c9ab13, type: 3}
+  - {fileID: 3450811314224430299, guid: bafd7428ff1be044b887b14eaef69848, type: 3}
+  - {fileID: 316289043405635175, guid: 95aa18bf04a694b4d81efe6cdc0332f9, type: 3}
+  - {fileID: 3231260579545399120, guid: e143f7c245d83764fa61a56f81a721ca, type: 3}
+  - {fileID: 8744282442920065175, guid: aef4392c351250e419ffe01596b17b15, type: 3}
+  - {fileID: 4884675501471331256, guid: 630f0f97f17ebb14dbc50272537f38e7, type: 3}
+  - {fileID: 2402509700158517316, guid: 70e456a6e7c97ab48a2bebfa258882a0, type: 3}
+  - {fileID: 6555365449194633847, guid: d16458f0d5a9a714ba8b57f065b99f13, type: 3}
+  - {fileID: 6320383014972569216, guid: 69a0979c7f2432e4f83c81f01a0083df, type: 3}
+  - {fileID: 3777498364682865235, guid: 730051166318d84408a3b324637ebce2, type: 3}
+  - {fileID: 8550371526878490900, guid: c4b5b7540b839e6428a9ea0bc04e4c6f, type: 3}
+  - {fileID: 1872828249818178014, guid: 401680507d062e0488a24afa10710b1f, type: 3}
+  - {fileID: 3026060110466296414, guid: 2a77ed51f141e914cb8220c1f33482e8, type: 3}
+  - {fileID: 8019885929807840970, guid: 6948c1b3edf335440bd8adc5b0c9797a, type: 3}
+  - {fileID: 3182264860146940550, guid: 3dc1d1355697ec842be328154c5dd45e, type: 3}
+  - {fileID: 5617918146232834373, guid: 30a31af967f2b7444a54efaaa02d2978, type: 3}
+  - {fileID: 5531107227879078838, guid: a5c371fa19d1a20488e5bbe96bb8aab0, type: 3}
+  - {fileID: 8529055648832233686, guid: 52ad04bfd9381a244a5cec81466127c7, type: 3}
+  - {fileID: 5897595706987331755, guid: 040e5032190601649910bf1d2a30b749, type: 3}
+  - {fileID: 0}
+  - {fileID: 2136208991182432391, guid: 406a30a8fe210a14aa219ab0a5d6797e, type: 3}
+  - {fileID: 1863065466856145179, guid: 614942272228b1343b1f2f668df02fa9, type: 3}
+  - {fileID: 3143377655396776911, guid: 22b189aec036a5c428a560ca1394cb34, type: 3}
+  - {fileID: 1253543521884486685, guid: 91a7cbb51f657174dbb519976bc8f774, type: 3}
+  - {fileID: 7041424975999084292, guid: e4e7fcc913a7ec143969f59dcd72c6e9, type: 3}
+  - {fileID: 8662468809095558078, guid: dc5041bc023b9c14485054cb704eba90, type: 3}
+  - {fileID: 7357743710690516368, guid: 8725fbe83fa3ace4ab6900b312d98bb9, type: 3}
+  - {fileID: 1210788019135763216, guid: f8e88ad770b5e1a46a825887e916f8da, type: 3}
+  moneyBoost: 10
+  buttonNumber: 8
+  unit: {fileID: 0}
+  money: {fileID: 333553885}
+  damageBoostsRemainingBtn1: 3
 --- !u!1 &1944316627
 GameObject:
   m_ObjectHideFlags: 0
@@ -21571,7 +21767,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 89829dbc29c0119478fb961131b81142, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 23d3f6ed9194f914890e140d11179f55, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -21603,11 +21799,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   percentageIncrease: 10
   unitPrefabsToUpgrade:
-  - {fileID: 4969270038623667323, guid: 2579ca3163798da49bc80ce08964b667, type: 3}
+  - {fileID: 316289043405635175, guid: 60625cc40b58397419df2aed31f80bde, type: 3}
+  - {fileID: 2402509700158517316, guid: 383b6821c99bf22469c1cbe83b21777c, type: 3}
+  - {fileID: 8550371526878490900, guid: e85c83e5303062342aafc55d41e4871a, type: 3}
+  - {fileID: 3182264860146940550, guid: c1106bb4822806441bcbcc9a18ff49f2, type: 3}
+  - {fileID: 5897595706987331755, guid: 72e0e77e1dcc4f847995dd07d28f56ca, type: 3}
+  - {fileID: 1253543521884486685, guid: de96f0a5733e1634e81c8524d1b39db7, type: 3}
+  - {fileID: 1210788019135763216, guid: 52ea4c39ac2dd7b4f9c8230bac45e75e, type: 3}
   moneyBoost: 10
-  buttonNumber: 5
+  buttonNumber: 2
   unit: {fileID: 0}
-  money: {fileID: 0}
+  money: {fileID: 333553885}
   damageBoostsRemainingBtn1: 3
 --- !u!114 &2009215342
 MonoBehaviour:

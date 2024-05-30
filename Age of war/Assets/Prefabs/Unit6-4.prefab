@@ -395,7 +395,7 @@ MonoBehaviour:
   xpClass: {fileID: 0}
   bullet: {fileID: 0}
   offset: {x: 0.2, y: 0, z: 0}
-  type: 0
+  type: 4
   healthBar: {fileID: 4425508719028340852}
 --- !u!114 &8758024064260596494
 MonoBehaviour:

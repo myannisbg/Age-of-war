@@ -310,6 +310,8 @@ GameObject:
   - component: {fileID: 7431584732059056476}
   - component: {fileID: 2011821558979819636}
   - component: {fileID: 825927297443381995}
+  - component: {fileID: 8787978558013380782}
+  - component: {fileID: 4381766551197612304}
   m_Layer: 0
   m_Name: Unit6-0
   m_TagString: Ally
@@ -545,6 +547,40 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6445618, y: 3.933754}
   m_EdgeRadius: 0
+--- !u!95 &8787978558013380782
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7041424975999084292}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3bc02859caf01bc4a9113cbd6b0c54b1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4381766551197612304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7041424975999084292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a828d8fdddd36e48b4c0c989ebe0a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 8787978558013380782}
 --- !u!1 &8174719202824582750
 GameObject:
   m_ObjectHideFlags: 0

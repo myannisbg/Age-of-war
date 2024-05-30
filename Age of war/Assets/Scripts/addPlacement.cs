@@ -15,7 +15,7 @@ public class addPlacement : MonoBehaviour
 
             if (turretPrefab != null && transform.childCount == 0)  // Check if there is already a turret
             {
-                int turretCost = TurretManager.Instance.GetTurretCost();
+                int turretCost = TurretManager.Instance.GetTurretCostByAge();  // Updated method call
                 if (moneyComponent.canBuy(turretCost))  // Check if the player has enough gold
                 {
                     Instantiate(turretPrefab, transform.position, Quaternion.identity, transform);
@@ -29,6 +29,5 @@ public class addPlacement : MonoBehaviour
                 }
             }
         }
-
     }
 }

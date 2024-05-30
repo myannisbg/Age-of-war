@@ -1,10 +1,13 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TurretManager : MonoBehaviour
 {
     public static TurretManager Instance { get; private set; }
-    public GameObject[] turretPrefabs;  // Array of turret prefabs
+    public List<GameObject> turretPrefabs;  // List of turret prefabs
     public GameObject selectedTurretPrefab;  // Currently selected turret prefab, public for access
+    public GlobalAge ageValue;
+    public List<int> priceOfTurret; // List of turret prices
 
     private void Awake()
     {
@@ -19,32 +22,32 @@ public class TurretManager : MonoBehaviour
         }
     }
 
-    public void SelectTurret(int index)
+    public void SelectTurretByAge()
     {
-        if (index >= 0 && index < turretPrefabs.Length)
+        int ageIndex = ageValue.getAge();
+        if (ageIndex >= 0 && ageIndex < turretPrefabs.Count)
         {
-            selectedTurretPrefab = turretPrefabs[index];
+            selectedTurretPrefab = turretPrefabs[ageIndex];
             Debug.Log("Turret selected: " + selectedTurretPrefab.name);
         }
         else
         {
-            Debug.LogError("Index out of range: Failed to select turret.");
+            Debug.LogError("Invalid age index: Failed to select turret.");
         }
     }
 
-    // New method to get cost based on turret index
-    public int GetTurretCost()
+    // New method to get cost based on current age
+    public int GetTurretCostByAge()
     {
-        int index = System.Array.IndexOf(turretPrefabs, selectedTurretPrefab);
-        switch (index)
+        int ageIndex = ageValue.getAge();
+        if (ageIndex >= 0 && ageIndex < priceOfTurret.Count)
         {
-            case 0:
-                return 500;  // Cost for the first turret
-            case 1:
-                return 750;  // Cost for the second turret
-            default:
-                return 1000;  // Default cost for any other turrets
+            return priceOfTurret[ageIndex];
+        }
+        else
+        {
+            Debug.LogError("Invalid age index: Failed to get turret cost.");
+            return -1;  // Indicate an error in cost retrieval
         }
     }
 }
-

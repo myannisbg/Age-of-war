@@ -9,6 +9,12 @@ public class LanguageObject : MonoBehaviour
     private bool isUnfold = false;
     private float buttonSpacing = 50f;
     private bool active = false;
+    public DebloquageUnitee unitebloquer;
+    public soldatText soldatText1;
+    public soldatText soldatText2;
+    public soldatText soldatText3;
+    public soldatText soldatText4;
+
     void Start()
     {
         // Au début, tous les boutons sont cachés sauf le premier
@@ -70,5 +76,31 @@ public class LanguageObject : MonoBehaviour
         yield return LocalizationSettings.InitializationOperation;
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[_localeID];
         active = false;
+        unitebloquer.actualiseText();
+        soldatText1.textUniteActualise();
+        soldatText2.textUniteActualise();
+        soldatText3.textUniteActualise();
+        soldatText4.textUniteActualise();
+    }
+
+    public string getLangue(){
+        if (selectedButton == languageButtons[0]){
+            return "fr";
+        }
+        else if(selectedButton == languageButtons[1]){
+            return "en";
+        }
+        else if(selectedButton == languageButtons[2]){
+            return "es";
+        }
+        else if(selectedButton == languageButtons[3]){
+            return "it";
+        }
+        else if(selectedButton == languageButtons[4]){
+            return "al";
+        }
+        else{
+            return "fr";
+        }
     }
 }

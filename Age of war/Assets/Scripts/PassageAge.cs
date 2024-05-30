@@ -14,6 +14,10 @@ public class PassageAge : MonoBehaviour
     public GameObject xpBarre;
     public GameObject AmeliorationButton;
     public unite5 BouttonUnite5;
+    public soldatText soldatText1;
+    public soldatText soldatText2;
+    public soldatText soldatText3;
+    public soldatText soldatText4;
 
 
     public void ToggleButton(){
@@ -24,6 +28,10 @@ public class PassageAge : MonoBehaviour
         bot.ResetSpawnTimer();
         bouttonBloquageUnite4.bloqueUnite4();
         BouttonUnite5.tryUnlock();
+        soldatText1.textUniteActualise();
+        soldatText2.textUniteActualise();
+        soldatText3.textUniteActualise();
+        soldatText4.textUniteActualise();
 
         if (ageValue.getAge() == 6){
             AmeliorationButton.SetActive(false);

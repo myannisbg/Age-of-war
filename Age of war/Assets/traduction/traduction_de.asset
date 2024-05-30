@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: de
   m_SharedData: {fileID: 11400000, guid: 85c9c53c3ffb3384b8dd1c5cef1e3a16, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 4016880602435551245
   m_TableData:
   - m_Id: 121805864960
     m_Localized: TURM
@@ -42,6 +43,71 @@ MonoBehaviour:
     m_Localized: AKTUALISIERUNG
     m_Metadata:
       m_Items: []
+  - m_Id: 22887843234971648
+    m_Localized: +10 % Angriff auf Ihre Infanterieeinheiten
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22889088469303296
+    m_Localized: +10 % Angriff auf deine Panzereinheiten
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22889253326422016
+    m_Localized: "+10 % Angriff auf Ihre Unterst\xFCtzungseinheiten"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22889420909838336
+    m_Localized: +10 % Angriff auf Ihre Panzerabwehreinheiten
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22889547162583040
+    m_Localized: +10 % Verteidigung Ihrer Infanterieeinheiten
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22889692059009024
+    m_Localized: +10 % Verteidigung Ihrer Panzerabwehreinheiten
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22889821793026048
+    m_Localized: +10 % Verteidigung Ihrer Panzereinheiten
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22890059102552064
+    m_Localized: +10 % Gold erhalten
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22891119103836160
+    m_Localized: "+10 % Bogensch\xFCtzenreichweite"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22891274620239872
+    m_Localized: "+10 % Reichweite der T\xFCrme"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22891414542221312
+    m_Localized: +10 % Turmschaden
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22892946834718720
+    m_Localized: "F\xFCge einen Turmplatz hinzu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22893225101623296
+    m_Localized: Verkaufe einen Turm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22894663462682624
+    m_Localized: "Schalte die Panzerabwehreinheit f\xFCr 500 M\xFCnzen frei"
+    m_Metadata:
+      m_Items:
+      - rid: 4016880602435551245
+  - m_Id: 22906121181331456
+    m_Localized: "Gojo Satoru m\xE4chtigste 10.000 M\xFCnzen"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 4016880602435551245
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 0000f23a93565100

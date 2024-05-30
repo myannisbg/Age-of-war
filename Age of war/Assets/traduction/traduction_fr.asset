@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: fr
   m_SharedData: {fileID: 11400000, guid: 85c9c53c3ffb3384b8dd1c5cef1e3a16, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 4016880602435551244
   m_TableData:
   - m_Id: 121805864960
     m_Localized: TOURELLE
@@ -42,6 +43,71 @@ MonoBehaviour:
     m_Localized: "AVANC\xC9E"
     m_Metadata:
       m_Items: []
+  - m_Id: 22887843234971648
+    m_Localized: "+10% attaque sur vos unit\xE9s d'infanterie"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22889088469303296
+    m_Localized: "+10% attaque sur vos unit\xE9s tank"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22889253326422016
+    m_Localized: "+10% attaque sur vos unit\xE9s de support"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22889420909838336
+    m_Localized: "+10% attaque sur vos unit\xE9s anti-armur"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22889547162583040
+    m_Localized: "+10% de d\xE9fence sur vos unit\xE9s d'infanterie"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22889692059009024
+    m_Localized: "+10% de d\xE9fence sur vos unit\xE9s anti-armur"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22889821793026048
+    m_Localized: "+10% de d\xE9fense sur vos unit\xE9s tank"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22890059102552064
+    m_Localized: +10% d'or obtenue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22891119103836160
+    m_Localized: "+10% port\xE9e des archers"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22891274620239872
+    m_Localized: "+10% port\xE9e des tourelles"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22891414542221312
+    m_Localized: +10% degats des tourelles
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22892946834718720
+    m_Localized: ajouter un emplacement de tourelle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22893225101623296
+    m_Localized: vendre une tourelle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22894663462682624
+    m_Localized: "debloquer l'uniter anti armure pour 500 pi\xE8ces"
+    m_Metadata:
+      m_Items:
+      - rid: 4016880602435551244
+  - m_Id: 22906121181331456
+    m_Localized: "gojo satoru le plus puissant 10,000 pi\xE8ces"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 4016880602435551244
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 0000f23a93565100

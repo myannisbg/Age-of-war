@@ -34,6 +34,8 @@ public class Unit : MonoBehaviour
         None
     }
     public UnitType type; 
+    public bool isWalking = false;
+    public bool isAttacking = false;
     
 
     
@@ -351,9 +353,11 @@ public void DealDamage()
                 {
                     // Effectuer une attaque sur l'ennemi
                     unit.TakeDamage(damageDealt,type);
+                    isAttacking=true;
                     lastDamageTime = Time.time;
                 }
             }
+        isAttacking=false;
         }
     }
 
@@ -370,9 +374,11 @@ public void DealDamage()
                 {
                     // Effectuer une attaque sur l'allié
                     unit.TakeDamage(damageDealt,type);
+                    isAttacking = true;
                     lastDamageTime = Time.time;
                 }
             }
+            isAttacking=false;
         }
     }
 
@@ -389,9 +395,11 @@ public void DealDamage()
                 {
                     // Effectuer une attaque sur la base
                     baseObject.DealDamage(this, damageDealt);
+                    isAttacking=true;
                     baseObject.lastAttackTime = Time.time; // Mettre à jour le temps de la dernière attaque
                 }
             }
+            isAttacking=false;
         }
     }
 
@@ -408,9 +416,11 @@ public void DealDamage()
                 {
                     // Effectuer une attaque sur la base
                     baseObject.DealDamage(this, damageDealt);
+                    isAttacking=true;
                     baseObject.lastAttackTime = Time.time; // Mettre à jour le temps de la dernière attaque
                 }
             }
+            isAttacking=false;
         }
     }
 }

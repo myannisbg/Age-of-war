@@ -60,7 +60,7 @@ public class Xp : MonoBehaviour
         xpBarre.maxValue = maxXP*(age.getAge()+1)*multipiclateur; 
         xpBarre.value = xp;
 
-        if (age.getAge() < 4){
+        if (age.getAge() < 6){
             if (xp >= xpBarre.maxValue){
                 AmeliorationButton.SetActive(true);
             }

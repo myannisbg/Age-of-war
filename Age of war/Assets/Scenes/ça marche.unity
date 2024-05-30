@@ -1808,6 +1808,7 @@ MonoBehaviour:
   bouttonBloquageUnite4: {fileID: 158798824}
   xpBarre: {fileID: 2130456725}
   AmeliorationButton: {fileID: 119837119}
+  BouttonUnite5: {fileID: 1305821303}
 --- !u!114 &119837122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3490,7 +3491,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: soldat5
+  m_text: gojo satoru le plus puissant
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -15496,6 +15497,7 @@ GameObject:
   - component: {fileID: 1305821299}
   - component: {fileID: 1305821298}
   - component: {fileID: 1305821297}
+  - component: {fileID: 1305821303}
   - component: {fileID: 1305821301}
   - component: {fileID: 1305821300}
   - component: {fileID: 1305821302}
@@ -15505,7 +15507,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1305821296
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15653,6 +15655,20 @@ MonoBehaviour:
   ageValue: {fileID: 333553887}
   money: {fileID: 333553885}
   priceOfUnit: 10270000
+--- !u!114 &1305821303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305821295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4791a9292406744a91615329f2e26c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ageValue: {fileID: 333553887}
+  boutton5: {fileID: 1305821295}
 --- !u!1 &1306826496
 GameObject:
   m_ObjectHideFlags: 0

@@ -371,6 +371,8 @@ MonoBehaviour:
   bullet: {fileID: 0}
   offset: {x: 0.2, y: 0, z: 0}
   type: 0
+  isWalking: 0
+  isAttacking: 0
   healthBar: {fileID: 2001192365704287609}
 --- !u!114 &9145791291684533542
 MonoBehaviour:
@@ -457,6 +459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a828d8fdddd36e48b4c0c989ebe0a9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unit: {fileID: 0}
   animator: {fileID: -258499301022750253}
 --- !u!95 &-258499301022750253
 Animator:
@@ -466,7 +469,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1872828249818178014}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: b75f00cc7e880024fab0b040d8dc8620, type: 2}
   m_CullingMode: 0

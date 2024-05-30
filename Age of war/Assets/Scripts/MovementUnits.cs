@@ -50,9 +50,9 @@ public class MovePlayer : MonoBehaviour
         // Raycast vers l'avant pour détecter une base alliée
         RaycastHit2D hitBase = Physics2D.Raycast(transform.position-offset, Vector2.left, 1f);
         // Raycast vers l'avant pour détecter une unité ennemie
-        RaycastHit2D hitEnemy = Physics2D.Raycast(transform.position - offset, Vector2.left, 0.5f);
+        RaycastHit2D hitEnemy = Physics2D.Raycast(transform.position - offset, Vector2.left, 0.8f);
         // Raycast vers l'avant pour détecter une unité alliée
-        RaycastHit2D hitAlly = Physics2D.Raycast(transform.position + offset, Vector2.right, 0.5f);
+        RaycastHit2D hitAlly = Physics2D.Raycast(transform.position + offset, Vector2.right, 0.8f);
 
         // Si une base ennemie est détectée et que l'unité actuelle est alliée
         if (hitEnemyBase.collider != null && hitEnemyBase.collider.CompareTag("BaseEnnemy") && unitTag == "Ally")

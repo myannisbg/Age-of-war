@@ -538,7 +538,7 @@ MonoBehaviour:
   maxHealth: 850
   damageDealt: 20
   expGain: 25
-  moneyGain: 125
+  moneyGain: 312
   attackSpeed: 1
   attackRange: 3.57
   moneyClass: {fileID: 0}

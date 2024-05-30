@@ -167,8 +167,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df162e4c0a2697048850b849a36be5c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 4969270038623667323, guid: 2579ca3163798da49bc80ce08964b667, type: 3}
-  healthSlider: {fileID: 1312811285}
+  healthSliderPrefab: {fileID: 0}
+  moveRight: 1
+  currentAge: 0
 --- !u!1 &176278906
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,8 +609,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df162e4c0a2697048850b849a36be5c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 4969270038623667323, guid: 2579ca3163798da49bc80ce08964b667, type: 3}
-  healthSlider: {fileID: 580171190}
+  healthSliderPrefab: {fileID: 0}
+  moveRight: 1
+  currentAge: 0
 --- !u!4 &530252795
 Transform:
   m_ObjectHideFlags: 0
@@ -678,7 +680,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 580171190}
-  healthText: {fileID: 258180426}
 --- !u!114 &580171190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1807,7 +1808,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1312811285}
-  healthText: {fileID: 1573457710}
 --- !u!114 &1312811285
 MonoBehaviour:
   m_ObjectHideFlags: 0

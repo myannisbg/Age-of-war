@@ -13,6 +13,7 @@ public class PassageAge : MonoBehaviour
     public DebloquageUnitee bouttonBloquageUnite4;
     public GameObject xpBarre;
     public GameObject AmeliorationButton;
+    public unite5 BouttonUnite5;
 
 
     public void ToggleButton(){
@@ -22,8 +23,9 @@ public class PassageAge : MonoBehaviour
         basesHp.AgeUp();
         bot.ResetSpawnTimer();
         bouttonBloquageUnite4.bloqueUnite4();
+        BouttonUnite5.tryUnlock();
 
-        if (ageValue.getAge() == 4){
+        if (ageValue.getAge() == 6){
             AmeliorationButton.SetActive(false);
             xpBarre.SetActive(false);
         }

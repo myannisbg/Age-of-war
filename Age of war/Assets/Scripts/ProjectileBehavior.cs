@@ -2,23 +2,24 @@ using UnityEngine;
 
 public class ProjectileBehavior : MonoBehaviour
 {
-    public float specialAttackDamage = 1000f; // D�g�ts inflig�s par l'attaque sp�ciale
-    public Unit unitType;
+    public float specialAttackDamage = 1000f; // Dégâts infligés par l'attaque spéciale
+    public Unit.UnitType unitType;
+    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // V�rifier si le projectile touche un ennemi
+        // Vérifier si le projectile touche un ennemi
         if (collision.CompareTag("Ennemy"))
         {
             Unit enemyUnit = collision.GetComponent<Unit>();
             if (enemyUnit != null)
             {
-                // Infliger des d�g�ts � l'ennemi
-                enemyUnit.TakeDamage(specialAttackDamage,unitType.type);
+                // Infliger des dégâts à l'ennemi
+                enemyUnit.TakeDamage(specialAttackDamage,Unit.UnitType.None);
             }
         }
 
-        // D�truire le projectile lorsqu'il touche n'importe quel objet
+        // Détruire le projectile lorsqu'il touche n'importe quel objet
         Destroy(gameObject);
     }
 }

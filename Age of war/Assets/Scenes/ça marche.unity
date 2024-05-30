@@ -8905,11 +8905,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0a978a10148d774ea9900ba801bde27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 5592423590470507474, guid: bca75eb6667d7ee4c9aa736effe11f06, type: 3}
+  projectilePrefabs:
+  - {fileID: 5592423590470507474, guid: bca75eb6667d7ee4c9aa736effe11f06, type: 3}
+  - {fileID: 3006952940748669959, guid: 2257ff19ad2822845adfffa3b64ed346, type: 3}
   spawnInterval: 0.1
   numberOfProjectiles: 10
   spawnAreaSize: {x: 30, y: 30}
   spawnHeight: 50
+  ageValue: {fileID: 333553887}
 --- !u!4 &958769861
 Transform:
   m_ObjectHideFlags: 0
@@ -15495,6 +15498,7 @@ GameObject:
   - component: {fileID: 1305821297}
   - component: {fileID: 1305821301}
   - component: {fileID: 1305821300}
+  - component: {fileID: 1305821302}
   m_Layer: 5
   m_Name: soldat4
   m_TagString: Untagged
@@ -15631,6 +15635,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooltip: {fileID: 1305821300}
+--- !u!114 &1305821302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305821295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a94bda8f43ac884cb056c770953b291, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitPrefabs:
+  - {fileID: 4056730817262190485, guid: 872668e00d2431549893b6df09762e77, type: 3}
+  playerSpawner: {fileID: 44059583}
+  ageValue: {fileID: 333553887}
+  money: {fileID: 333553885}
+  priceOfUnit: 10270000
 --- !u!1 &1306826496
 GameObject:
   m_ObjectHideFlags: 0

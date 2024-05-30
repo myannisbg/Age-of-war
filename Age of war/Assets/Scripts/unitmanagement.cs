@@ -30,9 +30,11 @@ public class Unit : MonoBehaviour
         Infantry,
         Archer,
         Tank,
-        AntiArmor
+        AntiArmor,
+        None
     }
     public UnitType type; 
+    
 
     
 
@@ -142,25 +144,20 @@ void firstUse()
     }
 
 
-    public void TakeDamage(float damageDealt,UnitType attackerType)
+    public void TakeDamage(float damageDealt, UnitType attackerType)
     {
-        currentHealth -= damageDealt* GetDamageMultiplier(attackerType, type);
+        currentHealth -= damageDealt * GetDamageMultiplier(attackerType, type);
         healthBar.SetHealth(currentHealth);
 
         if (currentHealth <= 0)
         {
             Die();
         }
-        // else
-        // {
-        //     Debug.Log("Unité ennemie non détectée. Aucun ajout d'argent.");
-        // }
-        
-        
-        }
+    }
+
     
 
- private float GetDamageMultiplier(UnitType attackerType, UnitType targetType)
+private float GetDamageMultiplier(UnitType attackerType, UnitType targetType)
     {
         switch (attackerType)
         {
@@ -172,6 +169,7 @@ void firstUse()
                 return targetType == UnitType.Infantry ? 1.5f : 1.0f;
             case UnitType.AntiArmor:
                 return targetType == UnitType.Tank ? 1.5f : 1.0f;
+            case UnitType.None:
             default:
                 return 1.0f;
         }

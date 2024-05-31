@@ -208,6 +208,8 @@ GameObject:
   - component: {fileID: 7119346537080941540}
   - component: {fileID: 7490938424602464651}
   - component: {fileID: 9040802769858290873}
+  - component: {fileID: 6756871849373103683}
+  - component: {fileID: 3683058844442522594}
   m_Layer: 0
   m_Name: Unit2-2 ennemie
   m_TagString: Ennemy
@@ -272,7 +274,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 64aed0ab09a15fc4fa9182e90ffceab8, type: 3}
+  m_Sprite: {fileID: -1993666055, guid: 64aed0ab09a15fc4fa9182e90ffceab8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -358,10 +360,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseObject: {fileID: 0}
-  maxHealth: 350
-  damageDealt: 30
+  maxHealth: 140
+  damageDealt: 25
   expGain: 20
-  moneyGain: 100
+  moneyGain: 65
   attackSpeed: 1
   attackRange: 2
   moneyClass: {fileID: 0}
@@ -369,6 +371,8 @@ MonoBehaviour:
   bullet: {fileID: 0}
   offset: {x: 0.2, y: 0, z: 0}
   type: 3
+  isWalking: 0
+  isAttacking: 0
   healthBar: {fileID: 5863946253226709931}
 --- !u!114 &7119346537080941540
 MonoBehaviour:
@@ -443,6 +447,40 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.0543127, y: 4.114029}
   m_EdgeRadius: 0
+--- !u!95 &6756871849373103683
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3777498364682865235}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f810094d95088c34a8d7c8ff621395d3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3683058844442522594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3777498364682865235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a828d8fdddd36e48b4c0c989ebe0a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 6756871849373103683}
 --- !u!1 &5269645726298823322
 GameObject:
   m_ObjectHideFlags: 0

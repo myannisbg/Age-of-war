@@ -385,6 +385,8 @@ GameObject:
   - component: {fileID: 3377958221506133474}
   - component: {fileID: 7340275217700497333}
   - component: {fileID: 2393018340761016553}
+  - component: {fileID: -2981099962487254699}
+  - component: {fileID: -9181856658018898197}
   m_Layer: 0
   m_Name: Unit6-1 ennemie
   m_TagString: Ennemy
@@ -449,12 +451,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d2428916c1a43c140b049d4031af71c2, type: 3}
+  m_Sprite: {fileID: -439403873, guid: d2428916c1a43c140b049d4031af71c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.34, y: 5.33}
+  m_Size: {x: 5.33, y: 5.33}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -535,10 +537,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseObject: {fileID: 0}
-  maxHealth: 850
-  damageDealt: 20
+  maxHealth: 140
+  damageDealt: 25
   expGain: 25
-  moneyGain: 125
+  moneyGain: 65
   attackSpeed: 1
   attackRange: 3.57
   moneyClass: {fileID: 0}
@@ -546,6 +548,8 @@ MonoBehaviour:
   bullet: {fileID: 0}
   offset: {x: 0.2, y: 0, z: 0}
   type: 1
+  isWalking: 0
+  isAttacking: 0
   healthBar: {fileID: 7265126711334898451}
 --- !u!114 &3377958221506133474
 MonoBehaviour:
@@ -611,8 +615,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.34, y: 5.33}
-    newSize: {x: 5.34, y: 5.33}
+    oldSize: {x: 5.33, y: 5.33}
+    newSize: {x: 5.33, y: 5.33}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -620,3 +624,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.3800774, y: 3.9388466}
   m_EdgeRadius: 0
+--- !u!95 &-2981099962487254699
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8662468809095558078}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dbf8ed1e860b8e34bbae92ddce9c4f27, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-9181856658018898197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8662468809095558078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a828d8fdddd36e48b4c0c989ebe0a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: -2981099962487254699}

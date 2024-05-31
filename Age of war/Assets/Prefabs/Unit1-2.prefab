@@ -232,7 +232,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4c7e81dfdde30e34c87fbce72494bd84, type: 3}
+  m_Sprite: {fileID: 1629914511, guid: 4c7e81dfdde30e34c87fbce72494bd84, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -318,10 +318,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseObject: {fileID: 0}
-  maxHealth: 160
+  maxHealth: 140
   damageDealt: 25
   expGain: 22
-  moneyGain: 110
+  moneyGain: 65
   attackSpeed: 1
   attackRange: 2
   moneyClass: {fileID: 0}
@@ -413,7 +413,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4884675501471331256}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: afae72a37eb9ca84f8d4f85036606052, type: 2}
   m_CullingMode: 0
@@ -438,7 +438,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a828d8fdddd36e48b4c0c989ebe0a9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit: {fileID: 0}
   animator: {fileID: 2428404679341410325}
 --- !u!1 &6769501672063539381
 GameObject:

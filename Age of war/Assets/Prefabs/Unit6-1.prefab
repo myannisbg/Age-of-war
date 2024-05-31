@@ -451,12 +451,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d2428916c1a43c140b049d4031af71c2, type: 3}
+  m_Sprite: {fileID: -439403873, guid: d2428916c1a43c140b049d4031af71c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.34, y: 5.33}
+  m_Size: {x: 5.33, y: 5.33}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -537,10 +537,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseObject: {fileID: 0}
-  maxHealth: 850
-  damageDealt: 20
+  maxHealth: 140
+  damageDealt: 25
   expGain: 25
-  moneyGain: 125
+  moneyGain: 65
   attackSpeed: 1
   attackRange: 3.57
   moneyClass: {fileID: 0}
@@ -615,8 +615,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.34, y: 5.33}
-    newSize: {x: 5.34, y: 5.33}
+    oldSize: {x: 5.33, y: 5.33}
+    newSize: {x: 5.33, y: 5.33}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -636,7 +636,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a828d8fdddd36e48b4c0c989ebe0a9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit: {fileID: 0}
   animator: {fileID: 8186446568689551515}
 --- !u!95 &8186446568689551515
 Animator:
@@ -646,9 +645,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8662468809095558078}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 11bd5c63c4ec1784aabde212f977ed47, type: 2}
+  m_Controller: {fileID: 9100000, guid: dbf8ed1e860b8e34bbae92ddce9c4f27, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

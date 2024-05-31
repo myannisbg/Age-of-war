@@ -16,7 +16,7 @@ public class TurretPlacement : MonoBehaviour
 
      void Awake()
     {
-        print("ici");
+        //tout ce qui est ici est déstiné aux bots / autre joueurs
 
         for (int i = 0; i < maxTurrets; i++)
         {
@@ -107,6 +107,14 @@ public class TurretPlacement : MonoBehaviour
         if (currentTurretsAlly > 0)
         {
             currentTurretsAlly--;
+        }
+    }
+
+    public void DecrementTurretCountEnnemy()
+    {
+        if (currentTurretsEnnemy > 0)
+        {
+            currentTurretsEnnemy--;
         }
     }
 

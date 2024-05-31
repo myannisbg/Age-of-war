@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 49965c6ea0ca5c74f93bb05676da4b48
+guid: 06da23dab6497cc4da49bc64690c33ae
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,7 +121,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: 2-3-1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 533
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ef21f76ec419874db505b89f093f06a
+      internalID: 1061870269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2-3-1_1
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 0
+        width: 533
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18b8cfeac11772b468d28f91f74c295e
+      internalID: -90279712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2-3-1_2
+      rect:
+        serializedVersion: 2
+        x: 1066
+        y: 0
+        width: 533
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7a049c33f8fb0d4381bd122841cf010
+      internalID: -1302888776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2-3-1_3
+      rect:
+        serializedVersion: 2
+        x: 1599
+        y: 0
+        width: 533
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee56a74655ceaa046b3a85c1c083bb74
+      internalID: -104944751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +216,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      2-3-1_0: 1061870269
+      2-3-1_1: -90279712
+      2-3-1_2: -1302888776
+      2-3-1_3: -104944751
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

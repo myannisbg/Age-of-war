@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5390212404169621082}
   m_Layer: 0
   m_Name: Circle (1)
-  m_TagString: BulletAlly
+  m_TagString: BulletEnnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

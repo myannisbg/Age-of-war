@@ -26,16 +26,30 @@ public class Turet : MonoBehaviour
 
     void Update()
     {
-        if (shotTimer <= 0)
-        {
-            AttackClosestEnnemy();
-            shotTimer = timeBetweenShots;
+        string currentTag = transform.root.tag;
+        if (currentTag == "Turret"){
+            if (shotTimer <= 0)
+            {
+                AttackClosestEnnemy();
+                shotTimer = timeBetweenShots;
+            }
+            else 
+            {
+                shotTimer -= Time.deltaTime;
+            }
         }
-        else
-        {
-            shotTimer -= Time.deltaTime;
+        else if (currentTag == "TurretEnnemy"){
+                if (shotTimer <= 0)
+                {
+                    AttackClosestAlly();
+                    shotTimer = timeBetweenShots;
+                }
+                else
+                {
+                    shotTimer -= Time.deltaTime;
+                }
+            
         }
-
     }
 
     private bool IsMouseOverGameObject(Vector2 mousePosition)
@@ -57,20 +71,47 @@ public class Turet : MonoBehaviour
         }
     }
 
+
+     private void AttackClosestAlly()
+    {
+        Transform closestAlly = FindClosestAlly();
+        if (closestAlly != null && Vector2.Distance(transform.position, closestAlly.position) <= maxShootingDistance)
+        {
+            Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);  // Utilisez bulletSpawnPoint.position ici
+        }
+    }
+
     private Transform FindClosestEnnemy()
     {
         Transform closestEnnemy = null;
-        float closestDistance = Mathf.Infinity;
+        float closestDistanceEnnemy = Mathf.Infinity;
         GameObject[] ennemies = GameObject.FindGameObjectsWithTag("Ennemy");
         foreach (GameObject ennemy in ennemies)
         {
             float distance = Vector2.Distance(transform.position, ennemy.transform.position);
-            if (distance < closestDistance)
+            if (distance < closestDistanceEnnemy)
             {
                 closestEnnemy = ennemy.transform;
-                closestDistance = distance;
+                closestDistanceEnnemy = distance;
             }
         }
         return closestEnnemy;
+    }
+    
+    private Transform FindClosestAlly()
+    {
+        Transform closestAlly = null;
+        float closestDistanceAlly = Mathf.Infinity;
+        GameObject[] allys = GameObject.FindGameObjectsWithTag("Ally");
+        foreach (GameObject ally in allys)
+        {
+            float distance = Vector2.Distance(transform.position, ally.transform.position);
+            if (distance < closestDistanceAlly) 
+            {
+                closestAlly = ally.transform;
+                closestDistanceAlly = distance;
+            }
+        }
+        return closestAlly;
     }
 }

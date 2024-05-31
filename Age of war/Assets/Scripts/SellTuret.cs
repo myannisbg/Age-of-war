@@ -2,48 +2,79 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SellTuret : MonoBehaviour
+public class SellTurret : MonoBehaviour
 {
     private bool isDeletionMode = false;
     private Camera mainCamera;
+    public Money money; // Référence à la classe Money
+    public float sellPercentage = 0.5f; // Pourcentage de remboursement lors de la vente
+    public float debugCircleRadius = 0.5f; // Rayon du cercle de débogage
+    public Color debugCircleColor = Color.red; // Couleur du cercle de débogage
 
-    // Start is called before the first frame update
     void Start()
     {
-        mainCamera = Camera.main; // Assurez-vous que mainCamera est correctement r�f�renc�e
+        mainCamera = Camera.main; // Assurez-vous que mainCamera est correctement référencée
         if (mainCamera == null)
         {
             Debug.LogError("Main camera not found. Make sure your camera has the 'MainCamera' tag.");
         }
+        ToggleDeletionMode();
     }
 
     public void ToggleDeletionMode()
     {
         isDeletionMode = !isDeletionMode;
-        Debug.Log("Mode suppression: " + (isDeletionMode ? "activ�" : "d�sactiv�"));
+        Debug.Log("Mode suppression: " + (isDeletionMode ? "activé" : "désactivé"));
     }
 
     private void CheckForObjectDeletion()
     {
-        // Obtenez la position de la souris en coordonn�es du monde
+        // Obtenez la position de la souris en coordonnées du monde
         Vector3 mouseWorldPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         Vector2 mouseWorldPosition2D = new Vector2(mouseWorldPosition.x, mouseWorldPosition.y);
+
+        // Affichez un cercle à la position de la souris pour le débogage
+        DrawDebugCircle(mouseWorldPosition2D, debugCircleRadius, debugCircleColor);
 
         // Lance un rayon depuis la position de la souris
         RaycastHit2D hit = Physics2D.Raycast(mouseWorldPosition2D, Vector2.zero);
 
-        if (hit.collider != null && hit.collider.gameObject == gameObject) // V�rifie que le rayon touche cet objet
+        if (hit.collider != null && hit.collider.gameObject.CompareTag("Turret")) // Vérifie que le rayon touche une tourelle
         {
-            Debug.Log("Objet d�truit.");
-            Destroy(gameObject);
+            GameObject turret = hit.collider.gameObject;
+            TurretManager turretSlot = turret.GetComponent<TurretManager>();
 
-            // D�sactive le mode suppression
-            isDeletionMode = false;
-            Debug.Log("Mode suppression d�sactiv� apr�s la suppression de la tourelle.");
+            if (turretSlot != null)
+            {
+                int turretCost = turretSlot.cost;
+                int sellValue = Mathf.RoundToInt(turretCost * sellPercentage);
+                money.addGold(sellValue);
+                Destroy(turret);
+
+                Debug.Log("Turret sold for " + sellValue + " gold.");
+
+                // Désactive le mode suppression
+                isDeletionMode = false;
+                Debug.Log("Mode suppression désactivé après la suppression de la tourelle.");
+
+                // Informer TurretPlacement que la tourelle a été supprimée
+                TurretPlacement turretPlacement = FindObjectOfType<TurretPlacement>();
+                if (turretPlacement != null)
+                {
+                    turretPlacement.DecrementTurretCount();
+                }
+            }
+            else
+            {
+                Debug.LogError("Selected object is not a turret slot!");
+            }
+        }
+        else
+        {
+            Debug.Log("No turret found at position: " + mouseWorldPosition2D);
         }
     }
 
-    // Update is called une fois par frame
     void Update()
     {
         if (isDeletionMode && Input.GetMouseButtonDown(0))
@@ -51,5 +82,33 @@ public class SellTuret : MonoBehaviour
             Debug.Log("Tentative de suppression en mode suppression.");
             CheckForObjectDeletion();
         }
+    }
+
+    // Fonction pour dessiner un cercle de débogage
+    private void DrawDebugCircle(Vector2 position, float radius, Color color)
+    {
+        int segments = 360;
+        LineRenderer lineRenderer = new GameObject("DebugCircle").AddComponent<LineRenderer>();
+        lineRenderer.useWorldSpace = false;
+        lineRenderer.startWidth = 0.1f;
+        lineRenderer.endWidth = 0.1f;
+        lineRenderer.positionCount = segments + 1;
+        lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
+        lineRenderer.startColor = color;
+        lineRenderer.endColor = color;
+
+        float angle = 20f;
+
+        for (int i = 0; i < segments + 1; i++)
+        {
+            float x = Mathf.Sin(Mathf.Deg2Rad * angle) * radius;
+            float y = Mathf.Cos(Mathf.Deg2Rad * angle) * radius;
+
+            lineRenderer.SetPosition(i, new Vector3(x, y, 0));
+            angle += (360f / segments);
+        }
+
+        lineRenderer.transform.position = position;
+        Destroy(lineRenderer.gameObject, 0.5f); // Détruire le cercle après 0.5 secondes pour ne pas encombrer la scène
     }
 }

@@ -4290,6 +4290,7 @@ MonoBehaviour:
   - {fileID: 1070098456149786746, guid: 8d668da4a49d0ed439829cef4f0c142b, type: 3}
   - {fileID: 7249850965738593330, guid: 077c54d8c81847d4983ae20d43ca016d, type: 3}
   selectedTurretPrefab: {fileID: 0}
+  cost: 0
 --- !u!1 &395672893
 GameObject:
   m_ObjectHideFlags: 0
@@ -11000,6 +11001,7 @@ GameObject:
   - component: {fileID: 1134112164}
   - component: {fileID: 1134112168}
   - component: {fileID: 1134112167}
+  - component: {fileID: 1134112169}
   m_Layer: 5
   m_Name: sellTuret
   m_TagString: Untagged
@@ -11136,6 +11138,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooltip: {fileID: 1134112167}
+--- !u!114 &1134112169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134112162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90f2b9520fcb84544a371f8f7f48a14b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  money: {fileID: 333553885}
+  sellPercentage: 0.5
 --- !u!1 &1135239141
 GameObject:
   m_ObjectHideFlags: 0

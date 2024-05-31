@@ -5,6 +5,7 @@ public class TurretManager : MonoBehaviour
     public static TurretManager Instance { get; private set; }
     public GameObject[] turretPrefabs;  // Array of turret prefabs
     public GameObject selectedTurretPrefab;  // Currently selected turret prefab, public for access
+    public int cost;
 
     private void Awake()
     {
@@ -17,6 +18,12 @@ public class TurretManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    
+
+    public void SetCost(int turretCost)
+    {
+        cost = turretCost;
     }
 
     public void SelectTurret(int index)

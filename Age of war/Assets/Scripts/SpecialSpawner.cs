@@ -6,7 +6,7 @@ public class SpecialSpawner : MonoBehaviour
 {
     public List<GameObject> projectilePrefabs; // Liste des préfabs de projectiles
     public float spawnInterval = 0.1f; // Intervalle entre chaque projectile
-    public int numberOfProjectiles = 10; // Nombre de projectiles à lancer
+    public int baseNumberOfProjectiles = 10; // Nombre de projectiles de base
     public Vector2 spawnAreaSize = new Vector2(30f, 30f); // Taille de la zone de chute
     public float spawnHeight = 50f; // Hauteur de chute des projectiles
     public GlobalAge ageValue;
@@ -25,18 +25,54 @@ public class SpecialSpawner : MonoBehaviour
     private IEnumerator LaunchProjectiles()
     {
         isSpawning = true;
+        int currentAge = ageValue.getAge();
+        int numberOfProjectiles = Mathf.CeilToInt(baseNumberOfProjectiles * Mathf.Pow(1.1f, currentAge));
+        float precisionFactor = 1.0f / (currentAge + 1);
+
+        bool isLastAge = (currentAge == projectilePrefabs.Count - 1);
+
         for (int i = 0; i < numberOfProjectiles; i++)
         {
-            if (ageValue.getAge() >= 0 && ageValue.getAge() < projectilePrefabs.Count)
+            if (currentAge >= 0 && currentAge < projectilePrefabs.Count)
             {
                 // Sélectionner le préfab de projectile correspondant à l'âge actuel
-                GameObject projectilePrefab = projectilePrefabs[ageValue.getAge()];
+                GameObject projectilePrefab = projectilePrefabs[currentAge];
 
-                Vector3 spawnPosition = new Vector3(
-                    Random.Range(-spawnAreaSize.x / 2, spawnAreaSize.x / 2), spawnHeight, 0) + transform.position;
+                Vector3 spawnPosition;
+
+                if (isLastAge)
+                {
+                    // Si c'est le dernier âge, les projectiles couvrent toute la scène
+                    spawnPosition = new Vector3(
+                        Random.Range(-spawnAreaSize.x / 2, spawnAreaSize.x / 2),
+                        spawnHeight,
+                        Random.Range(-spawnAreaSize.y / 2, spawnAreaSize.y / 2))
+                        + transform.position;
+                }
+                else
+                {
+                    // Sinon, cibler les ennemis
+                    GameObject[] enemies = GameObject.FindGameObjectsWithTag("ennemy");
+
+                    if (enemies.Length > 0)
+                    {
+                        GameObject targetEnemy = enemies[Random.Range(0, enemies.Length)];
+
+                        spawnPosition = new Vector3(
+                            Random.Range(-spawnAreaSize.x / 2 * precisionFactor, spawnAreaSize.x / 2 * precisionFactor),
+                            spawnHeight,
+                            Random.Range(-spawnAreaSize.y / 2 * precisionFactor, spawnAreaSize.y / 2 * precisionFactor))
+                            + targetEnemy.transform.position;
+                    }
+                    else
+                    {
+                        Debug.LogError("No enemies found with the tag 'ennemy'!");
+                        continue;
+                    }
+                }
 
                 Instantiate(projectilePrefab, spawnPosition, Quaternion.identity); // Pas de rotation supplémentaire
-                Debug.Log("Projectile instantiated at position: " + spawnPosition + " with default rotation.");
+                Debug.Log("Projectile instantiated at position: " + spawnPosition + (isLastAge ? " covering whole area." : " targeting enemy."));
 
                 // Attendre avant de lancer le prochain projectile
                 yield return new WaitForSeconds(spawnInterval);
@@ -49,4 +85,3 @@ public class SpecialSpawner : MonoBehaviour
         isSpawning = false;
     }
 }
-

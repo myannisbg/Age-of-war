@@ -4226,8 +4226,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 392961493}
         m_TargetAssemblyTypeName: TurretManager, Assembly-CSharp
-        m_MethodName: SelectTurret
-        m_Mode: 3
+        m_MethodName: SelectTurretByAge
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4290,7 +4290,8 @@ MonoBehaviour:
   - {fileID: 1070098456149786746, guid: 8d668da4a49d0ed439829cef4f0c142b, type: 3}
   - {fileID: 7249850965738593330, guid: 077c54d8c81847d4983ae20d43ca016d, type: 3}
   selectedTurretPrefab: {fileID: 0}
-  cost: 0
+  ageValue: {fileID: 333553887}
+  priceOfTurret: f4010000e8030000
 --- !u!1 &395672893
 GameObject:
   m_ObjectHideFlags: 0
@@ -9486,7 +9487,7 @@ MonoBehaviour:
   - {fileID: 8716187953839882618, guid: bec6855ef7704f24e8bb166d68c3a34b, type: 3}
   - {fileID: 5244462310921944723, guid: aab301ac90171fa47b9511047b32b6c4, type: 3}
   spawnInterval: 0.1
-  numberOfProjectiles: 10
+  baseNumberOfProjectiles: 10
   spawnAreaSize: {x: 30, y: 30}
   spawnHeight: 50
   ageValue: {fileID: 333553887}

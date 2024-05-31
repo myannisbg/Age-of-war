@@ -4226,8 +4226,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 392961493}
         m_TargetAssemblyTypeName: TurretManager, Assembly-CSharp
-        m_MethodName: SelectTurret
-        m_Mode: 3
+        m_MethodName: SelectTurretByAge
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4290,7 +4290,8 @@ MonoBehaviour:
   - {fileID: 1070098456149786746, guid: 8d668da4a49d0ed439829cef4f0c142b, type: 3}
   - {fileID: 7249850965738593330, guid: 077c54d8c81847d4983ae20d43ca016d, type: 3}
   selectedTurretPrefab: {fileID: 0}
-  cost: 0
+  ageValue: {fileID: 333553887}
+  priceOfTurret: 
 --- !u!1 &395672893
 GameObject:
   m_ObjectHideFlags: 0
@@ -5240,7 +5241,8 @@ MonoBehaviour:
   - {fileID: 8662468809095558078, guid: dc5041bc023b9c14485054cb704eba90, type: 3}
   - {fileID: 1210788019135763216, guid: f8e88ad770b5e1a46a825887e916f8da, type: 3}
   - {fileID: 7357743710690516368, guid: 8725fbe83fa3ace4ab6900b312d98bb9, type: 3}
-  ageValue: {fileID: 333553887}
+  ageValue: 0
+  initialInterval: 60
 --- !u!1 &530359608
 GameObject:
   m_ObjectHideFlags: 0
@@ -13947,7 +13949,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 26, y: -1, z: 0}
+  - first: {x: 28, y: -1, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 9
@@ -13977,7 +13979,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 25, y: 0, z: 0}
+  - first: {x: 27, y: 0, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 8
@@ -13987,7 +13989,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 26, y: 0, z: 0}
+  - first: {x: 28, y: 0, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 7

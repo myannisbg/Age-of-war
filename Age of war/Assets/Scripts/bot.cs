@@ -19,7 +19,11 @@ public class Bot : MonoBehaviour
     public float timeSinceLastSpawn = 0f;
     public PlayerSpawner spawner;
     public List<GameObject> unitPrefabs;
-    public GlobalAge ageValue;
+    public int ageValue =0;
+    public float initialInterval = 100.0f;
+    private float currentInterval;
+    private Coroutine ageCoroutine;
+
     private int tankCount =  0;
     private int archerCount =  0;
     private bool scenarioSpecific = true;
@@ -36,6 +40,8 @@ private Dictionary<int, float> lastSpawnTimes = new Dictionary<int, float>();
         
         UpdateBotFunction();
         SpawnUnits();
+        currentInterval = initialInterval;
+        StartIncrementing();
         string unitTag = gameObject.tag;
         gameObject.tag = "Ennemy";
         for (int i = 0; i < unitPrefabs.Count / 4; i++)
@@ -82,8 +88,30 @@ private Dictionary<int, float> lastSpawnTimes = new Dictionary<int, float>();
 
         int difficulty = PlayerPrefs.GetInt("Difficulty",0);
           return difficulty;
-
     }
+
+
+     void StartIncrementing()
+    {
+        if (ageCoroutine != null)
+        {
+            StopCoroutine(ageCoroutine);
+        }
+        ageCoroutine = StartCoroutine(IncrementAge());
+    }
+
+        IEnumerator IncrementAge()
+    {
+        while (ageValue<6)
+        {
+            yield return new WaitForSeconds(currentInterval);
+            ageValue++;
+            // Debug.Log("Age value incremented to: " + ageValue);
+            UpdateBotFunction();
+        }
+    }
+
+
 
     void UpdateBotFunction()
     {
@@ -93,15 +121,19 @@ private Dictionary<int, float> lastSpawnTimes = new Dictionary<int, float>();
         {
             case 0:
                 currentFunction = BotFunction.BotIsDumb;
+                currentInterval = initialInterval;
                 break;
             case 1:
                 currentFunction = BotFunction.BotIsTrying;
+                currentInterval = initialInterval - 30.0f; 
                 break;
             case 2:
                 currentFunction = BotFunction.BotIsPlaying;
+                currentInterval = initialInterval - 50.0f;
                 break;
             case 3:
                 currentFunction = BotFunction.BotIsTooStrong;
+                currentInterval = initialInterval - 65.0f;
                 break;
             default:
                 Debug.LogWarning("Unknown difficulty setting: " + difficulty);
@@ -175,13 +207,10 @@ private Dictionary<int, float> lastSpawnTimes = new Dictionary<int, float>();
         // Vérifier si le script PlayerSpawner est assigné
         if (spawner != null)
         {
-             int lowerBound = ageValue.getAge() * 4; // Born inférieure de la tranche d'âge
+             int lowerBound = ageValue * 4; // Born inférieure de la tranche d'âge
         int upperBound = lowerBound + 3; // Born supérieure de la tranche d'âge
-
-
-
             // Vérifier si l'âge est valide
-            if (ageValue.getAge() >= 0 && upperBound < unitPrefabs.Count)
+            if (ageValue >= 0 && upperBound < unitPrefabs.Count)
             {
                 // Générer un nombre aléatoire dans la plage de l'âge actuel
                 int randomIndex = Random.Range(lowerBound, upperBound);
@@ -211,7 +240,7 @@ void BotIsTrying()
     if (spawner != null)
     {
         // Définir les bornes des tranches d'âge
-        int ageIndex = ageValue.getAge();
+        int ageIndex = ageValue;
         int lowerBound = ageIndex * 4; // Born inférieure de la tranche d'âge
         int upperBound = lowerBound + 3; // Born supérieure de la tranche d'âge
 
@@ -258,7 +287,7 @@ void BotIsPlaying()
     if (spawner != null)
     {
         // Définir les bornes des tranches d'âge
-        int ageIndex = ageValue.getAge();
+        int ageIndex = ageValue;
         int lowerBound = ageIndex * 4; // Born inférieure de la tranche d'âge
         int upperBound = lowerBound + 3; // Born supérieure de la tranche d'âge
         
@@ -365,7 +394,7 @@ private bool scenarioSpecific2 = false;
     if (spawner != null)
     {
         // Définir les bornes des tranches d'âge
-        int ageIndex = ageValue.getAge();
+        int ageIndex = ageValue;
         int lowerBound = ageIndex * 4; // Born inférieure de la tranche d'âge
         int upperBound = lowerBound + 3; // Born supérieure de la tranche d'âge
 
@@ -450,7 +479,7 @@ private void SpawnNextInDefenseSequence()
 
 private void SpawnUnitByType(string unitType)
 {
-    int ageIndex = ageValue.getAge();
+    int ageIndex = ageValue;
     int lowerBound = ageIndex * 4;
 
     GameObject unitPrefab = null;
@@ -491,7 +520,7 @@ private void ToggleMode()
     // Fonction pour faire apparaître un tank
     void SpawnTank()
     {
-        int ageIndex = ageValue.getAge();
+        int ageIndex = ageValue;
         int lowerBound = ageIndex * 4; // Born inférieure de la tranche d'âge
         int upperBound = lowerBound + 3; // Born supérieure de la tranche d'âge
         // Utilisez les bornes pour déterminer l'index de l'unité de tank dans votre liste
@@ -503,7 +532,7 @@ private void ToggleMode()
     // Fonction pour faire apparaître un archer
     void SpawnArcher()
     {
-        int ageIndex = ageValue.getAge();
+        int ageIndex = ageValue;
         int lowerBound = ageIndex * 4; // Born inférieure de la tranche d'âge
         int upperBound = lowerBound + 3; // Born supérieure de la tranche d'âge
         // Utilisez les bornes pour déterminer l'index de l'unité de l'archer dans votre liste
@@ -514,7 +543,7 @@ private void ToggleMode()
 
     void SpawnInfanterie()
     {
-        int ageIndex = ageValue.getAge();
+        int ageIndex = ageValue;
         int lowerBound = ageIndex * 4; // Born inférieure de la tranche d'âge
         int upperBound = lowerBound + 3; // Born supérieure de la tranche d'âge
         // Utilisez les bornes pour déterminer l'index de l'unité de tank dans votre liste
@@ -524,7 +553,7 @@ private void ToggleMode()
     }
     void SpawnAntiTank()
     {
-        int ageIndex = ageValue.getAge();
+        int ageIndex = ageValue;
         int lowerBound = ageIndex * 4; // Born inférieure de la tranche d'âge
         int upperBound = lowerBound + 3; // Born supérieure de la tranche d'âge
         // Utilisez les bornes pour déterminer l'index de l'unité de tank dans votre liste
@@ -539,7 +568,7 @@ private void ToggleMode()
 // Fonction pour réinitialiser le timer lorsque l'âge change
     public void ResetSpawnTimer()
     {
-        int ageIndex = ageValue.getAge(); // Obtenez l'âge actuel
+        int ageIndex = ageValue; // Obtenez l'âge actuel
 
         // Mettre à jour le temps écoulé pour cet âge
         lastSpawnTimes[ageIndex] = Time.timeSinceLevelLoad;

@@ -20,7 +20,6 @@ public class TurretManager : MonoBehaviour
         }
     }
     
-
     public void SetCost(int turretCost)
     {
         cost = turretCost;
@@ -39,19 +38,19 @@ public class TurretManager : MonoBehaviour
         }
     }
 
-    // New method to get cost based on turret index
-    public int GetTurretCost()
+    // Nouvelle méthode pour obtenir le coût de la tourelle sélectionnée
+    public int GetSelectedTurretCost()
     {
-        int index = System.Array.IndexOf(turretPrefabs, selectedTurretPrefab);
-        switch (index)
+        if (selectedTurretPrefab != null)
         {
-            case 0:
-                return 500;  // Cost for the first turret
-            case 1:
-                return 750;  // Cost for the second turret
-            default:
-                return 1000;  // Default cost for any other turrets
+            int index = System.Array.IndexOf(turretPrefabs, selectedTurretPrefab);
+            switch (index)
+            {
+                case 0: return 500;  // Cost for the first turret
+                case 1: return 750;  // Cost for the second turret
+                default: return 1000;  // Default cost for any other turrets
+            }
         }
+        return 0; // Return 0 if no turret is selected
     }
 }
-

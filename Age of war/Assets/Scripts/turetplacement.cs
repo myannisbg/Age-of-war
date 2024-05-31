@@ -7,10 +7,10 @@ public class TurretPlacement : MonoBehaviour
 {
     public Tilemap gameMap;
     public GameObject turretSlotPrefab;
-    public Vector3Int castleTilePosition; // Position de la tile du ch�teau sur la Tilemap
+    public Vector3Int castleTilePosition; // Position de la tile du château sur la Tilemap
     public int maxTurrets = 3; // Nombre maximum de tourelles
-    private int currentTurrets = 0; // Nombre actuel de tourelles plac�es
-    private Vector3 lastPosition; // Derni�re position o� une tourelle a �t� plac�e
+    private int currentTurrets = 0; // Nombre actuel de tourelles placées
+    private Vector3 lastPosition; // Dernière position où une tourelle a été placée
     public Money money; // Supposons que tu aies une gestion d'argent
 
     void Update()
@@ -37,12 +37,12 @@ public class TurretPlacement : MonoBehaviour
                     }
                     else
                     {
-                        lastPosition += new Vector3(0, 1, 0); // D�cale chaque nouvelle tourelle d'une unit� vers le haut
+                        lastPosition += new Vector3(0, 1, 0); // Décale chaque nouvelle tourelle d'une unité vers le haut
                     }
 
                     Instantiate(turretSlotPrefab, lastPosition, Quaternion.identity);
-                    currentTurrets++; // Incr�menter le nombre de tourelles plac�es
-                    money.SpendGold(cost); // D�duire le co�t de la tourelle du total de l'or
+                    currentTurrets++; // Incrémenter le nombre de tourelles placées
+                    money.SpendGold(cost); // Déduire le coût de la tourelle du total de l'or
                     Debug.Log("Turret slot added at position: " + lastPosition + " for " + cost + " gold.");
                 }
                 else
@@ -68,24 +68,30 @@ public class TurretPlacement : MonoBehaviour
         }
     }
 
-
-    private int GetTurretCost(int turretIndex)
+    public int GetTurretCost(int turretIndex)
     {
-        // D�finir le co�t des emplacements de tourelle
+        // Définir le coût des emplacements de tourelle
         switch (turretIndex)
         {
             case 0: return 250;
             case 1: return 500;
             case 2: return 1000;
-            default: return 1000; // Retourne le co�t le plus �lev� si au-del� de l'index attendu
+            default: return 1000; // Retourne le coût le plus élevé si au-delà de l'index attendu
         }
     }
 
-     public void DecrementTurretCount()
+    public void DecrementTurretCount()
     {
         if (currentTurrets > 0)
         {
             currentTurrets--;
         }
+    }
+
+    // Nouvelle méthode pour obtenir le coût d'une tourelle à une position donnée
+    public int GetTurretCost(GameObject turret)
+    {
+        // Vous pouvez ajouter une logique pour déterminer le coût de la tourelle basée sur sa position ou d'autres critères
+        return GetTurretCost(currentTurrets - 1);
     }
 }

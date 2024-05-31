@@ -11,6 +11,8 @@ public class SellTurret : MonoBehaviour
     public float debugCircleRadius = 0.5f; // Rayon du cercle de débogage
     public Color debugCircleColor = Color.red; // Couleur du cercle de débogage
 
+    private TurretPlacement turretPlacement; // Référence au script TurretPlacement
+
     void Start()
     {
         mainCamera = Camera.main; // Assurez-vous que mainCamera est correctement référencée
@@ -18,7 +20,12 @@ public class SellTurret : MonoBehaviour
         {
             Debug.LogError("Main camera not found. Make sure your camera has the 'MainCamera' tag.");
         }
-        ToggleDeletionMode();
+
+        turretPlacement = FindObjectOfType<TurretPlacement>(); // Obtenez la référence à TurretPlacement
+        if (turretPlacement == null)
+        {
+            Debug.LogError("TurretPlacement script not found in the scene.");
+        }
     }
 
     public void ToggleDeletionMode()
@@ -39,14 +46,14 @@ public class SellTurret : MonoBehaviour
         // Lance un rayon depuis la position de la souris
         RaycastHit2D hit = Physics2D.Raycast(mouseWorldPosition2D, Vector2.zero);
 
-        if (hit.collider != null && hit.collider.gameObject.CompareTag("Turret")) // Vérifie que le rayon touche une tourelle
+        if (hit.collider != null)
         {
-            GameObject turret = hit.collider.gameObject;
-            TurretManager turretSlot = turret.GetComponent<TurretManager>();
-
-            if (turretSlot != null)
+            Debug.Log("Object hit: " + hit.collider.gameObject.name);
+            if (hit.collider.gameObject.CompareTag("Turret")) // Vérifie que le rayon touche une tourelle
             {
-                int turretCost = turretSlot.cost;
+                GameObject turret = hit.collider.gameObject;
+
+                int turretCost = turretPlacement.GetTurretCost(turret);
                 int sellValue = Mathf.RoundToInt(turretCost * sellPercentage);
                 money.addGold(sellValue);
                 Destroy(turret);
@@ -58,20 +65,16 @@ public class SellTurret : MonoBehaviour
                 Debug.Log("Mode suppression désactivé après la suppression de la tourelle.");
 
                 // Informer TurretPlacement que la tourelle a été supprimée
-                TurretPlacement turretPlacement = FindObjectOfType<TurretPlacement>();
-                if (turretPlacement != null)
-                {
-                    turretPlacement.DecrementTurretCount();
-                }
+                turretPlacement.DecrementTurretCount();
             }
             else
             {
-                Debug.LogError("Selected object is not a turret slot!");
+                Debug.Log("Hit object is not a turret.");
             }
         }
         else
         {
-            Debug.Log("No turret found at position: " + mouseWorldPosition2D);
+            Debug.Log("No object hit at position: " + mouseWorldPosition2D);
         }
     }
 

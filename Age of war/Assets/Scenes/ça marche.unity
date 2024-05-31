@@ -11072,7 +11072,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1134112165}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1134112169}
+        m_TargetAssemblyTypeName: SellTurret, Assembly-CSharp
+        m_MethodName: ToggleDeletionMode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1134112165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11152,6 +11164,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: {fileID: 333553885}
   sellPercentage: 0.5
+  debugCircleRadius: 0.5
+  debugCircleColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &1135239141
 GameObject:
   m_ObjectHideFlags: 0
@@ -13923,7 +13937,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -11, y: -1, z: 0}
+  - first: {x: -13, y: -1, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 14
@@ -13943,7 +13957,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -11, y: 0, z: 0}
+  - first: {x: -13, y: 0, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 12
@@ -13953,7 +13967,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -10, y: 0, z: 0}
+  - first: {x: -12, y: 0, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 11
@@ -17085,6 +17099,7 @@ GameObject:
   - component: {fileID: 1325250841}
   - component: {fileID: 1325250840}
   - component: {fileID: 1325250839}
+  - component: {fileID: 1325250842}
   m_Layer: 5
   m_Name: addTuret
   m_TagString: Untagged
@@ -17250,6 +17265,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooltip: {fileID: 1325250840}
+--- !u!114 &1325250842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325250834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21197f501f61a934e85ae273c6627339, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1328916956
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,7 +13,20 @@ public class SellTurret : MonoBehaviour
 
     private TurretPlacement turretPlacement; // Référence au script TurretPlacement
 
+void Start()
+    {
+        mainCamera = Camera.main; // Assurez-vous que mainCamera est correctement référencée
+        if (mainCamera == null)
+        {
+            Debug.LogError("Main camera not found. Make sure your camera has the 'MainCamera' tag.");
+        }
 
+        turretPlacement = FindObjectOfType<TurretPlacement>(); // Obtenez la référence à TurretPlacement
+        if (turretPlacement == null)
+        {
+            Debug.LogError("TurretPlacement script not found in the scene.");
+        }
+    }
 
     public void ToggleDeletionMode()
     {

@@ -60,4 +60,7 @@ public class addPlacement : MonoBehaviour
             Debug.LogWarning("Not enough gold! Needed: " + turretCost);
         }
     }
+
+
+    
 }

@@ -13,6 +13,7 @@ public class TurretPlacement : MonoBehaviour
     private int currentTurretsEnnemy = 0;
     private Vector3 lastPosition; // Dernière position où une tourelle a été placée
     public Money money; // Supposons que tu aies une gestion d'argent
+    public GameObject turretSlotPrefabEnnemy;
 
      void Awake()
     {
@@ -29,9 +30,8 @@ public class TurretPlacement : MonoBehaviour
                 lastPosition += new Vector3(0, 1, 0); // Décale chaque nouvelle tourelle d'une unité vers le haut
             }
 
-            Instantiate(turretSlotPrefab, lastPosition, Quaternion.identity);
+            Instantiate(turretSlotPrefabEnnemy, lastPosition, Quaternion.identity);
             currentTurretsEnnemy++;
-            print(currentTurretsEnnemy);
         }
     }
 

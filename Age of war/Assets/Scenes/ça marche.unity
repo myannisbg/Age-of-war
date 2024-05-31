@@ -17240,6 +17240,7 @@ MonoBehaviour:
   castleTilePosition: {x: 0, y: 0, z: 0}
   maxTurrets: 3
   money: {fileID: 333553885}
+  turretSlotPrefabEnnemy: {fileID: 8713180318532979342, guid: 549c124b87686ab4cac1b1afed1e90ef, type: 3}
 --- !u!114 &1325250840
 MonoBehaviour:
   m_ObjectHideFlags: 0

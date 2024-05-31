@@ -1,11 +1,13 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TurretManager : MonoBehaviour
 {
     public static TurretManager Instance { get; private set; }
-    public GameObject[] turretPrefabs;  // Array of turret prefabs
+    public List<GameObject> turretPrefabs;  // List of turret prefabs
     public GameObject selectedTurretPrefab;  // Currently selected turret prefab, public for access
-    public int cost;
+    public GlobalAge ageValue;
+    public List<int> priceOfTurret; // List of turret prices
 
     private void Awake()
     {
@@ -19,38 +21,33 @@ public class TurretManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
-    public void SetCost(int turretCost)
-    {
-        cost = turretCost;
-    }
 
-    public void SelectTurret(int index)
+    public void SelectTurretByAge()
     {
-        if (index >= 0 && index < turretPrefabs.Length)
+        int ageIndex = ageValue.getAge();
+        if (ageIndex >= 0 && ageIndex < turretPrefabs.Count)
         {
-            selectedTurretPrefab = turretPrefabs[index];
+            selectedTurretPrefab = turretPrefabs[ageIndex];
             Debug.Log("Turret selected: " + selectedTurretPrefab.name);
         }
         else
         {
-            Debug.LogError("Index out of range: Failed to select turret.");
+            Debug.LogError("Invalid age index: Failed to select turret.");
         }
     }
 
-    // Nouvelle méthode pour obtenir le coût de la tourelle sélectionnée
-    public int GetSelectedTurretCost()
+    // New method to get cost based on current age
+    public int GetTurretCostByAge()
     {
-        if (selectedTurretPrefab != null)
+        int ageIndex = ageValue.getAge();
+        if (ageIndex >= 0 && ageIndex < priceOfTurret.Count)
         {
-            int index = System.Array.IndexOf(turretPrefabs, selectedTurretPrefab);
-            switch (index)
-            {
-                case 0: return 500;  // Cost for the first turret
-                case 1: return 750;  // Cost for the second turret
-                default: return 1000;  // Default cost for any other turrets
-            }
+            return priceOfTurret[ageIndex];
         }
-        return 0; // Return 0 if no turret is selected
+        else
+        {
+            Debug.LogError("Invalid age index: Failed to get turret cost.");
+            return -1;  // Indicate an error in cost retrieval
+        }
     }
 }

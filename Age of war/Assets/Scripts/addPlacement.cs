@@ -46,7 +46,7 @@ public class addPlacement : MonoBehaviour
             }
         }
 
-        int turretCost = TurretManager.Instance.GetSelectedTurretCost();
+        int turretCost = TurretManager.Instance.GetTurretCostByAge();
 
         if (money.canBuy(turretCost))  // Check if the player has enough gold
         {

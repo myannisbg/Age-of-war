@@ -104,6 +104,62 @@ MonoBehaviour:
     m_Localized: "gojo satoru m\xE1s poderoso 10,000 monedas"
     m_Metadata:
       m_Items: []
+  - m_Id: 23258629569380352
+    m_Localized: solo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23258851582279680
+    m_Localized: multijugador
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23260477705551872
+    m_Localized: "F\xE1cil"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23261089906163712
+    m_Localized: Normal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23261438020812800
+    m_Localized: "Dif\xEDcil"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23261601749663744
+    m_Localized: Imposible
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23262313070067712
+    m_Localized: "Atr\xE1s"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23263888815554560
+    m_Localized: Conectarse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23263912614035456
+    m_Localized: Registro
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23263933270982656
+    m_Localized: "Intenta iniciar sesi\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23263955534348288
+    m_Localized: Intenta registrarte
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23263994994360320
+    m_Localized: "Correo electr\xF3nico"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23264008768454656
+    m_Localized: "Contrase\xF1a"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23264026283868160
+    m_Localized: Seudo
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

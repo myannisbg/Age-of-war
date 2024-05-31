@@ -135,3 +135,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   damage: 50
+  unitType: 4

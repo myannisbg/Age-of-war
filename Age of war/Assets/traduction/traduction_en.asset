@@ -104,6 +104,62 @@ MonoBehaviour:
     m_Localized: gojo satoru most powerful 10,000 coins
     m_Metadata:
       m_Items: []
+  - m_Id: 23258629569380352
+    m_Localized: solo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23258851582279680
+    m_Localized: multiplayer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23260477705551872
+    m_Localized: Easy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23261089906163712
+    m_Localized: Normal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23261438020812800
+    m_Localized: Difficult
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23261601749663744
+    m_Localized: Impossible
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23262313070067712
+    m_Localized: Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23263888815554560
+    m_Localized: Login
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23263912614035456
+    m_Localized: Register
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23263933270982656
+    m_Localized: Try login
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23263955534348288
+    m_Localized: Try register
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23263994994360320
+    m_Localized: Email
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23264008768454656
+    m_Localized: Password
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23264026283868160
+    m_Localized: Pseudo
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

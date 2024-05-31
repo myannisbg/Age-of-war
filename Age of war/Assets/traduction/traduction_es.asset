@@ -132,6 +132,34 @@ MonoBehaviour:
     m_Localized: "Atr\xE1s"
     m_Metadata:
       m_Items: []
+  - m_Id: 23263888815554560
+    m_Localized: Conectarse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23263912614035456
+    m_Localized: Registro
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23263933270982656
+    m_Localized: "Intenta iniciar sesi\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23263955534348288
+    m_Localized: Intenta registrarte
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23263994994360320
+    m_Localized: "Correo electr\xF3nico"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23264008768454656
+    m_Localized: "Contrase\xF1a"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23264026283868160
+    m_Localized: Seudo
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

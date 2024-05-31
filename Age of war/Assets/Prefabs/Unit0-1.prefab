@@ -360,10 +360,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseObject: {fileID: 0}
-  maxHealth: 100
-  damageDealt: 15
+  maxHealth: 140
+  damageDealt: 25
   expGain: 10
-  moneyGain: 50
+  moneyGain: 65
   attackSpeed: 1
   attackRange: 2.57
   moneyClass: {fileID: 0}
@@ -459,7 +459,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a828d8fdddd36e48b4c0c989ebe0a9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit: {fileID: 0}
   animator: {fileID: 6743456534956339389}
 --- !u!95 &6743456534956339389
 Animator:
@@ -469,7 +468,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4433264446657499104}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 77ef62f137f0fd54bb09833d86c5e680, type: 2}
   m_CullingMode: 0

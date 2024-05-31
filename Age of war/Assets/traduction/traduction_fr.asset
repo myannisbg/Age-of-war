@@ -104,6 +104,34 @@ MonoBehaviour:
     m_Localized: "gojo satoru le plus puissant 10,000 pi\xE8ces"
     m_Metadata:
       m_Items: []
+  - m_Id: 23258629569380352
+    m_Localized: solo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23258851582279680
+    m_Localized: multijoueur
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23260477705551872
+    m_Localized: Facile
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23261089906163712
+    m_Localized: Normal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23261438020812800
+    m_Localized: Difficile
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23261601749663744
+    m_Localized: Impossible
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23262313070067712
+    m_Localized: Retour
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

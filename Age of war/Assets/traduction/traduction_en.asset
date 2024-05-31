@@ -104,6 +104,34 @@ MonoBehaviour:
     m_Localized: gojo satoru most powerful 10,000 coins
     m_Metadata:
       m_Items: []
+  - m_Id: 23258629569380352
+    m_Localized: solo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23258851582279680
+    m_Localized: multiplayer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23260477705551872
+    m_Localized: Easy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23261089906163712
+    m_Localized: Normal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23261438020812800
+    m_Localized: Difficult
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23261601749663744
+    m_Localized: Impossible
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23262313070067712
+    m_Localized: Back
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

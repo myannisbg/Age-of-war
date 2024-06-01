@@ -15834,8 +15834,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretPrefabs:
-  - {fileID: 1070098456149786746, guid: efb1a90985e234745a6ff4ff3399526f, type: 3}
-  - {fileID: 7249850965738593330, guid: bd947251cf5c4774ea5e345f32fcdd92, type: 3}
+  - {fileID: 5846724665822798872, guid: b6b1b6cbff18b8849a46701b0cf36041, type: 3}
+  - {fileID: 5846724665822798872, guid: b6b1b6cbff18b8849a46701b0cf36041, type: 3}
+  - {fileID: 5846724665822798872, guid: b6b1b6cbff18b8849a46701b0cf36041, type: 3}
+  - {fileID: 6297061686900932889, guid: 3a0979dce54af424eb569f7d99cde12b, type: 3}
+  - {fileID: 6297061686900932889, guid: 3a0979dce54af424eb569f7d99cde12b, type: 3}
+  - {fileID: 6297061686900932889, guid: 3a0979dce54af424eb569f7d99cde12b, type: 3}
+  - {fileID: 5844158415113095933, guid: 5043797fc31b1ab41b5de5a56fa0b058, type: 3}
+  - {fileID: 5844158415113095933, guid: 5043797fc31b1ab41b5de5a56fa0b058, type: 3}
+  - {fileID: 5844158415113095933, guid: 5043797fc31b1ab41b5de5a56fa0b058, type: 3}
+  - {fileID: 8960717859308840523, guid: 61c212816296d8949a1d0c8bea8c867b, type: 3}
+  - {fileID: 8960717859308840523, guid: 61c212816296d8949a1d0c8bea8c867b, type: 3}
+  - {fileID: 8960717859308840523, guid: 61c212816296d8949a1d0c8bea8c867b, type: 3}
+  - {fileID: 5886712958401614435, guid: 4ce010adea80338449ab5dbb0fe6482f, type: 3}
+  - {fileID: 5886712958401614435, guid: 4ce010adea80338449ab5dbb0fe6482f, type: 3}
+  - {fileID: 5886712958401614435, guid: 4ce010adea80338449ab5dbb0fe6482f, type: 3}
+  - {fileID: 3996698103870253255, guid: 83e5bdff7cab90d4e9cac78bb0830938, type: 3}
+  - {fileID: 3996698103870253255, guid: 83e5bdff7cab90d4e9cac78bb0830938, type: 3}
+  - {fileID: 3996698103870253255, guid: 83e5bdff7cab90d4e9cac78bb0830938, type: 3}
+  - {fileID: 3894009932277979321, guid: d4dd64195cbaa554ebe6a6ccf897d591, type: 3}
+  - {fileID: 3894009932277979321, guid: d4dd64195cbaa554ebe6a6ccf897d591, type: 3}
+  - {fileID: 3894009932277979321, guid: d4dd64195cbaa554ebe6a6ccf897d591, type: 3}
   placementInterval: 5
   ageValue: {fileID: 333553887}
   botDifficulty: medium

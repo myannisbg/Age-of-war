@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8117414774204548788
+--- !u!1 &1982649576371565963
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,24 +8,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 791401815569396200}
-  - component: {fileID: 6715307023838257372}
-  - component: {fileID: 7476886477598392834}
-  - component: {fileID: 5390212404169621082}
+  - component: {fileID: 5888724316274931563}
+  - component: {fileID: 6776198745663277692}
+  - component: {fileID: 7820310303778787037}
+  - component: {fileID: 842681636620714907}
   m_Layer: 0
-  m_Name: Circle (1) ennemie
+  m_Name: projo2-1 enemy
   m_TagString: BulletEnnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &791401815569396200
+--- !u!4 &5888724316274931563
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8117414774204548788}
+  m_GameObject: {fileID: 1982649576371565963}
   serializedVersion: 2
   m_LocalRotation: {x: 0.0013997043, y: -0.0064369184, z: -0.9771434, w: -0.21247926}
   m_LocalPosition: {x: -26.3645, y: -2.7937, z: 0}
@@ -34,13 +34,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -0.755, y: 0, z: -204.536}
---- !u!212 &6715307023838257372
+--- !u!212 &6776198745663277692
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8117414774204548788}
+  m_GameObject: {fileID: 1982649576371565963}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -86,13 +86,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &7476886477598392834
+--- !u!58 &7820310303778787037
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8117414774204548788}
+  m_GameObject: {fileID: 1982649576371565963}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -121,18 +121,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &5390212404169621082
+--- !u!114 &842681636620714907
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8117414774204548788}
+  m_GameObject: {fileID: 1982649576371565963}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 648d136dde6fc52458e097e5259cf2f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  damage: 50
-  unitType: 4
+  damage: 75
+  inactiveTimeBeforeDestroy: 1

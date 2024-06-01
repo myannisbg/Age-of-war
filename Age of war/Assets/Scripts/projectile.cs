@@ -32,6 +32,8 @@ public class Projectile : MonoBehaviour
 
     private void FindClosestEnemy()
     {
+        string currentTag = transform.root.tag;
+        if (currentTag == "BulletAlly"){
         float closestDistance = Mathf.Infinity;
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Ennemy");
 
@@ -44,10 +46,29 @@ public class Projectile : MonoBehaviour
                 target = enemy.transform;
             }
         }
+        }
+        else if (currentTag=="BulletEnnemy"){
+            float closestDistance = Mathf.Infinity;
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Ally");
+
+        foreach (GameObject enemy in enemies)
+        {
+            float distance = Vector2.Distance(transform.position, enemy.transform.position);
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                target = enemy.transform;
+            }
+        }
+        }
     }
+
+ 
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        string currentTag = transform.root.tag;
+         if (currentTag == "BulletAlly"){
         if (other.CompareTag("Ennemy"))
         {
             Unit unit = other.gameObject.GetComponent<Unit>();
@@ -57,5 +78,18 @@ public class Projectile : MonoBehaviour
             }
             Destroy(gameObject);
         }
+    }
+    else if (currentTag == "BulletEnnemy"){
+         if (other.CompareTag("Ally"))
+        {
+            Unit unit = other.gameObject.GetComponent<Unit>();
+            if (unit != null)
+            {
+                unit.TakeDamage(damage,Unit.UnitType.None);
+            }
+            Destroy(gameObject);
+        }
+
+    }
     }
 }

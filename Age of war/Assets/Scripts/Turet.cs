@@ -27,7 +27,8 @@ public class Turet : MonoBehaviour
     void Update()
     {
         string currentTag = transform.root.tag;
-        if (currentTag == "Turret"){
+        print(currentTag);
+        if (currentTag == "TurretSlotAlly"){
             if (shotTimer <= 0)
             {
                 AttackClosestEnnemy();
@@ -38,7 +39,7 @@ public class Turet : MonoBehaviour
                 shotTimer -= Time.deltaTime;
             }
         }
-        else if (currentTag == "TurretEnnemy"){
+        else if (currentTag == "TurretSlotEnnemy"){
                 if (shotTimer <= 0)
                 {
                     AttackClosestAlly();

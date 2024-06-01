@@ -19,7 +19,7 @@ public class TurretPlacement : MonoBehaviour
     {
         //tout ce qui est ici est déstiné aux bots / autre joueurs
 
-        for (int i = 0; i < maxTurrets; i++)
+       for (int i = 0; i < maxTurrets; i++)
         {
             if (currentTurretsEnnemy == 0)
             {
@@ -30,11 +30,15 @@ public class TurretPlacement : MonoBehaviour
                 lastPosition += new Vector3(0, 1, 0); // Décale chaque nouvelle tourelle d'une unité vers le haut
             }
 
-            Instantiate(turretSlotPrefabEnnemy, lastPosition, Quaternion.identity);
+            GameObject slot = Instantiate(turretSlotPrefabEnnemy, lastPosition, Quaternion.identity);
+            addPlacement slotComponent = slot.GetComponent<addPlacement>();
+            if (slotComponent != null)
+            {
+                slotComponent.isEnemySlot = true; // Définit le slot comme ennemi
+            }
             currentTurretsEnnemy++;
         }
     }
-
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.J))
@@ -62,10 +66,18 @@ public class TurretPlacement : MonoBehaviour
                         lastPosition += new Vector3(0, 1, 0); // Décale chaque nouvelle tourelle d'une unité vers le haut
                     }
 
+
+                    
                     Instantiate(turretSlotPrefab, lastPosition, Quaternion.identity);
-                    currentTurretsAlly++; // Incrémenter le nombre de tourelles placées
+                    GameObject slot = Instantiate(turretSlotPrefab, lastPosition, Quaternion.identity);
                     money.SpendGold(cost); // Déduire le coût de la tourelle du total de l'or
+                    addPlacement slotComponent = slot.GetComponent<addPlacement>();
                     Debug.Log("Turret slot added at position: " + lastPosition + " for " + cost + " gold.");
+                    if (slotComponent != null)
+                    {
+                slotComponent.isEnemySlot = false; // Définit le slot comme allié
+                currentTurretsAlly++; // Incrémenter le nombre de tourelles placées
+                }
                 }
                 else
                 {

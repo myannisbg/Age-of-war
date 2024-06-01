@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8764351044443445076}
   - component: {fileID: 1016865329966151678}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Circle ennemie
   m_TagString: BulletEnnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -135,4 +135,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   damage: 50
-  unitType: 0
+  unitType: 4

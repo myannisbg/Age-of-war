@@ -39,9 +39,9 @@ public class BotTurretPlacement : MonoBehaviour
         print(currentAge);
         int difficulty = bot.returnDifficulty();
 
-        int lowTurretIndex = currentAge;
-        int mediumTurretIndex = currentAge + 1;
-        int highTurretIndex = currentAge + 2;
+        int lowTurretIndex = currentAge *3;
+        int mediumTurretIndex = currentAge *3 + 1;
+        int highTurretIndex = currentAge *3 + 2;
 
         // Assurez-vous que les index ne dépassent pas la taille du tableau de prefabs
         lowTurretIndex = Mathf.Clamp(lowTurretIndex, 0, turretPrefabs.Length - 1);

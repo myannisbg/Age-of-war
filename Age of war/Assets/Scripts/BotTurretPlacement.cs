@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Linq; 
 
 public class BotTurretPlacement : MonoBehaviour
 {
@@ -7,7 +8,18 @@ public class BotTurretPlacement : MonoBehaviour
     private float placementTimer = 0f;
     private int selectedTurretIndex = 0; // Index de la tourelle sélectionnée
     public GlobalAge ageValue;  // Référence à la classe GlobalAge pour obtenir l'âge actuel
-    public string botDifficulty = "medium";  // Niveau de difficulté du bot ("low", "medium", "high")
+    public Bot bot;
+    private int currentAge = 1;
+
+
+    void Start()
+    {
+        if (bot != null)
+        {
+            bot.StartIncrementing();  // Démarre l'incrémentation de l'âge dans le script Bot
+        }
+    }
+
 
     void Update()
     {
@@ -16,13 +28,16 @@ public class BotTurretPlacement : MonoBehaviour
         {
             SelectTurretBasedOnAgeAndDifficulty();
             PlaceTurretInNextAvailableSlot();
+            UpdateAgeAndRemoveOldTurrets();
             placementTimer = 0f;
         }
     }
 
     void SelectTurretBasedOnAgeAndDifficulty()
     {
-        int currentAge = ageValue.getAge();  // Obtient l'âge actuel
+        int currentAge = bot.ageValue;  // Obtient l'âge actuel
+        print(currentAge);
+        int difficulty = bot.returnDifficulty();
 
         int lowTurretIndex = currentAge;
         int mediumTurretIndex = currentAge + 1;
@@ -33,15 +48,16 @@ public class BotTurretPlacement : MonoBehaviour
         mediumTurretIndex = Mathf.Clamp(mediumTurretIndex, 0, turretPrefabs.Length - 1);
         highTurretIndex = Mathf.Clamp(highTurretIndex, 0, turretPrefabs.Length - 1);
 
-        switch (botDifficulty.ToLower())
+       switch (difficulty)
         {
-            case "low":
+            case 0:  // Low difficulty
                 selectedTurretIndex = lowTurretIndex;
                 break;
-            case "medium":
+            case 1:  // Medium difficulty
                 selectedTurretIndex = mediumTurretIndex;
                 break;
-            case "high":
+            case 2:  // High difficulty (case 2 and above)
+            case 3: 
                 selectedTurretIndex = highTurretIndex;
                 break;
             default:
@@ -49,6 +65,7 @@ public class BotTurretPlacement : MonoBehaviour
                 selectedTurretIndex = mediumTurretIndex;
                 break;
         }
+
 
         Debug.Log("Selected turret index based on age and difficulty: " + selectedTurretIndex);
     }
@@ -99,4 +116,32 @@ public class BotTurretPlacement : MonoBehaviour
             Debug.LogWarning("Invalid turret index: " + index);
         }
     }
+
+
+public void RemoveTurretsWithSpecificTag(string tag)
+    {
+        GameObject[] turrets = GameObject.FindGameObjectsWithTag(tag);
+
+        foreach (GameObject turret in turrets)
+        {
+            Destroy(turret);
+            Debug.Log("Removed turret with tag: " + tag + " at position: " + turret.transform.position);
+        }
+    }
+
+
+
+    void UpdateAgeAndRemoveOldTurrets()
+    {
+        int newAge = bot.ageValue;
+
+        if (newAge != currentAge)
+        {
+            RemoveTurretsWithSpecificTag("TurretEnnemy");  // Remplacez "TurretEnnemy" par le tag réel de vos tourelles
+            currentAge = newAge;
+        }
+    }
+
 }
+
+

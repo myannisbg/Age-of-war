@@ -5206,7 +5206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ced9f28aec5e24e91501fd90429525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentFunction: 3
+  currentFunction: 2
   availableFunctions: 00000000010000000200000003000000
   isBot: 1
   botSpawnInterval: 9
@@ -5243,6 +5243,7 @@ MonoBehaviour:
   - {fileID: 7357743710690516368, guid: 8725fbe83fa3ace4ab6900b312d98bb9, type: 3}
   ageValue: 0
   initialInterval: 60
+  botTurretPlacement: {fileID: 0}
 --- !u!1 &530359608
 GameObject:
   m_ObjectHideFlags: 0
@@ -9488,7 +9489,7 @@ MonoBehaviour:
   - {fileID: 8716187953839882618, guid: bec6855ef7704f24e8bb166d68c3a34b, type: 3}
   - {fileID: 5244462310921944723, guid: aab301ac90171fa47b9511047b32b6c4, type: 3}
   spawnInterval: 0.1
-  numberOfProjectiles: 10
+  baseNumberOfProjectiles: 10
   spawnAreaSize: {x: 30, y: 30}
   spawnHeight: 50
   ageValue: {fileID: 333553887}
@@ -14519,9 +14520,14 @@ MonoBehaviour:
   turretPrefabs:
   - {fileID: 1070098456149786746, guid: efb1a90985e234745a6ff4ff3399526f, type: 3}
   - {fileID: 7249850965738593330, guid: bd947251cf5c4774ea5e345f32fcdd92, type: 3}
+  - {fileID: 7249850965738593330, guid: bd947251cf5c4774ea5e345f32fcdd92, type: 3}
+  - {fileID: 7249850965738593330, guid: bd947251cf5c4774ea5e345f32fcdd92, type: 3}
+  - {fileID: 7249850965738593330, guid: bd947251cf5c4774ea5e345f32fcdd92, type: 3}
+  - {fileID: 7249850965738593330, guid: bd947251cf5c4774ea5e345f32fcdd92, type: 3}
+  - {fileID: 7249850965738593330, guid: bd947251cf5c4774ea5e345f32fcdd92, type: 3}
   placementInterval: 5
   ageValue: {fileID: 333553887}
-  botDifficulty: medium
+  bot: {fileID: 530252796}
 --- !u!4 &1161517377
 Transform:
   m_ObjectHideFlags: 0
@@ -16660,7 +16666,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4b1f1f5cff9c6404091a023a75d35335, type: 3}
+  m_Sprite: {fileID: -591255334, guid: 4b1f1f5cff9c6404091a023a75d35335, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -27,7 +27,7 @@ public class Turet : MonoBehaviour
     void Update()
     {
         string currentTag = transform.root.tag;
-        print(currentTag);
+        
         if (currentTag == "TurretSlotAlly"){
             if (shotTimer <= 0)
             {

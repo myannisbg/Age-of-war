@@ -5242,7 +5242,7 @@ MonoBehaviour:
   - {fileID: 1210788019135763216, guid: f8e88ad770b5e1a46a825887e916f8da, type: 3}
   - {fileID: 7357743710690516368, guid: 8725fbe83fa3ace4ab6900b312d98bb9, type: 3}
   ageValue: 0
-  initialInterval: 60
+  initialInterval: 100
   botTurretPlacement: {fileID: 0}
 --- !u!1 &530359608
 GameObject:
@@ -14525,7 +14525,6 @@ MonoBehaviour:
   - {fileID: 7249850965738593330, guid: bd947251cf5c4774ea5e345f32fcdd92, type: 3}
   - {fileID: 7249850965738593330, guid: bd947251cf5c4774ea5e345f32fcdd92, type: 3}
   - {fileID: 7249850965738593330, guid: bd947251cf5c4774ea5e345f32fcdd92, type: 3}
-  placementInterval: 5
   ageValue: {fileID: 333553887}
   bot: {fileID: 530252796}
 --- !u!4 &1161517377

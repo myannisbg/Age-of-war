@@ -4,7 +4,7 @@ using System.Linq;
 public class BotTurretPlacement : MonoBehaviour
 {
     public GameObject[] turretPrefabs;  // Liste des prefabs de tourelles
-    public float placementInterval = 5f; // Temps entre chaque placement de tourelle
+    private float placementInterval ; // Temps entre chaque placement de tourelle
     private float placementTimer = 0f;
     private int selectedTurretIndex = 0; // Index de la tourelle sélectionnée
     public GlobalAge ageValue;  // Référence à la classe GlobalAge pour obtenir l'âge actuel
@@ -52,13 +52,16 @@ public class BotTurretPlacement : MonoBehaviour
         {
             case 0:  // Low difficulty
                 selectedTurretIndex = lowTurretIndex;
+                placementInterval=30f;
                 break;
             case 1:  // Medium difficulty
                 selectedTurretIndex = mediumTurretIndex;
+                placementInterval=25f;
                 break;
             case 2:  // High difficulty (case 2 and above)
             case 3: 
                 selectedTurretIndex = highTurretIndex;
+                placementInterval=15f;
                 break;
             default:
                 Debug.LogWarning("Unknown bot difficulty level. Defaulting to medium.");

@@ -308,7 +308,7 @@ void detectObject()
     }
     if (foundSomethingToHit == true) {
         animator.SetBool("isAttacking", true);
-        animator.SetBool("isWalking", true);
+        animator.SetBool("isWalking", false);
         } else {animator.SetBool("isAttacking", false);}
 }
 

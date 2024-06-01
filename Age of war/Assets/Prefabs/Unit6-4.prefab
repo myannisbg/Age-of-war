@@ -235,7 +235,6 @@ GameObject:
   - component: {fileID: 8758024064260596494}
   - component: {fileID: 2272276127934746632}
   - component: {fileID: 4791888212636509373}
-  - component: {fileID: -1719309306184916223}
   - component: {fileID: 4753844045653377347}
   m_Layer: 0
   m_Name: Unit6-4
@@ -390,7 +389,7 @@ MonoBehaviour:
   maxHealth: 15000
   damageDealt: 600
   expGain: 1000
-  moneyGain: 65
+  moneyGain: 12500
   attackSpeed: 1
   attackRange: 1
   moneyClass: {fileID: 0}
@@ -400,6 +399,7 @@ MonoBehaviour:
   type: 4
   isWalking: 0
   isAttacking: 0
+  animator: {fileID: 4753844045653377347}
   healthBar: {fileID: 4425508719028340852}
 --- !u!114 &8758024064260596494
 MonoBehaviour:
@@ -429,6 +429,8 @@ MonoBehaviour:
   moveSpeed: 1
   rb: {fileID: 2575325524450644107}
   offset: {x: 0.7, y: 0, z: 0}
+  animator: {fileID: 4753844045653377347}
+  characterVelocity: 0
 --- !u!61 &4791888212636509373
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -474,19 +476,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.2725897, y: 3.5867393}
   m_EdgeRadius: 0
---- !u!114 &-1719309306184916223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4056730817262190485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a828d8fdddd36e48b4c0c989ebe0a9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 4753844045653377347}
 --- !u!95 &4753844045653377347
 Animator:
   serializedVersion: 5

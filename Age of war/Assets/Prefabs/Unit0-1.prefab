@@ -373,6 +373,7 @@ MonoBehaviour:
   type: 1
   isWalking: 0
   isAttacking: 0
+  animator: {fileID: 6743456534956339389}
   healthBar: {fileID: 3199867659876047355}
 --- !u!114 &1273079818509609757
 MonoBehaviour:
@@ -402,6 +403,8 @@ MonoBehaviour:
   moveSpeed: 2.3
   rb: {fileID: 2904768195737256619}
   offset: {x: 1, y: 0, z: 0}
+  animator: {fileID: 6743456534956339389}
+  characterVelocity: 0
 --- !u!61 &576300529798842333
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -92,7 +92,6 @@ GameObject:
   - component: {fileID: 501430044425237358}
   - component: {fileID: 8154829429503255387}
   - component: {fileID: -6555316453555805922}
-  - component: {fileID: 612460378550202773}
   m_Layer: 0
   m_Name: Unit5-2 ennemie
   m_TagString: Ennemy
@@ -256,6 +255,7 @@ MonoBehaviour:
   type: 3
   isWalking: 0
   isAttacking: 0
+  animator: {fileID: -6555316453555805922}
   healthBar: {fileID: 8215469576927410175}
 --- !u!114 &1658293412605164979
 MonoBehaviour:
@@ -285,6 +285,8 @@ MonoBehaviour:
   moveSpeed: 1.9
   rb: {fileID: 7850814579831180919}
   offset: {x: 0.7, y: 0, z: 0}
+  animator: {fileID: -6555316453555805922}
+  characterVelocity: 0
 --- !u!61 &8154829429503255387
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -351,19 +353,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &612460378550202773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3143377655396776911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a828d8fdddd36e48b4c0c989ebe0a9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: -6555316453555805922}
 --- !u!1 &3521749648595299278
 GameObject:
   m_ObjectHideFlags: 0

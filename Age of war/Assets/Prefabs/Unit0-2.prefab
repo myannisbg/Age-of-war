@@ -209,7 +209,6 @@ GameObject:
   - component: {fileID: 7459999796370649643}
   - component: {fileID: 6588178474355647004}
   - component: {fileID: -756708314208114021}
-  - component: {fileID: -4707044859966689649}
   m_Layer: 0
   m_Name: Unit0-2
   m_TagString: Ally
@@ -373,6 +372,7 @@ MonoBehaviour:
   type: 3
   isWalking: 0
   isAttacking: 0
+  animator: {fileID: -756708314208114021}
   healthBar: {fileID: 1130525546582879048}
 --- !u!114 &6029686856955630134
 MonoBehaviour:
@@ -402,6 +402,8 @@ MonoBehaviour:
   moveSpeed: 3
   rb: {fileID: 814105450407997195}
   offset: {x: 0.8, y: 0, z: 0}
+  animator: {fileID: -756708314208114021}
+  characterVelocity: 0
 --- !u!61 &6588178474355647004
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -468,19 +470,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-4707044859966689649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3450811314224430299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a828d8fdddd36e48b4c0c989ebe0a9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: -756708314208114021}
 --- !u!1 &3797338311042934926
 GameObject:
   m_ObjectHideFlags: 0

@@ -45,6 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21197f501f61a934e85ae273c6627339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isEnemySlot: 0
+  money: {fileID: 0}
+  turretManager: {fileID: 0}
 --- !u!61 &6022073858924611682
 BoxCollider2D:
   m_ObjectHideFlags: 0

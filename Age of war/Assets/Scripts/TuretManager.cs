@@ -3,24 +3,12 @@ using UnityEngine;
 
 public class TurretManager : MonoBehaviour
 {
-    public static TurretManager Instance { get; private set; }
     public List<GameObject> turretPrefabs;  // List of turret prefabs
     public GameObject selectedTurretPrefab;  // Currently selected turret prefab, public for access
     public GlobalAge ageValue;
     public List<int> priceOfTurret; // List of turret prices
 
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
+   
 
     public void SelectTurretByAge()
     {

@@ -28,7 +28,7 @@ public class Bot : MonoBehaviour
     private int archerCount =  0;
     private bool scenarioSpecific = true;
     private int countOfUnits=0;
-    public BotTurretPlacement botTurretPlacement;
+    
     
     
 

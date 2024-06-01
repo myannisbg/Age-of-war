@@ -4071,6 +4071,7 @@ MonoBehaviour:
   - {fileID: 8416242134734189231, guid: dc5041bc023b9c14485054cb704eba90, type: 3}
   - {fileID: 7086806059685032177, guid: 8725fbe83fa3ace4ab6900b312d98bb9, type: 3}
   - {fileID: 1152520733210306593, guid: f8e88ad770b5e1a46a825887e916f8da, type: 3}
+  botTurretPlacement: {fileID: 1325250839}
 --- !u!1 &334053663
 GameObject:
   m_ObjectHideFlags: 0
@@ -6243,7 +6244,6 @@ MonoBehaviour:
   - {fileID: 7357743710690516368, guid: 8725fbe83fa3ace4ab6900b312d98bb9, type: 3}
   ageValue: 0
   initialInterval: 100
-  botTurretPlacement: {fileID: 0}
 --- !u!1 &530359608
 GameObject:
   m_ObjectHideFlags: 0
@@ -10805,7 +10805,6 @@ MonoBehaviour:
   - {fileID: 8716187953839882618, guid: bec6855ef7704f24e8bb166d68c3a34b, type: 3}
   - {fileID: 5244462310921944723, guid: aab301ac90171fa47b9511047b32b6c4, type: 3}
   spawnInterval: 0.1
-  baseNumberOfProjectiles: 10
   baseNumberOfProjectiles: 10
   spawnAreaSize: {x: 30, y: 30}
   spawnHeight: 50
@@ -15836,9 +15835,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretPrefabs:
-  - {fileID: 1070098456149786746, guid: efb1a90985e234745a6ff4ff3399526f, type: 3}
-  - {fileID: 7249850965738593330, guid: bd947251cf5c4774ea5e345f32fcdd92, type: 3}
-  placementInterval: 5
+  - {fileID: 5846724665822798872, guid: b6b1b6cbff18b8849a46701b0cf36041, type: 3}
+  - {fileID: 5846724665822798872, guid: b6b1b6cbff18b8849a46701b0cf36041, type: 3}
+  - {fileID: 5846724665822798872, guid: b6b1b6cbff18b8849a46701b0cf36041, type: 3}
+  - {fileID: 6297061686900932889, guid: 3a0979dce54af424eb569f7d99cde12b, type: 3}
+  - {fileID: 6297061686900932889, guid: 3a0979dce54af424eb569f7d99cde12b, type: 3}
+  - {fileID: 6297061686900932889, guid: 3a0979dce54af424eb569f7d99cde12b, type: 3}
+  - {fileID: 5844158415113095933, guid: 5043797fc31b1ab41b5de5a56fa0b058, type: 3}
+  - {fileID: 5844158415113095933, guid: 5043797fc31b1ab41b5de5a56fa0b058, type: 3}
+  - {fileID: 5844158415113095933, guid: 5043797fc31b1ab41b5de5a56fa0b058, type: 3}
+  - {fileID: 8960717859308840523, guid: 61c212816296d8949a1d0c8bea8c867b, type: 3}
   ageValue: {fileID: 333553887}
   bot: {fileID: 530252796}
 --- !u!4 &1161517377

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class animationStateController : MonoBehaviour
 {
+
 public Animator animator;
     void Start()
     {
@@ -26,5 +27,6 @@ public Animator animator;
         animator.SetBool("isWalking",false);
         animator.SetBool("isAttacking", false);
         }*/
+        
     }
 }

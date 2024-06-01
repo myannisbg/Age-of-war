@@ -28,6 +28,7 @@ public class Bot : MonoBehaviour
     private int archerCount =  0;
     private bool scenarioSpecific = true;
     private int countOfUnits=0;
+    public BotTurretPlacement botTurretPlacement;
     
     
 
@@ -41,9 +42,9 @@ private Dictionary<int, float> lastSpawnTimes = new Dictionary<int, float>();
         UpdateBotFunction();
         SpawnUnits();
         currentInterval = initialInterval;
-        StartIncrementing();
         string unitTag = gameObject.tag;
-        gameObject.tag = "Ennemy";
+        
+
         for (int i = 0; i < unitPrefabs.Count / 4; i++)
     {
         lastSpawnTimes.Add(i, 0f); // Initialiser tous les âges à 0 secondes
@@ -84,14 +85,14 @@ private Dictionary<int, float> lastSpawnTimes = new Dictionary<int, float>();
             }
     }
 
-    int returnDifficulty(){
+    public int returnDifficulty(){
 
         int difficulty = PlayerPrefs.GetInt("Difficulty",0);
           return difficulty;
     }
 
 
-     void StartIncrementing()
+     public void StartIncrementing()
     {
         if (ageCoroutine != null)
         {
@@ -573,4 +574,6 @@ private void ToggleMode()
         // Mettre à jour le temps écoulé pour cet âge
         lastSpawnTimes[ageIndex] = Time.timeSinceLevelLoad;
     }
+
+
 }

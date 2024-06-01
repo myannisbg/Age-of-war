@@ -4588,7 +4588,7 @@ GameObject:
   - component: {fileID: 392961493}
   m_Layer: 5
   m_Name: turet1
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10806,7 +10806,6 @@ MonoBehaviour:
   - {fileID: 5244462310921944723, guid: aab301ac90171fa47b9511047b32b6c4, type: 3}
   spawnInterval: 0.1
   baseNumberOfProjectiles: 10
-  baseNumberOfProjectiles: 10
   spawnAreaSize: {x: 30, y: 30}
   spawnHeight: 50
   ageValue: {fileID: 333553887}
@@ -15836,9 +15835,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretPrefabs:
-  - {fileID: 1070098456149786746, guid: efb1a90985e234745a6ff4ff3399526f, type: 3}
-  - {fileID: 7249850965738593330, guid: bd947251cf5c4774ea5e345f32fcdd92, type: 3}
-  placementInterval: 5
+  - {fileID: 5846724665822798872, guid: b6b1b6cbff18b8849a46701b0cf36041, type: 3}
+  - {fileID: 5846724665822798872, guid: b6b1b6cbff18b8849a46701b0cf36041, type: 3}
+  - {fileID: 5846724665822798872, guid: b6b1b6cbff18b8849a46701b0cf36041, type: 3}
+  - {fileID: 6297061686900932889, guid: 3a0979dce54af424eb569f7d99cde12b, type: 3}
+  - {fileID: 6297061686900932889, guid: 3a0979dce54af424eb569f7d99cde12b, type: 3}
+  - {fileID: 6297061686900932889, guid: 3a0979dce54af424eb569f7d99cde12b, type: 3}
+  - {fileID: 5844158415113095933, guid: 5043797fc31b1ab41b5de5a56fa0b058, type: 3}
+  - {fileID: 5844158415113095933, guid: 5043797fc31b1ab41b5de5a56fa0b058, type: 3}
+  - {fileID: 5844158415113095933, guid: 5043797fc31b1ab41b5de5a56fa0b058, type: 3}
+  - {fileID: 8960717859308840523, guid: 61c212816296d8949a1d0c8bea8c867b, type: 3}
+  - {fileID: 8960717859308840523, guid: 61c212816296d8949a1d0c8bea8c867b, type: 3}
+  - {fileID: 8960717859308840523, guid: 61c212816296d8949a1d0c8bea8c867b, type: 3}
+  - {fileID: 5886712958401614435, guid: 4ce010adea80338449ab5dbb0fe6482f, type: 3}
+  - {fileID: 5886712958401614435, guid: 4ce010adea80338449ab5dbb0fe6482f, type: 3}
+  - {fileID: 5886712958401614435, guid: 4ce010adea80338449ab5dbb0fe6482f, type: 3}
+  - {fileID: 3996698103870253255, guid: 83e5bdff7cab90d4e9cac78bb0830938, type: 3}
+  - {fileID: 3996698103870253255, guid: 83e5bdff7cab90d4e9cac78bb0830938, type: 3}
+  - {fileID: 3996698103870253255, guid: 83e5bdff7cab90d4e9cac78bb0830938, type: 3}
+  - {fileID: 3894009932277979321, guid: d4dd64195cbaa554ebe6a6ccf897d591, type: 3}
+  - {fileID: 3894009932277979321, guid: d4dd64195cbaa554ebe6a6ccf897d591, type: 3}
+  - {fileID: 3894009932277979321, guid: d4dd64195cbaa554ebe6a6ccf897d591, type: 3}
   ageValue: {fileID: 333553887}
   bot: {fileID: 530252796}
 --- !u!4 &1161517377
@@ -18651,6 +18668,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnemySlot: 0
   money: {fileID: 333553885}
+  turretManager: {fileID: 392961493}
 --- !u!1 &1328916956
 GameObject:
   m_ObjectHideFlags: 0
@@ -23300,6 +23318,7 @@ GameObject:
   - component: {fileID: 1810872081}
   - component: {fileID: 1810872080}
   - component: {fileID: 1810872079}
+  - component: {fileID: 1810872082}
   m_Layer: 5
   m_Name: turet2
   m_TagString: Untagged
@@ -23370,7 +23389,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1810872080}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1810872082}
+        m_TargetAssemblyTypeName: TurretManager, Assembly-CSharp
+        m_MethodName: SelectTurretByAge
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1810872080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23409,6 +23440,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1810872077}
   m_CullTransparentMesh: 1
+--- !u!114 &1810872082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810872077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9959fc059ef61e74582a4ec0c1d31686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turretPrefabs:
+  - {fileID: 5586109276407151451, guid: 40bf4aeb6b5629341a2caf324d829970, type: 3}
+  - {fileID: 5167686848587033127, guid: 43db9225f104b3c44aeb94786a9ba08a, type: 3}
+  - {fileID: 7229960154805599914, guid: 70fe1c3d03783bb4dab9ad564053fafd, type: 3}
+  - {fileID: 758722134302868407, guid: 24bf971e7b452a5489bb922d687053e0, type: 3}
+  - {fileID: 9216081914179266860, guid: 3ec766ef06487024c93c2eb7129b91c6, type: 3}
+  - {fileID: 3820141701829590743, guid: 603231407e7ffe04f971ec54ad595bcf, type: 3}
+  - {fileID: 4654603477531611771, guid: 689f41a9c6259944a882dff3c2d52511, type: 3}
+  selectedTurretPrefab: {fileID: 0}
+  ageValue: {fileID: 333553887}
+  priceOfTurret: 200300004c040000b0040000dc05000008070000d0070000fc080000
 --- !u!1 &1824125850
 GameObject:
   m_ObjectHideFlags: 0

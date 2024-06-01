@@ -6,10 +6,10 @@ public class Projectile : MonoBehaviour
 {
     public float speed;
     public int damage = 100;
-
+    public float inactiveTimeBeforeDestroy = 1f; // Temps avant destruction en secondes si le projectile est inactif
     private Transform target;
     private Vector2 targetPosition;
-    public Unit.UnitType unitType;
+    private float inactiveTime = 0f; // Temps d'inactivité
 
     void Update()
     {
@@ -20,76 +20,69 @@ public class Projectile : MonoBehaviour
 
         if (target != null)
         {
-            targetPosition = new Vector2(target.position.x, target.position.y);
+            targetPosition = target.position;
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-        }
 
-        if (Vector2.Distance(transform.position, targetPosition) < 0.1f) // Pr�cision accrue pour �viter les probl�mes de non collision
+            if (Vector2.Distance(transform.position, targetPosition) < 0.1f) 
+            {
+                HitTarget();
+            }
+
+            inactiveTime = 0f; // Réinitialiser le compteur d'inactivité quand le projectile bouge
+        }
+        else
         {
-            Destroy(gameObject);
+            inactiveTime += Time.deltaTime; // Augmenter le compteur d'inactivité quand il n'y a pas de cible
+            if (inactiveTime >= inactiveTimeBeforeDestroy)
+            {
+                Destroy(gameObject); // Détruire le projectile après 2 secondes d'inactivité
+            }
         }
     }
 
     private void FindClosestEnemy()
     {
-        string currentTag = transform.root.tag;
-        if (currentTag == "BulletAlly"){
+        string targetTag = transform.root.CompareTag("BulletAlly") ? "Ennemy" : "Ally";
         float closestDistance = Mathf.Infinity;
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Ennemy");
-
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(targetTag);
         foreach (GameObject enemy in enemies)
         {
-            float distance = Vector2.Distance(transform.position, enemy.transform.position);
-            if (distance < closestDistance)
+            if (enemy.activeSelf) 
             {
-                closestDistance = distance;
-                target = enemy.transform;
+                float distance = Vector2.Distance(transform.position, enemy.transform.position);
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    target = enemy.transform;
+                }
             }
-        }
-        }
-        else if (currentTag=="BulletEnnemy"){
-            float closestDistance = Mathf.Infinity;
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Ally");
-
-        foreach (GameObject enemy in enemies)
-        {
-            float distance = Vector2.Distance(transform.position, enemy.transform.position);
-            if (distance < closestDistance)
-            {
-                closestDistance = distance;
-                target = enemy.transform;
-            }
-        }
         }
     }
 
- 
+    private void HitTarget()
+    {
+        if (target != null)
+        {
+            Unit unit = target.GetComponent<Unit>();
+            if (unit != null)
+            {
+                unit.TakeDamage(damage, Unit.UnitType.None);
+            }
+        }
+        Destroy(gameObject);
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        string currentTag = transform.root.tag;
-         if (currentTag == "BulletAlly"){
-        if (other.CompareTag("Ennemy"))
+        if ((transform.root.CompareTag("BulletAlly") && other.CompareTag("Ennemy")) ||
+            (transform.root.CompareTag("BulletEnnemy") && other.CompareTag("Ally")))
         {
-            Unit unit = other.gameObject.GetComponent<Unit>();
+            Unit unit = other.GetComponent<Unit>();
             if (unit != null)
             {
-                unit.TakeDamage(damage,Unit.UnitType.None);
+                unit.TakeDamage(damage, Unit.UnitType.None);
             }
             Destroy(gameObject);
         }
-    }
-    else if (currentTag == "BulletEnnemy"){
-         if (other.CompareTag("Ally"))
-        {
-            Unit unit = other.gameObject.GetComponent<Unit>();
-            if (unit != null)
-            {
-                unit.TakeDamage(damage,Unit.UnitType.None);
-            }
-            Destroy(gameObject);
-        }
-
-    }
     }
 }

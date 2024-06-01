@@ -36,6 +36,7 @@ public class Unit : MonoBehaviour
     public UnitType type; 
     public bool isWalking = false;
     public bool isAttacking = false;
+    public Animator animator;
     
 
     
@@ -213,6 +214,7 @@ private float GetDamageMultiplier(UnitType attackerType, UnitType targetType)
 // }
 void detectObject()
 {
+    bool foundSomethingToHit = false;
     string currentTag = transform.root.tag;
 
 
@@ -230,6 +232,7 @@ void detectObject()
     {
         if (hit != null && hit.CompareTag("Ennemy") && currentTag == "Ally")
         {
+            foundSomethingToHit = true;
             // Vérifier si suffisamment de temps s'est écoulé depuis le dernier coup
             if (Time.time - lastDamageTime >= attackCooldown)
             {
@@ -249,6 +252,7 @@ void detectObject()
     {
         if (hit != null && hit.CompareTag("Ally") && currentTag == "Ennemy")
         {
+            foundSomethingToHit = true;
             // Vérifier si suffisamment de temps s'est écoulé depuis le dernier coup
             if (Time.time - lastDamageTime >= attackCooldown)
             {
@@ -268,6 +272,7 @@ void detectObject()
     {
         if (hit != null && hit.CompareTag("BaseEnnemy") && currentTag == "Ally")
         {
+            foundSomethingToHit = true;
             Bases baseObject = hit.GetComponent<Bases>();
             if (baseObject != null)
             {
@@ -287,6 +292,7 @@ void detectObject()
     {
         if (hit != null && hit.CompareTag("Base") && currentTag == "Ennemy")
         {
+            foundSomethingToHit = true;
             Bases baseObject = hit.GetComponent<Bases>();
             if (baseObject != null)
             {
@@ -300,6 +306,10 @@ void detectObject()
             }
         }
     }
+    if (foundSomethingToHit == true) {
+        animator.SetBool("isAttacking", true);
+        animator.SetBool("isWalking", true);
+        } else {animator.SetBool("isAttacking", false);}
 }
 
 

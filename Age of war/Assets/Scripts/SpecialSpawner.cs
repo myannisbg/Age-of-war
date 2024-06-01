@@ -52,7 +52,7 @@ public class SpecialSpawner : MonoBehaviour
                 else
                 {
                     // Sinon, cibler les ennemis
-                    GameObject[] enemies = GameObject.FindGameObjectsWithTag("ennemy");
+                    GameObject[] enemies = GameObject.FindGameObjectsWithTag("Ennemy");
 
                     if (enemies.Length > 0)
                     {
@@ -66,7 +66,7 @@ public class SpecialSpawner : MonoBehaviour
                     }
                     else
                     {
-                        Debug.LogError("No enemies found with the tag 'ennemy'!");
+                        Debug.LogError("No enemies found with the tag 'Enemy'!");
                         continue;
                     }
                 }

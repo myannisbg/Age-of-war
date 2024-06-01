@@ -13,7 +13,7 @@ public class SellTurret : MonoBehaviour
 
     private TurretPlacement turretPlacement; // Référence au script TurretPlacement
 
-    void Start()
+void Start()
     {
         mainCamera = Camera.main; // Assurez-vous que mainCamera est correctement référencée
         if (mainCamera == null)

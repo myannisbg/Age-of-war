@@ -2,17 +2,25 @@ using UnityEngine;
 
 public class addPlacement : MonoBehaviour
 {
-    private Money money;
+    public bool isEnemySlot = false; // Indique si ce slot appartient à l'ennemi
+    public Money money;  // Assurez-vous que ce champ est assigné dans l'Inspecteur Unity
 
     void OnMouseDown()
     {
+        // Empêche les interactions du joueur avec les slots ennemis
+        if (isEnemySlot)
+        {
+            Debug.LogWarning("Cannot interact with enemy turret slots.");
+            return;
+        }
+
         if (TurretManager.Instance == null)
         {
             Debug.LogError("TurretManager.Instance is null.");
             return;
         }
 
-        GameObject turretPrefab = TurretManager.Instance.selectedTurretPrefab;  // Access the selected prefab from TurretManager
+        GameObject turretPrefab = TurretManager.Instance.selectedTurretPrefab;  // Accède au prefab sélectionné dans TurretManager
 
         if (turretPrefab == null)
         {
@@ -26,9 +34,9 @@ public class addPlacement : MonoBehaviour
             return;
         }
 
+        // Trouve le composant Money s'il n'est pas déjà assigné
         if (money == null)
         {
-            // Try to find the Money component in the scene
             GameObject eventSystem = GameObject.FindGameObjectWithTag("EventSystem");
             if (eventSystem != null)
             {
@@ -48,11 +56,11 @@ public class addPlacement : MonoBehaviour
 
         int turretCost = TurretManager.Instance.GetTurretCostByAge();
 
-        if (money.canBuy(turretCost))  // Check if the player has enough gold
+        if (money.canBuy(turretCost))  // Vérifie si le joueur a suffisamment d'or
         {
             Instantiate(turretPrefab, transform.position, Quaternion.identity, transform);
-            money.SpendGold(turretCost);  // Deduct the cost of the turret from the total gold
-            TurretManager.Instance.selectedTurretPrefab = null;  // Optionally reset after placing
+            money.SpendGold(turretCost);  // Déduit le coût de la tourelle du total d'or
+            TurretManager.Instance.selectedTurretPrefab = null;  // Réinitialise éventuellement après le placement
             Debug.Log("Turret placed, gold spent: " + turretCost);
         }
         else
@@ -60,4 +68,22 @@ public class addPlacement : MonoBehaviour
             Debug.LogWarning("Not enough gold! Needed: " + turretCost);
         }
     }
+
+    // Méthode pour que le bot puisse poser une tourelle
+     public void PlaceTurretForBot(GameObject turretPrefab)
+    {
+        if (isEnemySlot)
+        {
+            if (turretPrefab != null && transform.childCount == 0) // Vérifie s'il n'y a pas déjà une tourelle
+            {
+                Instantiate(turretPrefab, transform.position, Quaternion.identity, transform);
+                Debug.Log("Bot placed a turret.");
+            }
+            else
+            {
+                Debug.LogWarning("Slot is already occupied or turretPrefab is not set.");
+            }
+        }
+    }
 }
+

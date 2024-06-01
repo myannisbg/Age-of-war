@@ -14,6 +14,11 @@ TagManager:
   - UpgradeButton
   - Special
   - Turret
+  - TurretEnnemy
+  - BulletAlly
+  - BulletEnnemy
+  - TurretSlotEnnemy
+  - TurretSlotAlly
   layers:
   - Default
   - TransparentFX

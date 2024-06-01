@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 5271376152858143558}
   - component: {fileID: 6022073858924611682}
   m_Layer: 0
-  m_Name: emplacement
-  m_TagString: TurretSlotAlly
+  m_Name: emplacement ennemie
+  m_TagString: TurretSlotEnnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

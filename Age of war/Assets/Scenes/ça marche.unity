@@ -4291,7 +4291,7 @@ MonoBehaviour:
   - {fileID: 7249850965738593330, guid: 077c54d8c81847d4983ae20d43ca016d, type: 3}
   selectedTurretPrefab: {fileID: 0}
   ageValue: {fileID: 333553887}
-  priceOfTurret: 
+  priceOfTurret: f401000058020000
 --- !u!1 &395672893
 GameObject:
   m_ObjectHideFlags: 0
@@ -14487,6 +14487,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1156467031}
   m_CullTransparentMesh: 1
+--- !u!1 &1161517375
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1161517377}
+  - component: {fileID: 1161517376}
+  m_Layer: 0
+  m_Name: BotTurret
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1161517376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161517375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74cd073ff46173748a437e91c4d07977, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turretPrefabs:
+  - {fileID: 1070098456149786746, guid: efb1a90985e234745a6ff4ff3399526f, type: 3}
+  - {fileID: 7249850965738593330, guid: bd947251cf5c4774ea5e345f32fcdd92, type: 3}
+  placementInterval: 5
+  ageValue: {fileID: 333553887}
+  botDifficulty: medium
+--- !u!4 &1161517377
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161517375}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.21, y: -15.28, z: 3.2581604}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1179006047
 GameObject:
   m_ObjectHideFlags: 0
@@ -17240,6 +17290,7 @@ MonoBehaviour:
   castleTilePosition: {x: 0, y: 0, z: 0}
   maxTurrets: 3
   money: {fileID: 333553885}
+  turretSlotPrefabEnnemy: {fileID: 8713180318532979342, guid: 549c124b87686ab4cac1b1afed1e90ef, type: 3}
 --- !u!114 &1325250840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17279,6 +17330,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21197f501f61a934e85ae273c6627339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isEnemySlot: 0
+  money: {fileID: 333553885}
 --- !u!1 &1328916956
 GameObject:
   m_ObjectHideFlags: 0
@@ -23498,3 +23551,4 @@ SceneRoots:
   - {fileID: 1702855626}
   - {fileID: 2126887882}
   - {fileID: 958769861}
+  - {fileID: 1161517377}

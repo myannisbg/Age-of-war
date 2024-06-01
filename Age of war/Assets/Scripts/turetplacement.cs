@@ -9,10 +9,36 @@ public class TurretPlacement : MonoBehaviour
     public GameObject turretSlotPrefab;
     public Vector3Int castleTilePosition; // Position de la tile du château sur la Tilemap
     public int maxTurrets = 3; // Nombre maximum de tourelles
-    private int currentTurrets = 0; // Nombre actuel de tourelles placées
+    private int currentTurretsAlly = 0; // Nombre actuel de tourelles placées
+    private int currentTurretsEnnemy = 0;
     private Vector3 lastPosition; // Dernière position où une tourelle a été placée
     public Money money; // Supposons que tu aies une gestion d'argent
+    public GameObject turretSlotPrefabEnnemy;
 
+     void Awake()
+    {
+        //tout ce qui est ici est déstiné aux bots / autre joueurs
+
+       for (int i = 0; i < maxTurrets; i++)
+        {
+            if (currentTurretsEnnemy == 0)
+            {
+                lastPosition = gameMap.CellToWorld(castleTilePosition) + new Vector3(27f, -0.2499f, 0);
+            }
+            else
+            {
+                lastPosition += new Vector3(0, 1, 0); // Décale chaque nouvelle tourelle d'une unité vers le haut
+            }
+
+            GameObject slot = Instantiate(turretSlotPrefabEnnemy, lastPosition, Quaternion.identity);
+            addPlacement slotComponent = slot.GetComponent<addPlacement>();
+            if (slotComponent != null)
+            {
+                slotComponent.isEnemySlot = true; // Définit le slot comme ennemi
+            }
+            currentTurretsEnnemy++;
+        }
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.J))
@@ -26,12 +52,12 @@ public class TurretPlacement : MonoBehaviour
         Debug.Log("Add Turret Slot button clicked.");
         if (turretSlotPrefab != null && gameMap != null)
         {
-            if (currentTurrets < maxTurrets)
+            if (currentTurretsAlly < maxTurrets)
             {
-                int cost = GetTurretCost(currentTurrets);
+                int cost = GetTurretCost(currentTurretsAlly);
                 if (money.canBuy(cost))
                 {
-                    if (currentTurrets == 0)
+                    if (currentTurretsAlly == 0)
                     {
                         lastPosition = gameMap.CellToWorld(castleTilePosition) + new Vector3(-10.7246f, -0.2499f, 0);
                     }
@@ -40,10 +66,18 @@ public class TurretPlacement : MonoBehaviour
                         lastPosition += new Vector3(0, 1, 0); // Décale chaque nouvelle tourelle d'une unité vers le haut
                     }
 
+
+                    
                     Instantiate(turretSlotPrefab, lastPosition, Quaternion.identity);
-                    currentTurrets++; // Incrémenter le nombre de tourelles placées
+                    GameObject slot = Instantiate(turretSlotPrefab, lastPosition, Quaternion.identity);
                     money.SpendGold(cost); // Déduire le coût de la tourelle du total de l'or
+                    addPlacement slotComponent = slot.GetComponent<addPlacement>();
                     Debug.Log("Turret slot added at position: " + lastPosition + " for " + cost + " gold.");
+                    if (slotComponent != null)
+                    {
+                slotComponent.isEnemySlot = false; // Définit le slot comme allié
+                currentTurretsAlly++; // Incrémenter le nombre de tourelles placées
+                }
                 }
                 else
                 {
@@ -82,9 +116,17 @@ public class TurretPlacement : MonoBehaviour
 
     public void DecrementTurretCount()
     {
-        if (currentTurrets > 0)
+        if (currentTurretsAlly > 0)
         {
-            currentTurrets--;
+            currentTurretsAlly--;
+        }
+    }
+
+    public void DecrementTurretCountEnnemy()
+    {
+        if (currentTurretsEnnemy > 0)
+        {
+            currentTurretsEnnemy--;
         }
     }
 
@@ -92,6 +134,6 @@ public class TurretPlacement : MonoBehaviour
     public int GetTurretCost(GameObject turret)
     {
         // Vous pouvez ajouter une logique pour déterminer le coût de la tourelle basée sur sa position ou d'autres critères
-        return GetTurretCost(currentTurrets - 1);
+        return GetTurretCost(currentTurretsAlly - 1);
     }
 }

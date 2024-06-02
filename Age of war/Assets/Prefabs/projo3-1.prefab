@@ -134,5 +134,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  damage: 100
-  unitType: 4
+  damage: 45
+  inactiveTimeBeforeDestroy: 1

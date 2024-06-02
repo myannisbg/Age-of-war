@@ -102,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBetweenShots: 2
   maxShootingDistance: 10
-  bullet: {fileID: 5022503152206957320, guid: ca576888985463e459397b2dba747ac9, type: 3}
+  bullet: {fileID: 545372667682865975, guid: 5e030d7c71b1b4244ad146ab3ba16088, type: 3}
   bulletSpawnPoint: {fileID: 397794917051909252}
 --- !u!50 &816933463755483624
 Rigidbody2D:

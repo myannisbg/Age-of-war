@@ -15887,9 +15887,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretPrefabs:
-  - {fileID: 1070098456149786746, guid: efb1a90985e234745a6ff4ff3399526f, type: 3}
-  - {fileID: 7249850965738593330, guid: bd947251cf5c4774ea5e345f32fcdd92, type: 3}
-  placementInterval: 5
+  - {fileID: 5846724665822798872, guid: b6b1b6cbff18b8849a46701b0cf36041, type: 3}
+  - {fileID: 5846724665822798872, guid: b6b1b6cbff18b8849a46701b0cf36041, type: 3}
+  - {fileID: 5586109276407151451, guid: 9bfb8849500ecb24987f3e69e4230a97, type: 3}
+  - {fileID: 6297061686900932889, guid: 3a0979dce54af424eb569f7d99cde12b, type: 3}
+  - {fileID: 6297061686900932889, guid: 3a0979dce54af424eb569f7d99cde12b, type: 3}
+  - {fileID: 5167686848587033127, guid: 604ea3993490cbe4b82fd8334082075b, type: 3}
+  - {fileID: 5844158415113095933, guid: 5043797fc31b1ab41b5de5a56fa0b058, type: 3}
+  - {fileID: 5844158415113095933, guid: 5043797fc31b1ab41b5de5a56fa0b058, type: 3}
+  - {fileID: 7229960154805599914, guid: 506fce9e13ebd5c41b2c1661fbfb7fee, type: 3}
+  - {fileID: 8960717859308840523, guid: 61c212816296d8949a1d0c8bea8c867b, type: 3}
+  - {fileID: 8960717859308840523, guid: 61c212816296d8949a1d0c8bea8c867b, type: 3}
+  - {fileID: 758722134302868407, guid: d0a293a45b54dc947a9399735854f038, type: 3}
+  - {fileID: 5886712958401614435, guid: 4ce010adea80338449ab5dbb0fe6482f, type: 3}
+  - {fileID: 5886712958401614435, guid: 4ce010adea80338449ab5dbb0fe6482f, type: 3}
+  - {fileID: 9216081914179266860, guid: 51f6bfd6067836148bc16dac3396137a, type: 3}
+  - {fileID: 3996698103870253255, guid: 83e5bdff7cab90d4e9cac78bb0830938, type: 3}
+  - {fileID: 3996698103870253255, guid: 83e5bdff7cab90d4e9cac78bb0830938, type: 3}
+  - {fileID: 3820141701829590743, guid: 9bab2ee50e4ec644888916d9d7dad4f5, type: 3}
+  - {fileID: 3894009932277979321, guid: d4dd64195cbaa554ebe6a6ccf897d591, type: 3}
+  - {fileID: 3894009932277979321, guid: d4dd64195cbaa554ebe6a6ccf897d591, type: 3}
+  - {fileID: 4654603477531611771, guid: f21e86cb8e5681c4388270da0b243a07, type: 3}
   ageValue: {fileID: 333553887}
   bot: {fileID: 530252796}
 --- !u!4 &1161517377

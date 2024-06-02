@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseObject: {fileID: 0}
-  maxHealth: 140
+  maxHealth: 300
   damageDealt: 25
   expGain: 50
   moneyGain: 65

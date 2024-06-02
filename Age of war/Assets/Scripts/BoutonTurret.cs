@@ -25,7 +25,7 @@ public class ButtonTurret : MonoBehaviour
         if (turretManager != null && turretIndex >= 0 && turretIndex < turretManager.turretPrefabs.Count)
         {
             int age = ageValue.getAge();
-            int prefabIndex = age * 2 + turretIndex; // Assuming 2 turrets per age group
+            int prefabIndex = age * 3 + turretIndex; // Assuming 2 turrets per age group
 
             if (prefabIndex >= 0 && prefabIndex < turretManager.turretPrefabs.Count)
             {

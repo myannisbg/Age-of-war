@@ -28,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 2867857085411693826}
   serializedVersion: 2
   m_LocalRotation: {x: 0.0013997043, y: -0.0064369184, z: -0.9771434, w: -0.21247926}
-  m_LocalPosition: {x: -26.3645, y: -2.7937, z: 0}
-  m_LocalScale: {x: -0.36941737, y: 0.4606027, z: 1.0795}
+  m_LocalPosition: {x: -25.1881, y: -2.1578, z: -0.0084}
+  m_LocalScale: {x: -0.13710572, y: 0.15355055, z: 1.0795}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -118,9 +118,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.03196718, y: -0.06559725}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 2.3987079
 --- !u!114 &3014953081432437370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,5 +134,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  damage: 75
+  damage: 35
   inactiveTimeBeforeDestroy: 1

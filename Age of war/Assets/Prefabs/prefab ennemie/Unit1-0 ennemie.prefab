@@ -269,10 +269,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseObject: {fileID: 0}
-  maxHealth: 200
+  maxHealth: 140
   damageDealt: 25
   expGain: 14
-  moneyGain: 65
+  moneyGain: 175
   attackSpeed: 1
   attackRange: 2
   moneyClass: {fileID: 0}

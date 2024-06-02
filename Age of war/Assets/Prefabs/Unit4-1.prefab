@@ -310,7 +310,6 @@ GameObject:
   - component: {fileID: 187394124975164157}
   - component: {fileID: 5345746727711025598}
   - component: {fileID: 2357286635023929725}
-  - component: {fileID: 7084927318579661932}
   - component: {fileID: -7155495939344014294}
   m_Layer: 0
   m_Name: Unit4-1
@@ -475,6 +474,7 @@ MonoBehaviour:
   type: 1
   isWalking: 0
   isAttacking: 0
+  animator: {fileID: -7155495939344014294}
   healthBar: {fileID: 8663664622284644904}
 --- !u!114 &187394124975164157
 MonoBehaviour:
@@ -504,6 +504,8 @@ MonoBehaviour:
   moveSpeed: 2.1
   rb: {fileID: 5787980854978062279}
   offset: {x: 0.7, y: 0, z: 0}
+  animator: {fileID: -7155495939344014294}
+  characterVelocity: 0
 --- !u!61 &2357286635023929725
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -549,19 +551,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.7370353, y: 3.3667006}
   m_EdgeRadius: 0
---- !u!114 &7084927318579661932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5531107227879078838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a828d8fdddd36e48b4c0c989ebe0a9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: -7155495939344014294}
 --- !u!95 &-7155495939344014294
 Animator:
   serializedVersion: 5

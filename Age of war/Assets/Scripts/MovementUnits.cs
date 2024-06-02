@@ -7,6 +7,9 @@ public class MovePlayer : MonoBehaviour
     private Vector3 velocity = Vector3.zero;
     public Vector3 offset = new Vector3(0.2f, 0.0f, 0.0f); // Exemple : décalage de 0.5 unité vers la droite
     float horizontalMovement = 0.5f; // Modification de la direction du mouvement
+    public Animator animator;
+    public float characterVelocity ;
+
 
     void FixedUpdate()
     {
@@ -15,7 +18,8 @@ public class MovePlayer : MonoBehaviour
 
         // Déplacer le joueur
         MovePlayers(horizontalMovement);
-
+        float characterVelocity =Mathf.Abs(rb.velocity.x);
+        
         CheckForBase();
         // Debug.DrawRay(transform.position,Vector2.right * 1f, Color.red);
         // Debug.DrawRay(transform.position,Vector2.left * 1f, Color.green);
@@ -42,6 +46,7 @@ public class MovePlayer : MonoBehaviour
 
     void CheckForBase()
     {
+        bool foundSomethingToHit = false;
         // Récupérer le tag de l'unité
         string unitTag = gameObject.tag;
 
@@ -58,7 +63,7 @@ public class MovePlayer : MonoBehaviour
         if (hitEnemyBase.collider != null && hitEnemyBase.collider.CompareTag("BaseEnnemy") && unitTag == "Ally")
         {
             // Arrêter le mouvement
-            rb.velocity = Vector2.zero;
+            rb.velocity = Vector3.zero;
         }
 
     //      if (hitAlly.collider != null)
@@ -75,23 +80,27 @@ public class MovePlayer : MonoBehaviour
         if (hitBase.collider != null && hitBase.collider.CompareTag("Base") && unitTag == "Ennemy")
         {
             // Arrêter le mouvement
-            rb.velocity = Vector2.zero;
+            rb.velocity = Vector3.zero;
         }
 
         // Si une unité alliée est détectée et que l'unité actuelle est alliée
         if (hitAlly.collider != null && hitAlly.collider.CompareTag("Ally") && unitTag == "Ally" && hitAlly.collider.gameObject != gameObject)
         {
+            foundSomethingToHit = true;
             // Arrêter le mouvement
-            rb.velocity = Vector2.zero;
+            rb.velocity = Vector3.zero;
         }
 
         // Si une unité ennemie est détectée et que l'unité actuelle est ennemie
         if (hitEnemy.collider != null && hitEnemy.collider.CompareTag("Ennemy") && unitTag == "Ennemy" && hitEnemy.collider.gameObject != gameObject)
         {
+            foundSomethingToHit = true;
             // Arrêter le mouvement
-            rb.velocity = Vector2.zero;
+            rb.velocity = Vector3.zero;
         }
+        if (foundSomethingToHit == true) {animator.SetBool("isWalking", false);} else {animator.SetBool("isWalking", true);}
     }
+
 
 }
 

@@ -36,13 +36,13 @@ public class PlayerSpawner : MonoBehaviour
         int enemyCount = GameObject.FindGameObjectsWithTag("Ennemy").Length;
 
         // Vérifier s'il y a déjà 10 unités alliées ou ennemies sur le terrain
-        if (allyCount >= 11)
+        if (allyCount >= 10)
         {
             // Debug.LogWarning("Nombre maximum d'unités alliées atteint !");
             return;
         }
 
-        if (enemyCount >= 11)
+        if (enemyCount >= 10)
         {
             // Debug.LogWarning("Nombre maximum d'unités ennemies atteint !");
             return;

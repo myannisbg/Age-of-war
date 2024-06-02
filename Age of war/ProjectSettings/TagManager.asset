@@ -19,6 +19,7 @@ TagManager:
   - BulletEnnemy
   - TurretSlotEnnemy
   - TurretSlotAlly
+  - TurretManager
   layers:
   - Default
   - TransparentFX

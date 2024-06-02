@@ -15,7 +15,8 @@ public class TurretPlacement : MonoBehaviour
     public Money money; // Supposons que tu aies une gestion d'argent
     public GameObject turretSlotPrefabEnnemy;
 
-    void Awake()
+
+    public void spawnArea()
     {
         //tout ce qui est ici est déstiné aux bots / autre joueurs
 
@@ -39,13 +40,7 @@ public class TurretPlacement : MonoBehaviour
                 currentTurretsEnnemy++;
             }
     }
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            AddTurretSlotOnCastle();
-        }
-    }
+
 
     public void AddTurretSlotOnCastle()
     {
@@ -68,7 +63,7 @@ public class TurretPlacement : MonoBehaviour
 
 
                     
-                    Instantiate(turretSlotPrefab, lastPosition, Quaternion.identity);
+                    
                     GameObject slot = Instantiate(turretSlotPrefab, lastPosition, Quaternion.identity);
                     money.SpendGold(cost); // Déduire le coût de la tourelle du total de l'or
                     addPlacement slotComponent = slot.GetComponent<addPlacement>();

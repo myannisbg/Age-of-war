@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class GameManager : MonoBehaviour
 {
     public List<Unit> units = new List<Unit>();
+    public TurretPlacement botTurretPlacement;
 
     private void Start()
     {
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
                 units.Add(unit);
             
         }
+        botTurretPlacement.spawnArea();
     }
 
     public void call()

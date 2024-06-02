@@ -68,7 +68,7 @@ public class TurretPlacement : MonoBehaviour
 
 
                     
-                    Instantiate(turretSlotPrefab, lastPosition, Quaternion.identity);
+                    
                     GameObject slot = Instantiate(turretSlotPrefab, lastPosition, Quaternion.identity);
                     money.SpendGold(cost); // Déduire le coût de la tourelle du total de l'or
                     addPlacement slotComponent = slot.GetComponent<addPlacement>();

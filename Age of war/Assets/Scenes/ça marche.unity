@@ -2747,6 +2747,68 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &198982519
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 198982521}
+  - component: {fileID: 198982520}
+  m_Layer: 0
+  m_Name: TurretManager
+  m_TagString: TurretManager
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &198982520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198982519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9959fc059ef61e74582a4ec0c1d31686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turretPrefabs:
+  - {fileID: 1070098456149786746, guid: 8d668da4a49d0ed439829cef4f0c142b, type: 3}
+  - {fileID: 5586109276407151451, guid: 40bf4aeb6b5629341a2caf324d829970, type: 3}
+  - {fileID: 7249850965738593330, guid: 077c54d8c81847d4983ae20d43ca016d, type: 3}
+  - {fileID: 5167686848587033127, guid: 43db9225f104b3c44aeb94786a9ba08a, type: 3}
+  - {fileID: 4563035359263889228, guid: 1ebdc0f6c773edf4c86a05c38b2fa5e4, type: 3}
+  - {fileID: 7229960154805599914, guid: 70fe1c3d03783bb4dab9ad564053fafd, type: 3}
+  - {fileID: 39584374132235107, guid: acf7e8b526a9cbe478d56d7ddb6036ec, type: 3}
+  - {fileID: 758722134302868407, guid: 24bf971e7b452a5489bb922d687053e0, type: 3}
+  - {fileID: 5341578728849306609, guid: 49e0a9f120272a342a5fbd45a10a5a8f, type: 3}
+  - {fileID: 9216081914179266860, guid: 3ec766ef06487024c93c2eb7129b91c6, type: 3}
+  - {fileID: 5077719509982583704, guid: 1d11b8d7171e2e34d974bb85bc89a61d, type: 3}
+  - {fileID: 3820141701829590743, guid: 603231407e7ffe04f971ec54ad595bcf, type: 3}
+  - {fileID: 5455980426568030067, guid: ef9e933953c3a124cb74f77bf599a41a, type: 3}
+  - {fileID: 4654603477531611771, guid: 689f41a9c6259944a882dff3c2d52511, type: 3}
+  selectedTurretPrefab: {fileID: 0}
+  ageValue: {fileID: 333553887}
+  priceOfTurret: f401000058020000ee02000052030000e80300007e04000014050000aa05000040060000a406000008070000d007000098080000
+--- !u!4 &198982521
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198982519}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.45, y: -15.36, z: 2.964158}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &223370664
 GameObject:
   m_ObjectHideFlags: 0
@@ -4585,10 +4647,10 @@ GameObject:
   - component: {fileID: 392961492}
   - component: {fileID: 392961491}
   - component: {fileID: 392961490}
-  - component: {fileID: 392961493}
+  - component: {fileID: 392961494}
   m_Layer: 5
   m_Name: turet1
-  m_TagString: Turret
+  m_TagString: TurretManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4657,7 +4719,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 392961493}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TurretManager, Assembly-CSharp
         m_MethodName: SelectTurretByAge
         m_Mode: 1
@@ -4707,7 +4769,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 392961488}
   m_CullTransparentMesh: 1
---- !u!114 &392961493
+--- !u!114 &392961494
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4716,20 +4778,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 392961488}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9959fc059ef61e74582a4ec0c1d31686, type: 3}
+  m_Script: {fileID: 11500000, guid: 3cc2e82b8415a9b4f95bb55a1a44aded, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turretPrefabs:
-  - {fileID: 1070098456149786746, guid: 8d668da4a49d0ed439829cef4f0c142b, type: 3}
-  - {fileID: 7249850965738593330, guid: 077c54d8c81847d4983ae20d43ca016d, type: 3}
-  - {fileID: 4563035359263889228, guid: 1ebdc0f6c773edf4c86a05c38b2fa5e4, type: 3}
-  - {fileID: 39584374132235107, guid: acf7e8b526a9cbe478d56d7ddb6036ec, type: 3}
-  - {fileID: 5341578728849306609, guid: 49e0a9f120272a342a5fbd45a10a5a8f, type: 3}
-  - {fileID: 5077719509982583704, guid: 1d11b8d7171e2e34d974bb85bc89a61d, type: 3}
-  - {fileID: 5455980426568030067, guid: ef9e933953c3a124cb74f77bf599a41a, type: 3}
-  selectedTurretPrefab: {fileID: 0}
-  ageValue: {fileID: 333553887}
-  priceOfTurret: f4010000ee020000e803000014050000400600000807000098080000
+  turretIndex: 0
 --- !u!1 &395672893
 GameObject:
   m_ObjectHideFlags: 0
@@ -15837,25 +15889,25 @@ MonoBehaviour:
   turretPrefabs:
   - {fileID: 5846724665822798872, guid: b6b1b6cbff18b8849a46701b0cf36041, type: 3}
   - {fileID: 5846724665822798872, guid: b6b1b6cbff18b8849a46701b0cf36041, type: 3}
-  - {fileID: 5846724665822798872, guid: b6b1b6cbff18b8849a46701b0cf36041, type: 3}
+  - {fileID: 5586109276407151451, guid: 40bf4aeb6b5629341a2caf324d829970, type: 3}
   - {fileID: 6297061686900932889, guid: 3a0979dce54af424eb569f7d99cde12b, type: 3}
   - {fileID: 6297061686900932889, guid: 3a0979dce54af424eb569f7d99cde12b, type: 3}
-  - {fileID: 6297061686900932889, guid: 3a0979dce54af424eb569f7d99cde12b, type: 3}
+  - {fileID: 5167686848587033127, guid: 43db9225f104b3c44aeb94786a9ba08a, type: 3}
   - {fileID: 5844158415113095933, guid: 5043797fc31b1ab41b5de5a56fa0b058, type: 3}
   - {fileID: 5844158415113095933, guid: 5043797fc31b1ab41b5de5a56fa0b058, type: 3}
-  - {fileID: 5844158415113095933, guid: 5043797fc31b1ab41b5de5a56fa0b058, type: 3}
+  - {fileID: 7229960154805599914, guid: 70fe1c3d03783bb4dab9ad564053fafd, type: 3}
   - {fileID: 8960717859308840523, guid: 61c212816296d8949a1d0c8bea8c867b, type: 3}
   - {fileID: 8960717859308840523, guid: 61c212816296d8949a1d0c8bea8c867b, type: 3}
-  - {fileID: 8960717859308840523, guid: 61c212816296d8949a1d0c8bea8c867b, type: 3}
+  - {fileID: 758722134302868407, guid: 24bf971e7b452a5489bb922d687053e0, type: 3}
   - {fileID: 5886712958401614435, guid: 4ce010adea80338449ab5dbb0fe6482f, type: 3}
   - {fileID: 5886712958401614435, guid: 4ce010adea80338449ab5dbb0fe6482f, type: 3}
-  - {fileID: 5886712958401614435, guid: 4ce010adea80338449ab5dbb0fe6482f, type: 3}
+  - {fileID: 9216081914179266860, guid: 3ec766ef06487024c93c2eb7129b91c6, type: 3}
   - {fileID: 3996698103870253255, guid: 83e5bdff7cab90d4e9cac78bb0830938, type: 3}
   - {fileID: 3996698103870253255, guid: 83e5bdff7cab90d4e9cac78bb0830938, type: 3}
-  - {fileID: 3996698103870253255, guid: 83e5bdff7cab90d4e9cac78bb0830938, type: 3}
+  - {fileID: 3820141701829590743, guid: 603231407e7ffe04f971ec54ad595bcf, type: 3}
   - {fileID: 3894009932277979321, guid: d4dd64195cbaa554ebe6a6ccf897d591, type: 3}
   - {fileID: 3894009932277979321, guid: d4dd64195cbaa554ebe6a6ccf897d591, type: 3}
-  - {fileID: 3894009932277979321, guid: d4dd64195cbaa554ebe6a6ccf897d591, type: 3}
+  - {fileID: 4654603477531611771, guid: 689f41a9c6259944a882dff3c2d52511, type: 3}
   ageValue: {fileID: 333553887}
   bot: {fileID: 530252796}
 --- !u!4 &1161517377
@@ -16081,13 +16133,14 @@ GameObject:
   - component: {fileID: 1192904487}
   - component: {fileID: 1192904486}
   - component: {fileID: 1192904485}
+  - component: {fileID: 1192904488}
   m_Layer: 5
   m_Name: turet3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1192904484
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16190,6 +16243,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1192904483}
   m_CullTransparentMesh: 1
+--- !u!114 &1192904488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192904483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cc2e82b8415a9b4f95bb55a1a44aded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turretIndex: 2
 --- !u!1 &1196344559
 GameObject:
   m_ObjectHideFlags: 0
@@ -18668,7 +18734,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnemySlot: 0
   money: {fileID: 333553885}
-  turretManager: {fileID: 392961493}
 --- !u!1 &1328916956
 GameObject:
   m_ObjectHideFlags: 0
@@ -23390,7 +23455,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1810872082}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TurretManager, Assembly-CSharp
         m_MethodName: SelectTurretByAge
         m_Mode: 1
@@ -23449,20 +23514,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1810872077}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9959fc059ef61e74582a4ec0c1d31686, type: 3}
+  m_Script: {fileID: 11500000, guid: 3cc2e82b8415a9b4f95bb55a1a44aded, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turretPrefabs:
-  - {fileID: 5586109276407151451, guid: 40bf4aeb6b5629341a2caf324d829970, type: 3}
-  - {fileID: 5167686848587033127, guid: 43db9225f104b3c44aeb94786a9ba08a, type: 3}
-  - {fileID: 7229960154805599914, guid: 70fe1c3d03783bb4dab9ad564053fafd, type: 3}
-  - {fileID: 758722134302868407, guid: 24bf971e7b452a5489bb922d687053e0, type: 3}
-  - {fileID: 9216081914179266860, guid: 3ec766ef06487024c93c2eb7129b91c6, type: 3}
-  - {fileID: 3820141701829590743, guid: 603231407e7ffe04f971ec54ad595bcf, type: 3}
-  - {fileID: 4654603477531611771, guid: 689f41a9c6259944a882dff3c2d52511, type: 3}
-  selectedTurretPrefab: {fileID: 0}
-  ageValue: {fileID: 333553887}
-  priceOfTurret: 200300004c040000b0040000dc05000008070000d0070000fc080000
+  turretIndex: 1
 --- !u!1 &1824125850
 GameObject:
   m_ObjectHideFlags: 0
@@ -26100,3 +26155,4 @@ SceneRoots:
   - {fileID: 2126887882}
   - {fileID: 958769861}
   - {fileID: 1161517377}
+  - {fileID: 198982521}

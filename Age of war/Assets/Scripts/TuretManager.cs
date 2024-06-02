@@ -4,11 +4,9 @@ using UnityEngine;
 public class TurretManager : MonoBehaviour
 {
     public List<GameObject> turretPrefabs;  // List of turret prefabs
-    public GameObject selectedTurretPrefab;  // Currently selected turret prefab, public for access
+    public GameObject selectedTurretPrefab;  // Currently selected turret prefab
     public GlobalAge ageValue;
     public List<int> priceOfTurret; // List of turret prices
-
-   
 
     public void SelectTurretByAge()
     {
@@ -24,7 +22,6 @@ public class TurretManager : MonoBehaviour
         }
     }
 
-    // New method to get cost based on current age
     public int GetTurretCostByAge()
     {
         int ageIndex = ageValue.getAge();

@@ -3904,7 +3904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862b60fc0deb0b945b60db126b243e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gold: 2000
+  gold: 20000000
   goldText: {fileID: 555594554}
 --- !u!114 &333553886
 MonoBehaviour:
@@ -3918,10 +3918,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ae77d098b9349346bf47db8c11736ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xp: 0
+  xp: 110000000
   xpBarre: {fileID: 920990520}
   maxXP: 100
-  multipiclateur: 2
+  multipiclateur: 3
   AmeliorationButton: {fileID: 119837119}
   age: {fileID: 333553887}
 --- !u!114 &333553887
@@ -18306,7 +18306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameMap: {fileID: 1146556770}
   turretSlotPrefab: {fileID: 8713180318532979342, guid: 5bc9869de18a28840973b91638b15cc2, type: 3}
-  castleTilePosition: {x: 0, y: 0, z: 0}
+  castleTilePosition: {x: 0, y: 0, z: -1}
   maxTurrets: 3
   money: {fileID: 333553885}
   turretSlotPrefabEnnemy: {fileID: 8713180318532979342, guid: 549c124b87686ab4cac1b1afed1e90ef, type: 3}
@@ -18351,6 +18351,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnemySlot: 0
   money: {fileID: 333553885}
+  turretManager: {fileID: 0}
 --- !u!1 &1328916956
 GameObject:
   m_ObjectHideFlags: 0

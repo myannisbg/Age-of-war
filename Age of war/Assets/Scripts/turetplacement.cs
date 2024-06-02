@@ -24,11 +24,11 @@ public class TurretPlacement : MonoBehaviour
             {
                 if (currentTurretsEnnemy == 0)
                 {
-                    lastPosition = gameMap.CellToWorld(castleTilePosition) + new Vector3(27f, -0.2499f, 0);
+                    lastPosition = gameMap.CellToWorld(castleTilePosition) + new Vector3(27f, -0.2499f, -1);
                 }
                 else
                 {
-                    lastPosition += new Vector3(0, 1, 0); // Décale chaque nouvelle tourelle d'une unité vers le haut
+                    lastPosition += new Vector3(0, 2, -1); // Décale chaque nouvelle tourelle d'une unité vers le haut
                 }
 
                 GameObject slot = Instantiate(turretSlotPrefabEnnemy, lastPosition, Quaternion.identity);
@@ -54,11 +54,11 @@ public class TurretPlacement : MonoBehaviour
                 {
                     if (currentTurretsAlly == 0)
                     {
-                        lastPosition = gameMap.CellToWorld(castleTilePosition) + new Vector3(-10.7246f, -0.2499f, 0);
+                        lastPosition = gameMap.CellToWorld(castleTilePosition) + new Vector3(-10.7246f, -0.2499f, -1);
                     }
                     else
                     {
-                        lastPosition += new Vector3(0, 1, 0); // Décale chaque nouvelle tourelle d'une unité vers le haut
+                        lastPosition += new Vector3(0, 2, -1); // Décale chaque nouvelle tourelle d'une unité vers le haut
                     }
 
 

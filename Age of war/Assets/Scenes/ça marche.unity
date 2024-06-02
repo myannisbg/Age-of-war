@@ -4651,7 +4651,7 @@ GameObject:
   - component: {fileID: 392961494}
   m_Layer: 5
   m_Name: turet1
-  m_TagString: TurretManager
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4783,6 +4783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretIndex: 0
+  ageValue: {fileID: 333553887}
 --- !u!1 &395672893
 GameObject:
   m_ObjectHideFlags: 0
@@ -16256,6 +16257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretIndex: 2
+  ageValue: {fileID: 0}
 --- !u!1 &1196344559
 GameObject:
   m_ObjectHideFlags: 0
@@ -23518,6 +23520,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretIndex: 1
+  ageValue: {fileID: 333553887}
 --- !u!1 &1824125850
 GameObject:
   m_ObjectHideFlags: 0

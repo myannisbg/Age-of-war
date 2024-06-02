@@ -16257,7 +16257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretIndex: 2
-  ageValue: {fileID: 0}
+  ageValue: {fileID: 333553887}
 --- !u!1 &1196344559
 GameObject:
   m_ObjectHideFlags: 0

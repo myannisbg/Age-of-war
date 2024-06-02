@@ -23425,7 +23425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealthBase: 50
   maxHealthBase: 10000
-  healthBarBase: {fileID: 580171189}
+  healthBarBase: {fileID: 1312811284}
   damageInterval: 0.1
   lastAttackTime: 0
   ageValue: {fileID: 333553887}

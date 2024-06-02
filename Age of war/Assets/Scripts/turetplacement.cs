@@ -15,29 +15,30 @@ public class TurretPlacement : MonoBehaviour
     public Money money; // Supposons que tu aies une gestion d'argent
     public GameObject turretSlotPrefabEnnemy;
 
+
     public void spawnArea()
     {
         //tout ce qui est ici est déstiné aux bots / autre joueurs
 
-       for (int i = 0; i < maxTurrets; i++)
-        {
-            if (currentTurretsEnnemy == 0)
+        for (int i = 0; i < maxTurrets; i++)
             {
-                lastPosition = gameMap.CellToWorld(castleTilePosition) + new Vector3(27f, -0.2499f, 0);
-            }
-            else
-            {
-                lastPosition += new Vector3(0, 1, 0); // Décale chaque nouvelle tourelle d'une unité vers le haut
-            }
+                if (currentTurretsEnnemy == 0)
+                {
+                    lastPosition = gameMap.CellToWorld(castleTilePosition) + new Vector3(27f, -0.2499f, 0);
+                }
+                else
+                {
+                    lastPosition += new Vector3(0, 1, 0); // Décale chaque nouvelle tourelle d'une unité vers le haut
+                }
 
-            GameObject slot = Instantiate(turretSlotPrefabEnnemy, lastPosition, Quaternion.identity);
-            addPlacement slotComponent = slot.GetComponent<addPlacement>();
-            if (slotComponent != null)
-            {
-                slotComponent.isEnemySlot = true; // Définit le slot comme ennemi
+                GameObject slot = Instantiate(turretSlotPrefabEnnemy, lastPosition, Quaternion.identity);
+                addPlacement slotComponent = slot.GetComponent<addPlacement>();
+                if (slotComponent != null)
+                {
+                    slotComponent.isEnemySlot = true; // Définit le slot comme ennemi
+                }
+                currentTurretsEnnemy++;
             }
-            currentTurretsEnnemy++;
-        }
     }
 
 
@@ -69,9 +70,9 @@ public class TurretPlacement : MonoBehaviour
                     Debug.Log("Turret slot added at position: " + lastPosition + " for " + cost + " gold.");
                     if (slotComponent != null)
                     {
-                slotComponent.isEnemySlot = false; // Définit le slot comme allié
-                currentTurretsAlly++; // Incrémenter le nombre de tourelles placées
-                }
+                        slotComponent.isEnemySlot = false; // Définit le slot comme allié
+                        currentTurretsAlly++; // Incrémenter le nombre de tourelles placées
+                    }
                 }
                 else
                 {

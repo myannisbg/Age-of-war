@@ -3904,7 +3904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862b60fc0deb0b945b60db126b243e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gold: 2e+9
+  gold: 2e+13
   goldText: {fileID: 555594554}
 --- !u!114 &333553886
 MonoBehaviour:
@@ -3918,7 +3918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ae77d098b9349346bf47db8c11736ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xp: 1000000000
+  xp: 10000
   xpBarre: {fileID: 920990520}
   maxXP: 100
   multipiclateur: 2

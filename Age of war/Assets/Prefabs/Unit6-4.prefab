@@ -389,7 +389,7 @@ MonoBehaviour:
   maxHealth: 15000
   damageDealt: 600
   expGain: 1000
-  moneyGain: 86.515
+  moneyGain: 65
   attackSpeed: 1
   attackRange: 1
   moneyClass: {fileID: 0}
@@ -426,7 +426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39d85cde0d0348647b15db1814ae1e28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  moveSpeed: 1.5
   rb: {fileID: 2575325524450644107}
   offset: {x: 0.7, y: 0, z: 0}
   animator: {fileID: 4753844045653377347}
